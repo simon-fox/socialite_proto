@@ -19,11 +19,11 @@
 <link rel='stylesheet' href='stylesheets/960_12_col.css' />
 <link rel='stylesheet' href='stylesheets/global.css' />
 <!-- loading in jQuery -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="javascripts/jquery.js"></script>
 <!-- loading in JS files-->
 <script type="text/javascript" src="javascripts/globals.js"></script>
 <script type="text/javascript" src="javascripts/agentObject.js"></script>
-<script type="text/javascript" src="javascripts/playerCharacterObject.js"></script>
+<script type="text/javascript" src="javascripts/playerCharacterObjects.js"></script>
 <script type="text/javascript" src="javascripts/playerObject.js"></script>
 <script type="text/javascript" src="javascripts/gambits.js"></script>
 <script type="text/javascript" src="javascripts/inputListeners.js"></script>
@@ -31,12 +31,195 @@
 <script type="text/javascript" src="javascripts/director.js"></script>
 <script type="text/javascript" src="javascripts/mainloop.js"></script>
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,700italic,400,700,800,600' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,700italic,400,700,800,600' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
 
+<!-- constantly visible -->
+<div class="topBar">
+    <div class="gameTimer">02:59</div>
+</div>
+
+<!-- character select screen -->
+
+<div class="charSelectContainer">
+    <div class="portraitContainer">
+        <div class="portrait"></div>
+        <div class="portrait"></div>
+        <div class="portrait"></div>
+        <div class="portrait"></div>
+        <br/>    
+    </div>
+    <div class="bioContainer">
+        <div class="fullLengthImage"></div>
+        <div class="bioText"></div>
+    </div>
+    <div class="portraitContainer">
+        <div class="portrait"></div>
+        <div class="portrait"></div>
+        <div class="portrait"></div>
+        <div class="portrait"></div>
+    </div>
+</div>
+
+
+<!-- main game screen -->
+
+<div class="mainGameContainer">
+    <div class="playerSummaryContainer">
+        <div class="playerSummary">
+            <div class="topLabel">PLAYER ONE</div>
+            <div class="portraitAndDrives">
+                <div class="summaryPortrait">
+                    <div class="statusPosition">1st</div>
+                </div>
+                <div class="driveBarsContainer">
+                    <div class="driveBar angerBar"><div>ANGER</div></div>
+                    <div class="driveBar confidenceBar"><div>CONFIDENCE</div></div>
+                    <div class="driveBar lustBar"><div>LUST</div></div>
+                    <div class="driveBar prideBar"><div>PRIDE</div></div>
+                    <div class="driveBar envyBar"><div>ENVY</div></div>
+                </div>
+            </div>
+            <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>
+            <div class="timerBar"><div>STATUS: 23</div></div>
+        </div>
+        
+        <div class="playerSummary">
+            <div class="topLabel">PLAYER ONE</div>
+            <div class="portraitAndDrives">
+                <div class="summaryPortrait">
+                    <div class="statusPosition">1st</div>
+                </div>
+                <div class="driveBarsContainer">
+                    <div class="driveBar angerBar"><div>ANGER</div></div>
+                    <div class="driveBar confidenceBar"><div>CONFIDENCE</div></div>
+                    <div class="driveBar lustBar"><div>LUST</div></div>
+                    <div class="driveBar prideBar"><div>PRIDE</div></div>
+                    <div class="driveBar envyBar"><div>ENVY</div></div>
+                </div>
+            </div>
+            <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>
+            <div class="timerBar"><div>STATUS: 23</div></div>
+        </div>
+        
+        <div class="playerSummary">
+            <div class="topLabel">PLAYER ONE</div>
+            <div class="portraitAndDrives">
+                <div class="summaryPortrait">
+                    <div class="statusPosition">1st</div>
+                </div>
+                <div class="driveBarsContainer">
+                    <div class="driveBar angerBar"><div>ANGER</div></div>
+                    <div class="driveBar confidenceBar"><div>CONFIDENCE</div></div>
+                    <div class="driveBar lustBar"><div>LUST</div></div>
+                    <div class="driveBar prideBar"><div>PRIDE</div></div>
+                    <div class="driveBar envyBar"><div>ENVY</div></div>
+                </div>
+            </div>
+            <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>
+            <div class="timerBar"><div>STATUS: 23</div></div>
+        </div>
+    </div>
+    <div class="gambitContainer">
+       
+        <div class="gambit">
+            <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>
+            <div class="gambitEffects">
+                <div class="gambitEffectsCol">- status<br/>+ anger</div>
+                <div class="gambitEffectsCol">- confidence<br/>+ lust</div>
+            </div>
+            <div class="claimGambit">
+                TO CLAIM THIS GAMBIT:<br/>
+                <div class="claimButton">P1: <h2>E</h2></div>
+                <div class="claimButton">P2: <h2>T</h2></div>
+                <div class="claimButton">P3: <h2>U</h2></div>
+                <div class="claimButton">P4: <h2>C</h2></div>
+                <div class="claimButton">P5: <h2>B</h2></div>
+                <div class="claimButton">P6: <h2>M</h2></div>
+            </div>
+            <div class="timerBar"><div></div></div>
+        </div>
+        
+        <div class="gambit">
+            <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>
+            <div class="gambitEffects">
+                <div class="gambitEffectsCol">- status<br/>+ anger</div>
+                <div class="gambitEffectsCol">- confidence<br/>+ lust</div>
+            </div>
+            <div class="claimGambit">
+                WHO WILL YOU SAY THIS TO?<br/>
+                <div class="claimButton">P1: <h2>E</h2></div>
+                <div class="claimButton">P2: <h2>T</h2></div>
+                <div class="claimButton">P3: <h2>U</h2></div>
+                <div class="claimButton">P4: <h2>C</h2></div>
+                <div class="claimButton">P5: <h2>B</h2></div>
+                <div class="claimButton">P6: <h2>M</h2></div>
+            </div>
+            <div class="timerBar"><div></div></div>
+        </div>
+        
+    </div>
+    <div class="playerSummaryContainer">
+        <div class="playerSummary">
+            <div class="topLabel">PLAYER ONE</div>
+            <div class="portraitAndDrives">
+                <div class="summaryPortrait">
+                    <div class="statusPosition">1st</div>
+                </div>
+                <div class="driveBarsContainer">
+                    <div class="driveBar angerBar"><div>ANGER</div></div>
+                    <div class="driveBar confidenceBar"><div>CONFIDENCE</div></div>
+                    <div class="driveBar lustBar"><div>LUST</div></div>
+                    <div class="driveBar prideBar"><div>PRIDE</div></div>
+                    <div class="driveBar envyBar"><div>ENVY</div></div>
+                </div>
+            </div>
+            <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>
+            <div class="timerBar"><div>STATUS: 23</div></div>
+        </div>
+        
+        <div class="playerSummary">
+            <div class="topLabel">PLAYER ONE</div>
+            <div class="portraitAndDrives">
+                <div class="summaryPortrait">
+                    <div class="statusPosition">1st</div>
+                </div>
+                <div class="driveBarsContainer">
+                    <div class="driveBar angerBar"><div>ANGER</div></div>
+                    <div class="driveBar confidenceBar"><div>CONFIDENCE</div></div>
+                    <div class="driveBar lustBar"><div>LUST</div></div>
+                    <div class="driveBar prideBar"><div>PRIDE</div></div>
+                    <div class="driveBar envyBar"><div>ENVY</div></div>
+                </div>
+            </div>
+            <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>
+            <div class="timerBar"><div>STATUS: 23</div></div>
+        </div>
+        
+        <div class="playerSummary">
+            <div class="topLabel">PLAYER ONE</div>
+            <div class="portraitAndDrives">
+                <div class="summaryPortrait">
+                    <div class="statusPosition">1st</div>
+                </div>
+                <div class="driveBarsContainer">
+                    <div class="driveBar angerBar"><div>ANGER</div></div>
+                    <div class="driveBar confidenceBar"><div>CONFIDENCE</div></div>
+                    <div class="driveBar lustBar"><div>LUST</div></div>
+                    <div class="driveBar prideBar"><div>PRIDE</div></div>
+                    <div class="driveBar envyBar"><div>ENVY</div></div>
+                </div>
+            </div>
+            <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>
+            <div class="timerBar"><div>STATUS: 23</div></div>
+        </div>
+        
+    </div>
+</div>
 
 </body>
 </html>

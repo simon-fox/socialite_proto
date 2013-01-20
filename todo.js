@@ -369,7 +369,7 @@ function gambit(){
     //- set up player character object prototypes
         //- set up global array of PCs
         //- set up pushing pc object protos into array
-    - set up player prototype
+    //- set up player prototype
     - set up interface element objects
         - stored strings of html essentially
     //- set up gambit prototypes
@@ -389,33 +389,42 @@ function gambit(){
 
 //setting up the interface 
 - build basic html interface pieces
+
     //game screen
-    - global timer
-    - pc portrait
-    - pc readout box
-        - %/progress bar for each drive
-        - readout for status
-        - progress bar for individual timer
-        - message bit
-    - gambit readout box
-        - text of gambit
-        - status/drive effects
-        - claim buttons
-        - timer bar
-    - gambit choose target box
-        - target portraits/buttons
-        - timer bar
-    - gambit completed report box
-        - report complete button
-        - timer bar
+    //- global timer
+    //- pc portrait
+    //- pc readout box
+        //- %/progress bar for each drive
+        //- readout for status
+        //- progress bar for individual timer
+       // - message bit
+    //- 3 col layout
+    //- gambit readout box
+        //- text of gambit
+        //- status/drive effects
+        //- claim buttons
+        //- timer bar
+    //- gambit choose target box
+        //- target portraits/buttons
+        //- timer bar
+    ///////////////////////
+    /// DO WE NEED THIS? //
+    ///////////////////////
+    //- gambit completed report box
+        //- report complete button
+        //- timer bar
+    ///////////////////////
     - pic for bg
+    
     //charselect screen
-    - char selection portraits
-    - instruction
-    - char readouts
+    //- char selection portraits
+    //- instruction
+    //- char readouts
+    
     //intro screen
     - title
     - party pic
+    
     //game over screen
     - winner
     - cheevs
@@ -437,6 +446,13 @@ function gambit(){
         - completion
     - build score updater
         - augmentors for each persona type
+
+
+//building game assets
+    - bunch of gambits
+    - bunch of modifiers
+    - bunch of target objects
+    - 8 pc's
 
 //char select
 - build input listeners
