@@ -11,6 +11,7 @@ function alphaLoop() {
         
         //code to be run every iteration goes here:
             //make sure we call .update on every playerSummaryInterface
+            //make sure we call .update on every gambitInterface
         
 	//before the loop re-iterates, store the old now as then. (yes it is confusing).
 	then = now;
@@ -18,7 +19,12 @@ function alphaLoop() {
 
 //initialise the main loop 
 $(document).ready(function(){
-    var mainLoop = setInterval(alphaLoop,1000);
+    //load in the char select screen
+    $('.charSelectContainer').show();
+    
+    
+    
+    //var mainLoop = setInterval(alphaLoop,1000);
     
     //sets space bar to pause the main loop for bugtesting
     $(document).keyup(function(e){

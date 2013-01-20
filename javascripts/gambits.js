@@ -89,8 +89,8 @@ gambits.push(new gambit(
 
 //target objects
 targetObjects.push(new targetObject(
-    this.text = "",
-    this.img = ""
+    this.targetObjectText = "",
+    this.targetObjectImg = ""
 ));
 
 

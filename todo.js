@@ -474,10 +474,10 @@ function gambit(){
 
 
 //loading interfaces & players process
-- init player choice screen
-- every player that chooses, init a new activePlayer();
-    - give it the chosen PC
-    - fill up the playersArray
+//- init player choice screen
+//- every player that chooses, init a new activePlayer();
+    //- give it the chosen PC
+    //- fill up the playersArray
 - when game starts
     - loop through playersArray
     - for each player create a new playerSummaryInterface
@@ -485,5 +485,9 @@ function gambit(){
     - from then on, call .update on it every tick
     //this should keep everything updated on the display
 - when director creates a gambit
-    - .init a new gambitInterface 
+    - .init a new gambitInterface
+    - init all the listeners
+    - when claimed run .targetMode
+    - update listeners
+    - destroy interface 2-3 seconds after claiming
     

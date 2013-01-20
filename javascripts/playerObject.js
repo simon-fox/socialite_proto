@@ -3,7 +3,7 @@
 /////////////////////////*
 
 function activePlayer(){
-    this.agent = new agentObject();
     this.playerCharacter = chosenPlayerCharacter;
+    this.agent = new agentObject();
 }
 
