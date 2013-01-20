@@ -8,10 +8,9 @@ function alphaLoop() {
 	var now = Date.now();
 	//get the delta between updates - how much time has actually passed between loop iterations
 	var delta = now - then;
-
-        console.log(delta);
+        
         //code to be run every iteration goes here:
-
+            //make sure we call .update on every playerSummaryInterface
         
 	//before the loop re-iterates, store the old now as then. (yes it is confusing).
 	then = now;

@@ -65,13 +65,13 @@
                 - more prone to envy rising 
             - comfortable, replete, self-posessed  //pos
                 - more resilient to envy rising
-    - Timers
-        - how to structure
-            - timer - must be able to:
-            - initialise a timer
-            - count off every ms
-            - fire event when x ms have passed
-            - unbind timer 
+    //- Timers
+        //- how to structure
+            //- timer - must be able to:
+            //- initialise a timer
+            //- count off every ms
+            //- fire event when x ms have passed
+            //- unbind timer 
 
 - Design PC's
     - names
@@ -375,8 +375,11 @@ function gambit(){
         //- set up global array of PCs
         //- set up pushing pc object protos into array
     //- set up player prototype
-    - set up interface element objects
-        - stored strings of html essentially
+    //- set up interface element objects
+        //- stored strings of html essentialy
+        //- set up structure which allows for updating in loop
+        //- set up structure which allows for dynamic gambit displays
+        //- set up structure which allows for dynamic player summaries
     //- set up gambit prototypes
         //- set up gambit pieces:
             //- modifiers
@@ -466,3 +469,21 @@ function gambit(){
 //end game
 - announce winner
 - cheevs
+
+
+
+
+//loading interfaces & players process
+- init player choice screen
+- every player that chooses, init a new activePlayer();
+    - give it the chosen PC
+    - fill up the playersArray
+- when game starts
+    - loop through playersArray
+    - for each player create a new playerSummaryInterface
+    - run .init in that playerSummaryInterface
+    - from then on, call .update on it every tick
+    //this should keep everything updated on the display
+- when director creates a gambit
+    - .init a new gambitInterface 
+    
