@@ -362,22 +362,30 @@ function gambit(){
 ////////////////////////*
 
 //setting up the framework
-- set up page framework & file structure
-- set up main game loop
+//- set up page framework & file structure
+//- set up main game loop
 - set up data structures/prototypes
-    - set up agent object prototype
-    - set up player character object prototypes
+    //- set up agent object prototype
+    //- set up player character object prototypes
+        //- set up global array of PCs
+        //- set up pushing pc object protos into array
     - set up player prototype
     - set up interface element objects
         - stored strings of html essentially
-    - set up gambit prototypes
-        - set up gambit pieces:
-            - modifiers
-            - target objects
-            - gambit statements
-        - set up assembled gambit
-    - set up global players array
-    - set up global constructed gambits array
+    //- set up gambit prototypes
+        //- set up gambit pieces:
+            //- modifiers
+            //- target objects
+            //- gambit statements
+        //- set up gambit piece arrays
+            //- set up pushing instantiated items into global arrays
+            //- modifiers
+            //- gambits
+            //- target objects
+        //- set up assembled gambit
+   // - set up global players array
+    //- set up global constructed gambits array
+    //- set up global gambit piece arrays
 
 //setting up the interface 
 - build basic html interface pieces
@@ -412,6 +420,28 @@ function gambit(){
     - winner
     - cheevs
 
-//setting up the 
-- 
-    
+//setting up the game logic
+//main game
+- build timer prototype
+- build the input listener prototype
+- build the director
+    - build drive checker
+        - involves probabilities stuff/ building a list
+    - build gambit assembler - test to see if it spits out gambits
+        - involves probabilities stuff/ weighted random choice
+    - build gambit delivery
+    - build gambit releasing
+    - build gambit listener
+        - claiming
+        - target choice
+        - completion
+    - build score updater
+        - augmentors for each persona type
+
+//char select
+- build input listeners
+- build transport to player objects
+
+//end game
+- announce winner
+- cheevs
