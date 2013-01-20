@@ -350,4 +350,68 @@ function gambit(){
     - run game loop
 - end game screen
     - declare winner
-    - offer awards/cheevs 
+    - offer awards/cheevs
+    
+    
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
+////////////////////////*
+/// actual TODO list ///*
+////////////////////////*
+
+//setting up the framework
+- set up page framework & file structure
+- set up main game loop
+- set up data structures/prototypes
+    - set up agent object prototype
+    - set up player character object prototypes
+    - set up player prototype
+    - set up interface element objects
+        - stored strings of html essentially
+    - set up gambit prototypes
+        - set up gambit pieces:
+            - modifiers
+            - target objects
+            - gambit statements
+        - set up assembled gambit
+    - set up global players array
+    - set up global constructed gambits array
+
+//setting up the interface 
+- build basic html interface pieces
+    //game screen
+    - global timer
+    - pc portrait
+    - pc readout box
+        - %/progress bar for each drive
+        - readout for status
+        - progress bar for individual timer
+        - message bit
+    - gambit readout box
+        - text of gambit
+        - status/drive effects
+        - claim buttons
+        - timer bar
+    - gambit choose target box
+        - target portraits/buttons
+        - timer bar
+    - gambit completed report box
+        - report complete button
+        - timer bar
+    - pic for bg
+    //charselect screen
+    - char selection portraits
+    - instruction
+    - char readouts
+    //intro screen
+    - title
+    - party pic
+    //game over screen
+    - winner
+    - cheevs
+
+//setting up the 
+- 
+    
