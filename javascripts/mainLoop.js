@@ -9,7 +9,7 @@ function alphaLoop() {
 	//get the delta between updates - how much time has actually passed between loop iterations
 	var delta = now - then;
 
-        
+        console.log(delta);
         //code to be run every iteration goes here:
 
         
@@ -20,7 +20,6 @@ function alphaLoop() {
 //initialise the main loop 
 $(document).ready(function(){
     var mainLoop = setInterval(alphaLoop,1000);
-    setInterval(timer,1000);
     
     //sets space bar to pause the main loop for bugtesting
     $(document).keyup(function(e){

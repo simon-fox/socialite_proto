@@ -12,7 +12,7 @@ function agentObject(){
     this.pride = 0;
     this.envy = 0;
     //timer
-    this.statusTimer = new timer();
+    this.statusTimer = new Timer();
     //current gambit
     this.currentGambit = "";
 }

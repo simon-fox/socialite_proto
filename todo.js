@@ -67,6 +67,11 @@
                 - more resilient to envy rising
     - Timers
         - how to structure
+            - timer - must be able to:
+            - initialise a timer
+            - count off every ms
+            - fire event when x ms have passed
+            - unbind timer 
 
 - Design PC's
     - names
@@ -364,7 +369,7 @@ function gambit(){
 //setting up the framework
 //- set up page framework & file structure
 //- set up main game loop
-- set up data structures/prototypes
+//- set up data structures/prototypes
     //- set up agent object prototype
     //- set up player character object prototypes
         //- set up global array of PCs
@@ -431,7 +436,7 @@ function gambit(){
 
 //setting up the game logic
 //main game
-- build timer prototype
+//- build timer prototype
 - build the input listener prototype
 - build the director
     - build drive checker

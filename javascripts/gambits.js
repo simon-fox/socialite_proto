@@ -55,6 +55,9 @@ function constructedGambit(){
     //gambit claimant and keybindings
     this.claimedBy = claimer;
     this.boundKeys = [];
+    
+    //timer
+    this.gambitTimer = new Timer();
 }
 
 /////////////////////
