@@ -3,15 +3,30 @@
 /////////////////////////*
 
 //This function to be run every cycle
+function director() {
 //We'll use this to:
     //check the global timer and update it
-    //call .update on every playerSummaryInterface
-        //will update every front end from the data
+    gameTimer.update();
+    
+    //loop through all players
+    for (var i=0;i<playersArray.length;i++){
+        //call .update on every activePlayer
+        playersArray[i].update();
+        //call .update on every playerSummaryInterface
+        playersArray[i].interface.update();
+    }
     
     //check the global temperature of the conversation
         //loop through all players
         //add up totals for each drive in the game
         //create a list giving us prob. weighting for gambit assembly
+    
+    //build status leaderboard
+        //loop through all players
+        //take their status
+        //build an ordered list
+        //update player data 
+    
     //run the gambit assembler
         //check number of gambits on screen
             //if enough
@@ -31,4 +46,4 @@
         //call .update on every gambitInterface
             //will update every front end from the data
         
-    
+}

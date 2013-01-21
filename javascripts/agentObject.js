@@ -6,11 +6,11 @@ function agentObject(){
     //status
     this.status = 0;
     //drives
-    this.anger = 0;
-    this.confidence = 0;
-    this.lust = 0;
-    this.pride = 0;
-    this.envy = 0;
+    this.anger = 10;
+    this.confidence = 25;
+    this.lust = 15;
+    this.pride = 75;
+    this.envy = 42;
     //timer
     this.statusTimer = new Timer();
     //current gambit

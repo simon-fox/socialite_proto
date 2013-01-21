@@ -24,7 +24,7 @@ var playerSummaryInterfaceHtml ='\
         </div>\
     </div>\
     <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>\
-    <div class="timerBar"><div>STATUS: 23</div></div>\
+    <div class="timerBar"><div>STATUS: <span class="statusRaw">23</span></div></div>\
 </div>\
 ';
 
@@ -32,6 +32,8 @@ var playerSummaryInterfaceHtml ='\
 function playerSummaryInterface(){
     //load in the html
     this.html = playerSummaryInterfaceHtml;
+    //which player
+    this.player = playerObject;
     //on initialisation
     this.init = function(){
                     //append this.html to the correct display
@@ -41,16 +43,43 @@ function playerSummaryInterface(){
                     else{
                         $('.playerSummaryContainer').eq(1).append(this.html);
                     }
+                    //start the timer
+                    this.player.statusTimer = new Timer();
+                    this.player.statusTimer.start();
                 };
     //every tick
     this.update = function(){
-                    //update interface elements here
-                    //update player name
-                    //update status position
-                    //update drive bars
-                    //update status
-                    //update timer bars
-                    };
+                //update interface elements here
+                //update player name
+                $('.topLabel').eq(this.player.arrayPos).html(this.player.playerCharacter.name);
+                //update status position
+                $('.statusPosition').eq(this.player.arrayPos).html(this.player.statusPosition);
+                //update drive bars
+                $('.angerBar div').eq(this.player.arrayPos).css('width',this.player.agent.anger+"%");
+                $('.confidenceBar div').eq(this.player.arrayPos).css('width',this.player.agent.confidence+"%");
+                $('.lustBar div').eq(this.player.arrayPos).css('width',this.player.agent.lust+"%");
+                $('.prideBar div').eq(this.player.arrayPos).css('width',this.player.agent.pride+"%");
+                $('.envyBar div').eq(this.player.arrayPos).css('width',this.player.agent.envy+"%");
+                //update status
+                $('.statusRaw').eq(this.player.arrayPos).html(this.player.agent.status);
+                //update timer bars
+                    //how many seconds do we have
+                    var grabGambitTimeOut = 5;
+                    //if less than that has passed
+                    if (this.player.statusTimer.tick<grabGambitTimeOut){
+                        //display time left as a progress bar
+                        var percent = (grabGambitTimeOut -  this.player.statusTimer.tick)/grabGambitTimeOut * 100;
+                        $('.timerBar div').eq(this.player.arrayPos).css('width',percent+"%");
+                    }
+                    //if time is up
+                    else if (this.player.statusTimer.tick == grabGambitTimeOut){
+                        //restart timer
+                        this.player.statusTimer.stop();
+                        this.player.statusTimer.start();
+                        //reduce status by 5
+                        this.player.agent.status  = this.player.agent.status -5;
+                    }
+            };
 }
 
 //gambit interface html
@@ -149,6 +178,42 @@ var playerCharacterSelectInterface = {
                         //hide this interface
                         $('.charSelectContainer').hide();
                         //unbind keys
+                    }
+}
+
+//main game timer
+
+var gameTimer = {
+    html : '<div class="gameTimer">02:59</div>',
+    init : function(){
+                    //start new timer
+                    mainGameTimer = new Timer();
+                    mainGameTimer.start();
+                    //create the timer html
+                    $('.topBar').append(gameTimer.html);
+                },
+    update : function(){
+                    var gameTime = 180;
+                    if(mainGameTimer.tick < gameTime){
+                        //update the clock html (set for 3 mins)
+                        
+                        var minutes = Math.floor((mainGameTimer.tick)/60);
+                        var seconds = mainGameTimer.tick - minutes *60;
+                        //format output
+                        var newClock = "0"+(((gameTime/60)-1) - minutes)+":"+(59 - seconds);
+                        //print on screen
+                        $('.gameTimer').html(newClock);
+                    }
+                    //check for time out (set for 3 mins)
+                    else if (mainGameTimer.tick == gameTime){
+                       //stop the timer
+                       mainGameTimer.stop();
+                       $('.gameTimer').html("00:00");
+                       //trigger end game state
+                    }
+                    },
+    destroy : function(){
+
                     }
 }
 

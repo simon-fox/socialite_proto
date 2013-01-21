@@ -21,6 +21,7 @@ function playerCharacterSelectKeyBinds(){
             //if we find it
             if ($('.portrait').eq(i).hasClass('selectedPC') == true){
                 chosenPlayerCharacter = playerCharacters[i];
+                arrayPosition = playersArray.length;
                 playersArray.push(new activePlayer());
                 //show that player x has selected it
                 $('.portrait').eq(i).append('<h2>p'+playersArray.length+'</h2>');
@@ -47,8 +48,10 @@ function playerCharacterSelectKeyBinds(){
                     //run playerSummaryInterface.init();
                     playersArray[i].interface.init();
                 }  
-                //start the main timer 
+                //start the main timer
+                gameTimer.init();
                 //start the game loop
+                var mainLoop = setInterval(alphaLoop,1000);
         }
     });
 }

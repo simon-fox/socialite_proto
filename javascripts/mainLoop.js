@@ -9,10 +9,9 @@ function alphaLoop() {
 	//get the delta between updates - how much time has actually passed between loop iterations
 	var delta = now - then;
         
-        //code to be run every iteration goes here:
-            
-	    //call the director
-        
+	//call the director
+	director();
+	
 	//before the loop re-iterates, store the old now as then. (yes it is confusing).
 	then = now;
 }
@@ -21,11 +20,6 @@ function alphaLoop() {
 $(document).ready(function(){
     //load in the char select screen
     playerCharacterSelectInterface.init();
-    
-    
-    
-    
-    //var mainLoop = setInterval(alphaLoop,1000);
     
     //sets space bar to pause the main loop for bugtesting
     $(document).keyup(function(e){
