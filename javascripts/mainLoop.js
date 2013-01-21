@@ -20,7 +20,8 @@ function alphaLoop() {
 //initialise the main loop 
 $(document).ready(function(){
     //load in the char select screen
-    $('.charSelectContainer').show();
+    playerCharacterSelectInterface.init();
+    
     
     
     

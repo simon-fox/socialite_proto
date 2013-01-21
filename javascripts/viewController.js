@@ -110,6 +110,8 @@ function gambitInterface(){
 
 var playerCharacterSelectInterface = {
     init : function(){
+                    //show display
+                    $('.charSelectContainer').show();
                     //load in pc portraits
                     for (var i=0; i < $('.portrait').length; i++){
                         //switch portrait bg img
