@@ -11,6 +11,14 @@ function director() {
     //clear leaderboard
     statusLeaderboard = [];
     
+    //clear global temperatures
+    var sortedGlobalTemp = [];
+    globalAnger = {drive:"anger",value:0};
+    globalConfidence = {drive:"confidence",value:0};
+    globalLust = {drive:"lust",value:0};
+    globalPride = {drive:"pride",value:0};
+    globalEnvy = {drive:"envy",value:0};
+    
     //loop through all players
     for (var i=0;i<playersArray.length;i++){
         //call .update on every activePlayer
@@ -23,7 +31,41 @@ function director() {
             player: playersArray[i]
         }
         statusLeaderboard.push(statusLeaderboardItem);
+        
+        //take the temperature of the convo
+        //anger
+        globalAnger = {
+            drive : "anger",
+            value: globalAnger.value + playersArray[i].agent.anger
+        }
+        //confidence
+        globalConfidence = {
+            drive : "confidence",
+            value: globalConfidence.value + playersArray[i].agent.confidence
+        }
+        //lust
+        globalLust = {
+            drive : "lust",
+            value: globalLust.value + playersArray[i].agent.lust
+            
+        }
+        //pride
+        globalPride = {
+            drive : "pride",
+            value : globalPride.value + playersArray[i].agent.pride
+        }
+        //envy
+        globalEnvy = {
+            drive : "envy",
+            value : globalEnvy.value + playersArray[i].agent.envy
+        }
     }
+    //order values
+    sortedGlobalTemp = [globalAnger,globalConfidence,globalLust,globalPride,globalEnvy];
+    //create temp. list of global drive values lowest->highest
+    sortedGlobalTemp = sortedGlobalTemp.sort(function(a,b){return a.value-b.value});
+    
+    
     //sort the board
     statusLeaderboard = statusLeaderboard.sort(function(a, b) {
         return a.value - b.value;
@@ -46,31 +88,29 @@ function director() {
         }
     }
     
-    
-    //check the global temperature of the conversation
-        //loop through all players
-        //add up totals for each drive in the game
-        //create a list giving us prob. weighting for gambit assembly
-    
-    //build status leaderboard
-        //loop through all players
-        //take their status
-        //build an ordered list
-        //update player data 
-    
     //run the gambit assembler
-        //check number of gambits on screen
-            //if enough
-                //do nothing
+    //check number of gambits on screen
+    //if plenty
+    if(constructedGambits.length >= 3){
+        //do nothing
+    }
+    else{
+        
+    }
+            
             //else
                 //using prob. weights from above
                 //pick a modifier, gambit and target
                 //add up the status & drive effects
+                    //Modifiers affect claimant
+                    //Gambits affect target
                 //make a decision about delivery
                     //check individuals drives
                     //create a prob. weighting for for distribution
                     //create a list, append to gambit.deliverySchedule
                     //append gambit to constructedGambits array
+                    
+                    
     //build gambits
         //cycle through constructed gambits array
         //.init the ones which need to be built
