@@ -17,6 +17,12 @@ var playerCharacters = [];
 var modifiers = [];
 var gambits = [];
 var targetObjects = [];
+//global drive totals
+var globalAnger;
+var globalConfidence;
+var globalLust;
+var globalPride;
+var globalEnvy;
 //constructed gambits
 var constructedGambits = [];
 //status leaderboard

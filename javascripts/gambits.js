@@ -69,19 +69,19 @@ function constructedGambit(){
 
 //modifiers first
 modifiers.push(new modifier(
-    this.modifierText = "test",
-    this.modifierStatusEffect = 2,
-    this.modifierAngerEffect = 3,
-    this.modifierConfidenceEffect = 4,
-    this.modifierLustEffect = 5,
-    this.modifierPrideEffect = 6,
-    this.modifierEnvyEffect = 7
+    this.modifierText = "Calmly",
+    this.modifierStatusEffect = 5,
+    this.modifierAngerEffect = 0,
+    this.modifierConfidenceEffect = 5,
+    this.modifierLustEffect = 0,
+    this.modifierPrideEffect = 0, 
+    this.modifierEnvyEffect = 0
 ));
 
 
 //gambits
 gambits.push(new gambit(
-    this.gambitText = "test",
+    this.gambitText = "Insult",
     this.gambitStatusEffect = 2,
     this.gambitAngerEffect = 3,
     this.gambitConfidenceEffect = 4,
@@ -92,7 +92,7 @@ gambits.push(new gambit(
 
 //target objects
 targetObjects.push(new targetObject(
-    this.targetObjectText = "",
+    this.targetObjectText = "Serving dish",
     this.targetObjectImg = ""
 ));
 

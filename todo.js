@@ -442,6 +442,14 @@ function gambit(){
 //- build timer prototype
 - build the input listener prototype
 - build the director
+    //- build game timer
+    //- build leaderboard
+    //- update all player interfaces
+    //- bound player scores
+    //- update display of leaderboard
+    //- build grab gambit timers
+    //- update scores
+    
     - build drive checker
         - involves probabilities stuff/ building a list
     - build gambit assembler - test to see if it spits out gambits
