@@ -11,7 +11,6 @@ function activePlayer(){
     this.update = function(){
         //make sure scores don't dip below zero or above 100
         //status
-        console.log('sanity');
         if(this.agent.status<0){
             this.agent.status = 0;
         }

@@ -19,6 +19,8 @@ var gambits = [];
 var targetObjects = [];
 //constructed gambits
 var constructedGambits = [];
+//status leaderboard
+var statusLeaderboard = [];
 //main game timer
 var mainGameTimer;
 

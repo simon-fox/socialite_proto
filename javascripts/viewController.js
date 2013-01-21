@@ -43,6 +43,8 @@ function playerSummaryInterface(){
                     else{
                         $('.playerSummaryContainer').eq(1).append(this.html);
                     }
+                    //load portrait
+                    $('.summaryPortrait').eq(this.player.arrayPos).css('background-image','url(images/'+this.player.playerCharacter.portrait+')');
                     //start the timer
                     this.player.statusTimer = new Timer();
                     this.player.statusTimer.start();
@@ -61,24 +63,25 @@ function playerSummaryInterface(){
                 $('.prideBar div').eq(this.player.arrayPos).css('width',this.player.agent.pride+"%");
                 $('.envyBar div').eq(this.player.arrayPos).css('width',this.player.agent.envy+"%");
                 //update status
+                $('.statusPosition').eq(this.player.arrayPos).html(this.player.statusPosition);
                 $('.statusRaw').eq(this.player.arrayPos).html(this.player.agent.status);
                 //update timer bars
-                    //how many seconds do we have
-                    var grabGambitTimeOut = 5;
-                    //if less than that has passed
-                    if (this.player.statusTimer.tick<grabGambitTimeOut){
-                        //display time left as a progress bar
-                        var percent = (grabGambitTimeOut -  this.player.statusTimer.tick)/grabGambitTimeOut * 100;
-                        $('.timerBar div').eq(this.player.arrayPos).css('width',percent+"%");
-                    }
-                    //if time is up
-                    else if (this.player.statusTimer.tick == grabGambitTimeOut){
-                        //restart timer
-                        this.player.statusTimer.stop();
-                        this.player.statusTimer.start();
-                        //reduce status by 5
-                        this.player.agent.status  = this.player.agent.status -5;
-                    }
+                //how many seconds do we have
+                var grabGambitTimeOut = 5;
+                //if less than that has passed
+                if (this.player.statusTimer.tick<grabGambitTimeOut){
+                    //display time left as a progress bar
+                    var percent = (grabGambitTimeOut -  this.player.statusTimer.tick)/grabGambitTimeOut * 100;
+                    $('.timerBar div').eq(this.player.arrayPos).css('width',percent+"%");
+                }
+                //if time is up
+                else if (this.player.statusTimer.tick == grabGambitTimeOut){
+                    //restart timer
+                    this.player.statusTimer.stop();
+                    this.player.statusTimer.start();
+                    //reduce status by 5
+                    this.player.agent.status  = this.player.agent.status -5;
+                }
             };
 }
 

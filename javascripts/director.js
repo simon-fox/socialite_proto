@@ -8,13 +8,44 @@ function director() {
     //check the global timer and update it
     gameTimer.update();
     
+    //clear leaderboard
+    statusLeaderboard = [];
+    
     //loop through all players
     for (var i=0;i<playersArray.length;i++){
         //call .update on every activePlayer
         playersArray[i].update();
         //call .update on every playerSummaryInterface
         playersArray[i].interface.update();
+        //take status and push it into array for leaderboard
+        var statusLeaderboardItem = {
+            value: playersArray[i].agent.status,
+            player: playersArray[i]
+        }
+        statusLeaderboard.push(statusLeaderboardItem);
     }
+    //sort the board
+    statusLeaderboard = statusLeaderboard.sort(function(a, b) {
+        return a.value - b.value;
+    });
+    
+    //loop through leaderboard and send data to playerObject
+    for (var i=0;i<statusLeaderboard.length;i++){
+        var rawPosition = statusLeaderboard.length - i;
+        if(rawPosition == 1){
+            playersArray[statusLeaderboard[i].player.arrayPos].statusPosition = "1st";
+        }
+        if(rawPosition == 2){
+            playersArray[statusLeaderboard[i].player.arrayPos].statusPosition = "2nd";
+        }
+        if(rawPosition == 3){
+            playersArray[statusLeaderboard[i].player.arrayPos].statusPosition = "3rd";
+        }
+        if(rawPosition > 3){
+            playersArray[statusLeaderboard[i].player.arrayPos].statusPosition = rawPosition+"th";
+        }
+    }
+    
     
     //check the global temperature of the conversation
         //loop through all players
