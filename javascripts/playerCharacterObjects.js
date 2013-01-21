@@ -20,7 +20,7 @@ playerCharacters.push(new playerCharacter(
 ));
 
 playerCharacters.push(new playerCharacter(
-    this.pcName = "Mr Garrick2",
+    this.pcName = "Mrs Garrick",
     this.pcImg = "fullPortrait.png",
     this.pcPortrait = "portrait.png",
     this.pcTraitsArray = ["bitter","determined","boastful","jealous"],
@@ -28,7 +28,7 @@ playerCharacters.push(new playerCharacter(
 ));
 
 playerCharacters.push(new playerCharacter(
-    this.pcName = "Mr Garrick3",
+    this.pcName = "Cardinal Wolsey",
     this.pcImg = "fullPortrait.png",
     this.pcPortrait = "portrait.png",
     this.pcTraitsArray = ["bitter","determined","boastful","jealous"],
@@ -36,7 +36,7 @@ playerCharacters.push(new playerCharacter(
 ));
 
 playerCharacters.push(new playerCharacter(
-    this.pcName = "Mr Garrick4",
+    this.pcName = "Catherine Aragon",
     this.pcImg = "fullPortrait.png",
     this.pcPortrait = "portrait.png",
     this.pcTraitsArray = ["bitter","determined","boastful","jealous"],
@@ -44,7 +44,7 @@ playerCharacters.push(new playerCharacter(
 ));
 
 playerCharacters.push(new playerCharacter(
-    this.pcName = "Mr Garrick5",
+    this.pcName = "Mr Gatsby",
     this.pcImg = "fullPortrait.png",
     this.pcPortrait = "portrait.png",
     this.pcTraitsArray = ["bitter","determined","boastful","jealous"],
@@ -52,7 +52,7 @@ playerCharacters.push(new playerCharacter(
 ));
 
 playerCharacters.push(new playerCharacter(
-    this.pcName = "Mr Garrick6",
+    this.pcName = "Lord Pomp",
     this.pcImg = "fullPortrait.png",
     this.pcPortrait = "portrait.png",
     this.pcTraitsArray = ["bitter","determined","boastful","jealous"],
@@ -60,7 +60,7 @@ playerCharacters.push(new playerCharacter(
 ));
 
 playerCharacters.push(new playerCharacter(
-    this.pcName = "Mr Garrick7",
+    this.pcName = "Lady Pomp",
     this.pcImg = "fullPortrait.png",
     this.pcPortrait = "portrait.png",
     this.pcTraitsArray = ["bitter","determined","boastful","jealous"],
@@ -68,7 +68,7 @@ playerCharacters.push(new playerCharacter(
 ));
 
 playerCharacters.push(new playerCharacter(
-    this.pcName = "Mr Garrick8",
+    this.pcName = "Master Chief",
     this.pcImg = "fullPortrait.png",
     this.pcPortrait = "portrait.png",
     this.pcTraitsArray = ["bitter","determined","boastful","jealous"],

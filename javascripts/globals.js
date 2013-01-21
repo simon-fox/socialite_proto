@@ -2,7 +2,8 @@
 /// global variabless ///*
 /////////////////////////*
 
-
+//main game loop
+var mainLoop;
 //delta of the main loop
 var delta;
 //then defined for game loop delta
@@ -23,6 +24,18 @@ var globalConfidence;
 var globalLust;
 var globalPride;
 var globalEnvy;
+//sorted modifiers
+var angerModifiers = [];
+var confidenceModifiers = [];
+var lustModifiers = [];
+var prideModifiers = [];
+var envyModifiers = [];
+//sorted gambits
+var angerGambits = [];
+var confidenceGambits = [];
+var lustGambits = [];
+var prideGambits = [];
+var envyGambits = [];
 //constructed gambits
 var constructedGambits = [];
 //status leaderboard
@@ -72,6 +85,11 @@ jQuery.extend(Timer.prototype, {
         return result;
     }
 });
+
+//sum array prototype
+Array.prototype.sum = function() {
+  return this.reduce(function(a,b){return a+b;});
+}
 
 //add remove method to array prototype
 Array.prototype.remove= function(){

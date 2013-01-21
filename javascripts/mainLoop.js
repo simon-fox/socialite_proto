@@ -16,15 +16,18 @@ function alphaLoop() {
 	then = now;
 }
 
-//initialise the main loop 
+//Setup on document load
 $(document).ready(function(){
     //load in the char select screen
     playerCharacterSelectInterface.init();
+    //index gambits & modifiers
+    indexGambits();
+    indexModifiers();
     
-    //sets space bar to pause the main loop for bugtesting
+    //sets enter key to pause the main loop for bugtesting
     $(document).keyup(function(e){
-            if(e.which == 32){
-                    //clearInterval(mainLoop);
+            if(e.which == 13){
+                    clearInterval(mainLoop);
             }
     });
 });

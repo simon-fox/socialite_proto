@@ -499,3 +499,32 @@ function gambit(){
     - update listeners
     - destroy interface 2-3 seconds after claiming
     
+    
+    
+////////////////////////
+//// gambit creation ///
+////////////////////////
+
+- Simplest method:
+    - pick a random modifier
+    - pick a random gambit
+    - pick a random targetObject
+    
+    - concatenate the descriptions and display the effects
+
+    - build gambit, throw into array
+    
+- less simple method
+    //- index gambits & modifiers
+    //- index by drive most affected
+    //- add a key value for this
+    
+    //- make weighted random choice in global drive temps
+    - pick from appropriate index
+    
+    - build gambit
+    - sort constructed gambits by greatest value (status affect?)
+    - use sorting to decide release schedule 
+    
+
+    
