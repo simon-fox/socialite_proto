@@ -10,8 +10,8 @@ function alphaLoop() {
 	var delta = now - then;
         
         //code to be run every iteration goes here:
-            //make sure we call .update on every playerSummaryInterface
-            //make sure we call .update on every gambitInterface
+            
+	    //call the director
         
 	//before the loop re-iterates, store the old now as then. (yes it is confusing).
 	then = now;
@@ -30,7 +30,7 @@ $(document).ready(function(){
     //sets space bar to pause the main loop for bugtesting
     $(document).keyup(function(e){
             if(e.which == 32){
-                    clearInterval(mainLoop);
+                    //clearInterval(mainLoop);
             }
     });
 });

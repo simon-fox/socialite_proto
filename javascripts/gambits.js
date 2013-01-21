@@ -56,6 +56,9 @@ function constructedGambit(){
     this.claimedBy = claimer;
     this.boundKeys = [];
     
+    //gambit delivery schedule
+    this.deliverySchedule = [];
+    
     //timer
     this.gambitTimer = new Timer();
 }

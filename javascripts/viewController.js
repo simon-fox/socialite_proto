@@ -32,11 +32,15 @@ var playerSummaryInterfaceHtml ='\
 function playerSummaryInterface(){
     //load in the html
     this.html = playerSummaryInterfaceHtml;
-    //which player is associated with this
-    this.player = playerObject;
     //on initialisation
     this.init = function(){
-                    //append this.html to the display
+                    //append this.html to the correct display
+                    if ($('.playerSummary').length < 3){
+                        $('.playerSummaryContainer').eq(0).append(this.html);
+                    }
+                    else{
+                        $('.playerSummaryContainer').eq(1).append(this.html);
+                    }
                 };
     //every tick
     this.update = function(){
@@ -77,6 +81,8 @@ function gambitInterface(){
     this.html = gambitInterfaceHtml;
     //which gambit is associated with it
     this.associatedGambit = constructedGambitObject;
+    //has this been initialised 
+    this.onScreen = false;
     //on initialisation
     this.init = function(){
                     //append this.html to the display

@@ -9,6 +9,8 @@ var delta;
 var then = Date.now();
 //all active players in the game
 var playersArray = [];
+//all active player summary interfaces
+var activePlayerSummaryInterfaces = [];
 //player character global array
 var playerCharacters = [];
 //gambit pieces

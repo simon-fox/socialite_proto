@@ -26,9 +26,30 @@ function playerCharacterSelectKeyBinds(){
                 $('.portrait').eq(i).append('<h2>p'+playersArray.length+'</h2>');
             }
         }
-        
-        
-        //ask next player to make a choice
+    });
+    //starting the game
+    $(document).keyup(function(e){
+        //check for space key
+        if(e.which == 32){
+                //destroy pcselect interface
+                playerCharacterSelectInterface.destroy();
+                //show main game interface
+                $('.mainGameContainer').show();
+                //bind mainGameKeyBinds
+                mainGameKeyBinds();
+                //loop through playersArray
+                for (var i=0;i<playersArray.length;i++){
+                    //create a new playerSummaryInterface for each player
+                    //attach the playerObject
+                    playerObject = playersArray[i];
+                    //push into playerObject 
+                    playersArray[i].interface =  new playerSummaryInterface();
+                    //run playerSummaryInterface.init();
+                    playersArray[i].interface.init();
+                }  
+                //start the main timer 
+                //start the game loop
+        }
     });
 }
 
