@@ -396,7 +396,7 @@ function gambit(){
     //- set up global gambit piece arrays
 
 //setting up the interface 
-- build basic html interface pieces
+//- build basic html interface pieces
 
     //game screen
     //- global timer
@@ -450,10 +450,10 @@ function gambit(){
     //- build grab gambit timers
     //- update scores
     
-    - build drive checker
-        - involves probabilities stuff/ building a list
-    - build gambit assembler - test to see if it spits out gambits
-        - involves probabilities stuff/ weighted random choice
+    //- build drive checker
+        //- involves probabilities stuff/ building a list
+    //- build gambit assembler - test to see if it spits out gambits
+        //- involves probabilities stuff/ weighted random choice
     - build gambit delivery
     - build gambit releasing
     - build gambit listener
@@ -471,14 +471,15 @@ function gambit(){
     - 8 pc's
 
 //char select
-- build input listeners
-- build transport to player objects
+//- build input listeners
+//- build transport to player objects
 
 //end game
 - announce winner
 - cheevs
 
-
+//////////////////////////////////////////////
+//////////////////////////////////////////////
 
 
 //loading interfaces & players process
@@ -520,9 +521,9 @@ function gambit(){
     //- add a key value for this
     
     //- make weighted random choice in global drive temps
-    - pick from appropriate index
+    //- pick from appropriate index
     
-    - build gambit
+    //- build gambit
     - sort constructed gambits by greatest value (status affect?)
     - use sorting to decide release schedule 
     
