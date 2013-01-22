@@ -75,7 +75,7 @@ function mainGameKeyBinds(){
 
 //binding keys to gambit claiming/targeting
 function bindGambitKeys(passGambit,passGambitInterface){
-    console.log(passGambitInterface);
+    //console.log(passGambitInterface);
     //pick four keys
     //check if they have been bound already
     for (var i=0;i<keySets.length;i++){

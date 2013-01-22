@@ -225,6 +225,7 @@ function gambitInterface(){
                     var claimKeysString = "TO CLAIM THIS GAMBIT:<br/>";
                     for (var i=0;i<playersArray.length;i++){
                         if(playersArray[i] == this.associatedGambit.targetCharacter){
+                            
                             claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2> _ </h2></div>';
                         }
                         else{

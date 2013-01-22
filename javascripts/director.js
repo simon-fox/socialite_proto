@@ -150,14 +150,24 @@ function director() {
             //we have something to respond to
             responseName = claimants[0].name;
             response = true;
-            claimants = claimants.splice(0,1);
             console.log('response in director: '+response)
+            //autoTargeting - pick a random target character
+            
+            chosenTargetCharacter = claimants[0];
+            
+            
         }
-        else{
+        else if (!claimants.length){
             response = false;
             responseName = "";
             console.log('response in director: '+response)
+            //autoTargeting - pick a random target character
+            chosenTargetCharacter = playersArray[Math.floor(Math.random() * playersArray.length)];
+            
         }
+        //lazy hack
+        claimants = [];
+        console.log("chosen target is: "+chosenTargetCharacter.name);
             //build a normal gambit 
             //pick a random modifier from chosenDrive array
             chosenModifier = eval(chosenDrive+"Modifiers")[Math.floor(Math.random() * eval(chosenDrive+"Modifiers").length)];
@@ -166,8 +176,6 @@ function director() {
             chosenGambit = eval(chosenDrive+"Gambits")[Math.floor(Math.random() * eval(chosenDrive+"Gambits").length)];
             //pick a random targetObject
             chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
-            //autoTargeting - pick a random target character
-            chosenTargetCharacter = playersArray[Math.floor(Math.random() * playersArray.length)];
             //modifier status & drive effects
             modifierStatusEffect = chosenModifier.statusEffect;
             modifierAngerEffect = chosenModifier.angerEffect;
@@ -189,6 +197,7 @@ function director() {
             constructedGambits.push(new constructedGambit());
             //console.log(constructedGambits);
             //initialise a new interface with this gambit
+            console.log(constructedGambits.length-1);
             constructedGambitObject = constructedGambits[constructedGambits.length-1];
             activeGambitInterfaces.push(new gambitInterface());
         
