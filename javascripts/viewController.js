@@ -90,8 +90,8 @@ var gambitInterfaceHtml ='\
 <div class="gambit">\
     <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>\
     <div class="gambitEffects">\
-        <div class="gambitEffectsCol">- status<br/>+ anger</div>\
-        <div class="gambitEffectsCol">- confidence<br/>+ lust</div>\
+        <div class="gambitEffectsCol">You will receive:<br/><div class="modifiersCol"></div></div>\
+        <div class="gambitEffectsCol">Target will receive:<br/><div class="gambitsCol"></div></div>\
     </div>\
     <div class="claimGambit">\
         TO CLAIM THIS GAMBIT:<br/>\
@@ -118,13 +118,101 @@ function gambitInterface(){
     //on initialisation
     this.init = function(){
                     //append this.html to the display
+                    $('.gambitContainer').append(this.html);
                     //append correct elements to the display
-                        //change gambitText
-                        //change gambitEffects
-                        //change claimButtons
-                            //loop through playersArray
-                            //build a claimButton for each player
-                            //associate and bind a key
+                    //concat actual text of assembledGambit: modifier, gambits, targetCharacter, targetObject
+                    var constructedGambitText = this.associatedGambit.modifier.text + " " + this.associatedGambit.gambit.text + " " + this.associatedGambit.targetCharacter.playerCharacter.name + "'s " + this.associatedGambit.targetObject.text;
+                    //////////////////////////////////
+                    //concat modifier effects string//
+                    //////////////////////////////////
+                    // go through all modifier effects
+                    // if effect is 0, don't show it
+                    // otherwise VALUE DRIVE ie: -5 anger, or 15 status 
+                    var modifierEffectsString ="";
+                    if (this.associatedGambit.statusEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        console.log(this.associatedGambit.statusEffectM);
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.statusEffectM+" status</br>";
+                    }
+                    if (this.associatedGambit.angerEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.angerEffectM+" anger</br>";
+                    }
+                    if (this.associatedGambit.confidenceEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.confidenceEffectM+" confidence</br>";
+                    }
+                    if (this.associatedGambit.lustEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.lustEffectM+" lust</br>";
+                    }
+                    if (this.associatedGambit.prideEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.prideEffectM+" pride</br>";
+                    }
+                    if (this.associatedGambit.envyEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.envyEffectM+" envy</br>";
+                    }
+                    ////////////////////////////////
+                    //concat gambit effects string//
+                    ////////////////////////////////
+                    var gambitEffectsString = "";
+                    if (this.associatedGambit.statusEffectG == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.statusEffectG+" status</br>";
+                    }
+                    if (this.associatedGambit.angerEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.angerEffectG+" anger</br>";
+                    }
+                    if (this.associatedGambit.confidenceEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.confidenceEffectG+" confidence</br>";
+                    }
+                    if (this.associatedGambit.lustEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.lustEffectG+" lust</br>";
+                    }
+                    if (this.associatedGambit.prideEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.prideEffectG+" pride</br>";
+                    }
+                    if (this.associatedGambit.envyEffectM == 0){/*do nothing*/}
+                    else {
+                        //add to string
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.envyEffectG+" envy</br>";
+                    }
+                    
+                    //initialise timer
+                    this.associatedGambit.gambitTimer.start();
+                    //print to screen
+                    var constructedGambitInterfaceHtml = $('.gambit').eq($('.gambit').length-1);
+                    $(constructedGambitInterfaceHtml).children('.gambitText').html(constructedGambitText);
+                    $(constructedGambitInterfaceHtml).children('.gambitEffects').children('.gambitEffectsCol').children('.modifiersCol').html(modifierEffectsString);
+                    $(constructedGambitInterfaceHtml).children('.gambitEffects').children('.gambitEffectsCol').children('.gambitsCol').html(gambitEffectsString);
+                    //build claim buttons
+                    
+                    //bind keys
+                    //switch .onScreen to true
+                        
+                    
+
+                    //change claimButtons
+                        //loop through playersArray
+                        //build a claimButton for each player
+                        //associate and bind a key
                 };
     //when switching to target mode
     this.targetMode = function(){

@@ -96,9 +96,11 @@ function director() {
             }
     }
     //find which drive the exitValue corresponds to
+    //console.log(exitValue);
     //console.log(exitValue * total);
+    //console.log(Math.ceil(exitValue * total));
     for (var c=0;c<sortedGlobalTemp.length;c++){
-          if (sortedGlobalTemp[c].value == (exitValue * total)){
+          if (sortedGlobalTemp[c].value == (Math.ceil(exitValue * total))){
             chosenDrive = sortedGlobalTemp[c].drive;
             console.log(chosenDrive);
           }
@@ -128,7 +130,9 @@ function director() {
         }
     }
     
-    //run the gambit assembler
+    ////////////////////////////
+    //run the gambit assembler//
+    ////////////////////////////
     //check number of gambits on screen
     //if plenty
     if(constructedGambits.length >= 3){
@@ -136,33 +140,70 @@ function director() {
     }
     else{
         //pick a random modifier from chosenDrive array
-        //pick a random gambit from chosenDrive array
-        
-        chosenGambit = eval(chosenDrive+"Gambits")[Math.floor(Math.random() * eval(chosenDrive+"Gambits").length)];
         chosenModifier = eval(chosenDrive+"Modifiers")[Math.floor(Math.random() * eval(chosenDrive+"Modifiers").length)];
-        console.log(chosenGambit);
-        console.log(chosenModifier);
-        
+        //pick a random gambit from chosenDrive array
+        chosenGambit = eval(chosenDrive+"Gambits")[Math.floor(Math.random() * eval(chosenDrive+"Gambits").length)];
         //pick a random targetObject
+        chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
+        //autoTargeting - pick a random target character
+        chosenTargetCharacter = playersArray[Math.floor(Math.random() * playersArray.length)];
+        //modifier status & drive effects
+        modifierStatusEffect = chosenModifier.statusEffect;
+        modifierAngerEffect = chosenModifier.angerEffect;
+        modifierConfidenceEffect = chosenModifier.confidenceEffect;
+        modifierLustEffect = chosenModifier.lustEffect;
+        modifierPrideEffect = chosenModifier.prideEffect;
+        modifierEnvyEffect = chosenModifier.envyEffect;
+        //gambit status & drive effects
+        gambitStatusEffect = chosenGambit.statusEffect;
+        gambitAngerEffect = chosenGambit.angerEffect;
+        gambitConfidenceEffect = chosenGambit.confidenceEffect;
+        gambitLustEffect = chosenGambit.lustEffect;
+        gambitPrideEffect = chosenGambit.prideEffect;
+        gambitEnvyEffect = chosenGambit.envyEffect;
+        //no claimant yet
+        claimer = "";
+        //create constructedGambit
+        //append to constructedGambits array
+        constructedGambits.push(new constructedGambit());
+        //console.log(constructedGambits);
+        //initialise a new interface with this gambit
+        constructedGambitObject = constructedGambits[constructedGambits.length-1];
+        activeGambitInterfaces.push(new gambitInterface());
     }
             
-            //else
-                //using prob. weights from above
-                //pick a modifier, gambit and target
-                //add up the status & drive effects
-                    //Modifiers affect claimant
-                    //Gambits affect target
+
                 //make a decision about delivery
                     //check individuals drives
                     //create a prob. weighting for for distribution
                     //create a list, append to gambit.deliverySchedule
                     //append gambit to constructedGambits array
                     
-                    
-    //build gambits
-        //cycle through constructed gambits array
-        //.init the ones which need to be built
-        //call .update on every gambitInterface
-            //will update every front end from the data
+    ////////////////////////////          
+    //build and update gambits//
+    ////////////////////////////
+    
+    //cycle through constructed gambit interfaces array
+    for (var i = 0; i<constructedGambits.length ; i++){
+        //if gambit has not been initialised yet
+        if (constructedGambits[i].onScreen == false){
+            //initialise
+            //make onScreen true
+            
+        }
+    }
+    //.init the ones which need to be built
+    //call .update on every gambitInterface
+        //will update every front end from the data
         
 }
+
+
+
+
+
+
+
+
+
+

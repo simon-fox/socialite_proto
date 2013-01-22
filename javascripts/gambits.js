@@ -48,13 +48,22 @@ function constructedGambit(){
     this.targetObject = chosenTargetObject;
     this.targetCharacter = chosenTargetCharacter;
     
+    //modifier status & drive effects
+    //affects claimant
+    this.statusEffectM = modifierStatusEffect;
+    this.angerEffectM = modifierAngerEffect;
+    this.confidenceEffectM = modifierConfidenceEffect;
+    this.lustEffectM = modifierLustEffect;
+    this.prideEffectM = modifierPrideEffect;
+    this.envyEffectM = modifierEnvyEffect;
     //gambit status & drive effects
-    this.statusEffect = totalStatusEffect;
-    this.angerEffect = totalAngerEffect;
-    this.confidenceEffect = totalConfidenceEffect;
-    this.lustEffect = totalLustEffect;
-    this.prideEffect = totalPrideEffect;
-    this.envyEffect = totalEnvyEffect;
+    //affects target 
+    this.statusEffectG = gambitStatusEffect;
+    this.angerEffectG = gambitAngerEffect;
+    this.confidenceEffectG = gambitConfidenceEffect;
+    this.lustEffectG = gambitLustEffect;
+    this.prideEffectG = gambitPrideEffect;
+    this.envyEffectG = gambitEnvyEffect;
     
     //gambit claimant and keybindings
     this.claimedBy = claimer;
@@ -62,6 +71,9 @@ function constructedGambit(){
     
     //gambit delivery schedule
     this.deliverySchedule = [];
+    
+    //build switch
+    this.onScreen = false;
     
     //timer
     this.gambitTimer = new Timer();
@@ -142,6 +154,20 @@ modifiers.push(new modifier(
     //most affected
     this.mostAffectedIndex = "Lust"
 ));
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Proudly",
+    //status effect
+    this.modifierStatusEffect = 20,
+    //drives
+    this.modifierAngerEffect = 0,
+    this.modifierConfidenceEffect = 15,
+    this.modifierLustEffect = 0,
+    this.modifierPrideEffect = 25, 
+    this.modifierEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Pride"
+));
 
 
 //gambits
@@ -214,6 +240,34 @@ gambits.push(new gambit(
     this.gambitEnvyEffect = 0,
     //most affected
     this.mostAffectedIndex = "Anger"
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Boast about",
+    //status effect
+    this.gambitStatusEffect = -15,
+    //drives
+    this.gambitAngerEffect = 20,
+    this.gambitConfidenceEffect = -15,
+    this.gambitLustEffect = 0,
+    this.gambitPrideEffect = 0,
+    this.gambitEnvyEffect = 25,
+    //most affected
+    this.mostAffectedIndex = "Envy"
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Brag about",
+    //status effect
+    this.gambitStatusEffect = -30,
+    //drives
+    this.gambitAngerEffect = 35,
+    this.gambitConfidenceEffect = -35,
+    this.gambitLustEffect = 0,
+    this.gambitPrideEffect = 0,
+    this.gambitEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Confidence"
 ));
 
 //target objects

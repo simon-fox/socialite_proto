@@ -12,6 +12,8 @@ var then = Date.now();
 var playersArray = [];
 //all active player summary interfaces
 var activePlayerSummaryInterfaces = [];
+//all active gambit interfaces
+var activeGambitInterfaces = [];
 //player character global array
 var playerCharacters = [];
 //gambit pieces

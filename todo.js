@@ -455,7 +455,7 @@ function gambit(){
     //- build gambit assembler - test to see if it spits out gambits
         //- involves probabilities stuff/ weighted random choice
     - build gambit delivery
-    - build gambit releasing
+    - build gambit releasing //maybe ignore this for proto
     - build gambit listener
         - claiming
         - target choice
