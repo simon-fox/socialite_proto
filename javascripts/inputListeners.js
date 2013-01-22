@@ -68,50 +68,45 @@ function bindGambitKeys(passGambit,passGambitInterface){
     //check if they have been bound already
     for (var i=0;i<keySets.length;i++){
         if(keySets[i].bound == false){
-            //go through all four keys
+    
+            //go through all keys
             //bind to function
             //add player who pressed key to passGambit.claimedBy
             //switch gambit to .claimed
             $(document).keyup(function(e){
+              
                 if(e.which == eval(keySets[i].keyCodes[0])){
                    passGambit.claimedBy = playersArray[0];
                    //bug: it's not running the right .claimed() method
                    // so it must be finding the wrong thing in the array
                    //so we have to look through activeGambitInterfaces to find the right one
-                   var indexPos = activeGambitInterfaces.indexOf(passGambitInterface);
-                   console.log(indexPos);
-                   activeGambitInterfaces[indexPos].claimed();
-                   console.log('keypress');
+                   passGambitInterface.claimed();
+                   //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[1])){
                     passGambit.claimedBy = playersArray[1];
-                    var indexPos = activeGambitInterfaces.indexOf(passGambitInterface);
-                   activeGambitInterfaces[indexPos].claimed(passGambit);
-                   console.log('keypress');
+                    passGambitInterface.claimed();
+                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[2])){
                     passGambit.claimedBy = playersArray[2];
-                    var indexPos = activeGambitInterfaces.indexOf(passGambitInterface);
-                   activeGambitInterfaces[indexPos].claimed(passGambit);
-                   console.log('keypress');
+                    passGambitInterface.claimed();
+                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[3])){
                     passGambit.claimedBy = playersArray[3];
-                    var indexPos = activeGambitInterfaces.indexOf(passGambitInterface);
-                   activeGambitInterfaces[indexPos].claimed(passGambit);
-                   console.log('keypress');
+                    passGambitInterface.claimed();
+                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[4])){
-                    passGambit.claimedBy = playersArray[4];
-                    var indexPos = activeGambitInterfaces.indexOf(passGambitInterface);
-                   activeGambitInterfaces[indexPos].claimed(passGambit);
-                   console.log('keypress');
+                    passGambit.claimedBy = playersArray[3];
+                    passGambitInterface.claimed();
+                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[5])){
-                    passGambit.claimedBy = playersArray[5];
-                    var indexPos = activeGambitInterfaces.indexOf(passGambitInterface);
-                   activeGambitInterfaces[indexPos].claimed(passGambit);
-                   console.log('keypress');
+                    passGambit.claimedBy = playersArray[3];
+                    passGambitInterface.claimed();
+                    //console.log('keypress');
                 }
             });
                

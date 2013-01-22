@@ -65,7 +65,7 @@ var mainGameTimer;
 
 //function to update scores
 function updateScores(passedConstructedGambit){
-    console.log(passedConstructedGambit);
+    //console.log(passedConstructedGambit);
     //take effects
     // go through all modifier effects
     // if effect is 0, don't use it
