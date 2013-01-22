@@ -150,7 +150,7 @@ function director() {
             //we have something to respond to
             responseName = claimants[0].name;
             response = true;
-            claimants.splice(0,1);
+            claimants = claimants.splice(0,1);
             console.log('response in director: '+response)
         }
         else{

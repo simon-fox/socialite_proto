@@ -91,8 +91,8 @@ var gambitInterfaceHtml ='\
 <div class="gambit">\
     <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>\
     <div class="gambitEffects">\
-        <div class="gambitEffectsCol">You:<br/><div class="modifiersCol"></div></div>\
-        <div class="gambitEffectsCol">Target:<br/><div class="gambitsCol"></div></div>\
+        <div class="gambitEffectsCol">You get:<br/><div class="modifiersCol"></div></div>\
+        <div class="gambitEffectsCol">They get:<br/><div class="gambitsCol"></div></div>\
     </div>\
     <div class="claimGambit">\
         TO CLAIM THIS GAMBIT:<br/>\
