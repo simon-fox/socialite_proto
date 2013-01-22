@@ -132,7 +132,7 @@ function gambitInterface(){
                     if (this.associatedGambit.statusEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        console.log(this.associatedGambit.statusEffectM);
+                        //console.log(this.associatedGambit.statusEffectM);
                         modifierEffectsString = modifierEffectsString + this.associatedGambit.statusEffectM+" status</br><br/>";
                     }
                     if (this.associatedGambit.angerEffectM == 0){/*do nothing*/}
@@ -169,27 +169,27 @@ function gambitInterface(){
                         //add to string
                         gambitEffectsString = gambitEffectsString + this.associatedGambit.statusEffectG+" status</br><br/>";
                     }
-                    if (this.associatedGambit.angerEffectM == 0){/*do nothing*/}
+                    if (this.associatedGambit.angerEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
                         gambitEffectsString = gambitEffectsString + this.associatedGambit.angerEffectG+" anger</br><br/>";
                     }
-                    if (this.associatedGambit.confidenceEffectM == 0){/*do nothing*/}
+                    if (this.associatedGambit.confidenceEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
                         gambitEffectsString = gambitEffectsString + this.associatedGambit.confidenceEffectG+" confidence</br><br/>";
                     }
-                    if (this.associatedGambit.lustEffectM == 0){/*do nothing*/}
+                    if (this.associatedGambit.lustEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
                         gambitEffectsString = gambitEffectsString + this.associatedGambit.lustEffectG+" lust</br><br/>";
                     }
-                    if (this.associatedGambit.prideEffectM == 0){/*do nothing*/}
+                    if (this.associatedGambit.prideEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
                         gambitEffectsString = gambitEffectsString + this.associatedGambit.prideEffectG+" pride</br><br/>";
                     }
-                    if (this.associatedGambit.envyEffectM == 0){/*do nothing*/}
+                    if (this.associatedGambit.envyEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
                         gambitEffectsString = gambitEffectsString + this.associatedGambit.envyEffectG+" envy</br>";
@@ -209,13 +209,19 @@ function gambitInterface(){
                     $(constructedGambitInterfaceHtml).children('.gambitEffects').children('.gambitEffectsCol').children('.gambitsCol').html(gambitEffectsString);
                     
                     //bind keys
+                    var passGambitInterface = this;
                     var passGambit = this.associatedGambit;
-                    bindGambitKeys(passGambit);
+                    bindGambitKeys(passGambit,passGambitInterface);
                     
                     //build claim buttons
                     var claimKeysString = "TO CLAIM THIS GAMBIT:<br/>";
                     for (var i=0;i<playersArray.length;i++){
-                        claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
+                        if(playersArray[i] == this.associatedGambit.targetCharacter){
+                            claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2> _ </h2></div>';
+                        }
+                        else{
+                            claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
+                        }
                     }
                     $(constructedGambitInterfaceHtml).children('.claimGambit').html(claimKeysString);
                     
@@ -230,6 +236,8 @@ function gambitInterface(){
                 };
     //when switching to claimed
     this.claimed = function(){
+        console.log('claiming');
+        //console.log(passGambit);
                         var claimedGambitDOM;
                         for (var i=0;i<$('.gambit').length;i++){
                             if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
@@ -245,8 +253,12 @@ function gambitInterface(){
                         //stop timer and destroy interface after x seconds
                         this.associatedGambit.gambitTimer.stop();
                         var tempThis = this;
-                        setTimeout(function(){tempThis.destroy();},3000);
-                        //update scores?
+                        setTimeout(function(){
+                            tempThis.destroy();
+                            //update scores?
+                            updateScores(tempThis.associatedGambit);
+                        },5000);
+                        
                         };
     //when switching to target mode                   
     this.targetMode = function(){
@@ -259,7 +271,7 @@ function gambitInterface(){
                         };
     //when claimed and scored                
     this.destroy = function(){
-        console.log('hi timeout')
+    
                         var claimedGambitDOM;
                         for (var i=0;i<$('.gambit').length;i++){
                             if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
@@ -287,10 +299,18 @@ function gambitInterface(){
                                 claimedGambitDOM = $('.gambit').eq(i);
                             }
                         }
+                    
+                    //update this.arrayPos
+                    for (var i=0;i<activeGambitInterfaces.length;i++){
+                        if (activeGambitInterfaces[i] == this){
+                            this.arrayPos = i;
+                        }
+                    }
+                    
                     //update interface elements here
                     //update timer bars
                     //how many seconds do we have
-                    var constructedGambitTimeOut = 5;
+                    var constructedGambitTimeOut = 8;
                     //if less than that has passed
                     if (this.associatedGambit.gambitTimer.tick < constructedGambitTimeOut){
                         //display time left as a progress bar

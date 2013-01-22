@@ -18,18 +18,18 @@ var activeGambitInterfaces = [];
 var playerCharacters = [];
 //keysets for binding
 var setOne = {
-    keys:["w","t","u","p"],
-    keyCodes:[87,84,85,80],
+    keys:["w","r","t","u","i","p"],
+    keyCodes:[87,82,84,85,73,80],
     bound: false
 }
 var setTwo = {
-    keys:["s","g","j","l"],
-    keyCodes:[83,71,74,76],
+    keys:["s","f","g","j","k","l"],
+    keyCodes:[83,70,71,74,75,76],
     bound: false
 }
 var setThree = {
-    keys:["z","c","b","m"],
-    keyCodes:[90,67,66,77],
+    keys:["z","x","c","b","n","m"],
+    keyCodes:[90,88,67,66,78,77],
     bound: false
 }
 var keySets = [setOne,setTwo,setThree];
@@ -62,6 +62,67 @@ var statusLeaderboard = [];
 //main game timer
 var mainGameTimer;
 
+
+//function to update scores
+function updateScores(passedConstructedGambit){
+    console.log(passedConstructedGambit);
+    //take effects
+    // go through all modifier effects
+    // if effect is 0, don't use it
+    // otherwise update passedConstructedGambit.claimedBy.agent
+    if (passedConstructedGambit.statusEffectM == 0){/*do nothing*/}
+    else {
+        passedConstructedGambit.claimedBy.agent.status =  passedConstructedGambit.claimedBy.agent.status + passedConstructedGambit.statusEffectM;
+    }
+    if (passedConstructedGambit.angerEffectM == 0){/*do nothing*/}
+    else {
+       passedConstructedGambit.claimedBy.agent.anger =  passedConstructedGambit.claimedBy.agent.anger + passedConstructedGambit.angerEffectM;
+    }
+    if (passedConstructedGambit.confidenceEffectM == 0){/*do nothing*/}
+    else {
+       passedConstructedGambit.claimedBy.agent.confidence =  passedConstructedGambit.claimedBy.agent.confidence + passedConstructedGambit.confidenceEffectM;
+    }
+    if (passedConstructedGambit.lustEffectM == 0){/*do nothing*/}
+    else {
+       passedConstructedGambit.claimedBy.agent.lust =  passedConstructedGambit.claimedBy.agent.lust + passedConstructedGambit.lustEffectM;
+    }
+    if (passedConstructedGambit.prideEffectM == 0){/*do nothing*/}
+    else {
+       passedConstructedGambit.claimedBy.agent.pride =  passedConstructedGambit.claimedBy.agent.pride + passedConstructedGambit.prideEffectM;
+    }
+    if (passedConstructedGambit.envyEffectM == 0){/*do nothing*/}
+    else {
+       passedConstructedGambit.claimedBy.agent.envy =  passedConstructedGambit.claimedBy.agent.envy + passedConstructedGambit.envyEffectM;
+    }
+    ////////////////////////////////
+    //concat gambit effects string//
+    ////////////////////////////////
+    if (passedConstructedGambit.statusEffectG == 0){/*do nothing*/}
+    else {
+      passedConstructedGambit.targetCharacter.agent.status =  passedConstructedGambit.claimedBy.agent.status + passedConstructedGambit.statusEffectG;
+    }
+    if (passedConstructedGambit.angerEffectG == 0){/*do nothing*/}
+    else {
+       passedConstructedGambit.targetCharacter.agent.anger =  passedConstructedGambit.claimedBy.agent.anger + passedConstructedGambit.angerEffectG; 
+    }
+    if (passedConstructedGambit.confidenceEffectG == 0){/*do nothing*/}
+    else {
+        passedConstructedGambit.targetCharacter.agent.confidence =  passedConstructedGambit.claimedBy.agent.confidence + passedConstructedGambit.confidenceEffectG;
+    }
+    if (passedConstructedGambit.lustEffectG == 0){/*do nothing*/}
+    else {
+        passedConstructedGambit.targetCharacter.agent.lust =  passedConstructedGambit.claimedBy.agent.lust + passedConstructedGambit.lustEffectG;
+    }
+    if (passedConstructedGambit.prideEffectG == 0){/*do nothing*/}
+    else {
+        passedConstructedGambit.targetCharacter.agent.pride =  passedConstructedGambit.claimedBy.agent.pride + passedConstructedGambit.prideEffectG;
+    }
+    if (passedConstructedGambit.envyEffectG == 0){/*do nothing*/}
+    else {
+        passedConstructedGambit.targetCharacter.agent.envy =  passedConstructedGambit.claimedBy.agent.envy + passedConstructedGambit.envyEffectG;
+    }
+    //deliver to targetCharacter and claimedBy
+}
 
 //timer prototype
 Function.prototype.scope = function(context) {

@@ -172,13 +172,6 @@ function director() {
         activeGambitInterfaces.push(new gambitInterface());
     }
             
-
-                //make a decision about delivery
-                    //check individuals drives
-                    //create a prob. weighting for for distribution
-                    //create a list, append to gambit.deliverySchedule
-                    //append gambit to constructedGambits array
-                    
     ////////////////////////////          
     //build and update gambits//
     ////////////////////////////
@@ -197,6 +190,13 @@ function director() {
         }
         
     }
+                //make a decision about delivery
+                    //check individuals drives
+                    //create a prob. weighting for for distribution
+                    //create a list, append to gambit.deliverySchedule
+                    //append gambit to constructedGambits array
+                    
+    
         
 }
 
