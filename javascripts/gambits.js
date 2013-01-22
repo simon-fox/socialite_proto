@@ -77,6 +77,10 @@ function constructedGambit(){
     
     //timer
     this.gambitTimer = new Timer();
+    
+    //response?
+    this.responseBoolean = response;
+    this.responseBy = responseName;
 }
 
 /////////////////////

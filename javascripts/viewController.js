@@ -122,7 +122,14 @@ function gambitInterface(){
                     $('.gambitContainer').append(this.html);
                     //append correct elements to the display
                     //concat actual text of assembledGambit: modifier, gambits, targetCharacter, targetObject
-                    var constructedGambitText = this.associatedGambit.modifier.text + " " + this.associatedGambit.gambit.text + " to " + this.associatedGambit.targetCharacter.playerCharacter.name;// + "'s " + this.associatedGambit.targetObject.text;
+                    console.log('response:'+this.associatedGambit.responseBoolean);
+                    if (this.associatedGambit.responseBoolean == true){
+                        console.log('response!');
+                        var constructedGambitText = "Respond "+this.associatedGambit.gambit.text+" to "+this.associatedGambit.responseBy+"'s comment";
+                    }
+                    else{
+                        var constructedGambitText = this.associatedGambit.modifier.text + " " + this.associatedGambit.gambit.text + " to " + this.associatedGambit.targetCharacter.playerCharacter.name;// + "'s " + this.associatedGambit.targetObject.text;
+                    }
                     //////////////////////////////////
                     //concat modifier effects string//
                     //////////////////////////////////
@@ -251,6 +258,9 @@ function gambitInterface(){
                         $(claimedGambitDOM).css('background-color','rgb(66, 31, 31)');
                         //change .claimGambit.html('gambit claimed by'+claimingPlayer)
                         $(claimedGambitDOM).children('.claimGambit').html("Claimed by: "+this.associatedGambit.claimedBy.playerCharacter.name );
+                        //load claimant into claimants array
+                        claimants.push(this.associatedGambit.claimedBy.playerCharacter);
+                        console.log(claimants[0].name);
                         //stop timer and destroy interface after x seconds
                         this.associatedGambit.gambitTimer.stop();
                         var tempThis = this;

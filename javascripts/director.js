@@ -139,38 +139,59 @@ function director() {
         //do nothing
     }
     else{
-        //pick a random modifier from chosenDrive array
-        chosenModifier = eval(chosenDrive+"Modifiers")[Math.floor(Math.random() * eval(chosenDrive+"Modifiers").length)];
-        //console.log(chosenModifier);
-        //pick a random gambit from chosenDrive array
-        chosenGambit = eval(chosenDrive+"Gambits")[Math.floor(Math.random() * eval(chosenDrive+"Gambits").length)];
-        //pick a random targetObject
-        chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
-        //autoTargeting - pick a random target character
-        chosenTargetCharacter = playersArray[Math.floor(Math.random() * playersArray.length)];
-        //modifier status & drive effects
-        modifierStatusEffect = chosenModifier.statusEffect;
-        modifierAngerEffect = chosenModifier.angerEffect;
-        modifierConfidenceEffect = chosenModifier.confidenceEffect;
-        modifierLustEffect = chosenModifier.lustEffect;
-        modifierPrideEffect = chosenModifier.prideEffect;
-        modifierEnvyEffect = chosenModifier.envyEffect;
-        //gambit status & drive effects
-        gambitStatusEffect = chosenGambit.statusEffect;
-        gambitAngerEffect = chosenGambit.angerEffect;
-        gambitConfidenceEffect = chosenGambit.confidenceEffect;
-        gambitLustEffect = chosenGambit.lustEffect;
-        gambitPrideEffect = chosenGambit.prideEffect;
-        gambitEnvyEffect = chosenGambit.envyEffect;
-        //no claimant yet
-        claimer = "";
-        //create constructedGambit
-        //append to constructedGambits array
-        constructedGambits.push(new constructedGambit());
-        //console.log(constructedGambits);
-        //initialise a new interface with this gambit
-        constructedGambitObject = constructedGambits[constructedGambits.length-1];
-        activeGambitInterfaces.push(new gambitInterface());
+        /////////////////////////
+        // lets build a gambit //
+        /////////////////////////
+        //Lets check if it's a response
+        responseName ="";
+        response = "";
+        console.log('claimants length: '+claimants.length);
+        if (claimants.length){
+            //we have something to respond to
+            responseName = claimants[0].name;
+            response = true;
+            claimants.splice(0,1);
+            console.log('response in director: '+response)
+        }
+        else{
+            response = false;
+            responseName = "";
+            console.log('response in director: '+response)
+        }
+            //build a normal gambit 
+            //pick a random modifier from chosenDrive array
+            chosenModifier = eval(chosenDrive+"Modifiers")[Math.floor(Math.random() * eval(chosenDrive+"Modifiers").length)];
+            //console.log(chosenModifier);
+            //pick a random gambit from chosenDrive array
+            chosenGambit = eval(chosenDrive+"Gambits")[Math.floor(Math.random() * eval(chosenDrive+"Gambits").length)];
+            //pick a random targetObject
+            chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
+            //autoTargeting - pick a random target character
+            chosenTargetCharacter = playersArray[Math.floor(Math.random() * playersArray.length)];
+            //modifier status & drive effects
+            modifierStatusEffect = chosenModifier.statusEffect;
+            modifierAngerEffect = chosenModifier.angerEffect;
+            modifierConfidenceEffect = chosenModifier.confidenceEffect;
+            modifierLustEffect = chosenModifier.lustEffect;
+            modifierPrideEffect = chosenModifier.prideEffect;
+            modifierEnvyEffect = chosenModifier.envyEffect;
+            //gambit status & drive effects
+            gambitStatusEffect = chosenGambit.statusEffect;
+            gambitAngerEffect = chosenGambit.angerEffect;
+            gambitConfidenceEffect = chosenGambit.confidenceEffect;
+            gambitLustEffect = chosenGambit.lustEffect;
+            gambitPrideEffect = chosenGambit.prideEffect;
+            gambitEnvyEffect = chosenGambit.envyEffect;
+            //no claimant yet
+            claimer = "";
+            //create constructedGambit
+            //append to constructedGambits array
+            constructedGambits.push(new constructedGambit());
+            //console.log(constructedGambits);
+            //initialise a new interface with this gambit
+            constructedGambitObject = constructedGambits[constructedGambits.length-1];
+            activeGambitInterfaces.push(new gambitInterface());
+        
     }
             
     ////////////////////////////          

@@ -16,6 +16,10 @@ var activePlayerSummaryInterfaces = [];
 var activeGambitInterfaces = [];
 //player character global array
 var playerCharacters = [];
+//claimants array
+var claimants = [];
+//response boolean
+var response = false;
 //keysets for binding
 var setOne = {
     keys:["w","r","t","u","i","p"],
