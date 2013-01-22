@@ -58,7 +58,12 @@ function playerCharacterSelectKeyBinds(){
 
 //keybinds for the main game screen
 function mainGameKeyBinds(){
-    
+    //unbinding the space key
+    $(document).keyup(function(e){
+        //check for space key
+        if(e.which == 32){
+        }
+    });
 }
 
 //binding keys to gambit claiming/targeting

@@ -255,6 +255,22 @@ h2{
 
 /*gambits*/
 
+.timerBarGambit{
+    width: 100%;
+    height: 24px;   
+    background-color: #444;
+    
+    position: absolute;
+    bottom: 0px;
+    z-index: 0;
+}
+
+.timerBarGambit div{
+    background-color: #cc9999;
+    height: 24px;
+    width: 100%;
+}
+
 .gambit{
     width: 364px;
     height: 245px;

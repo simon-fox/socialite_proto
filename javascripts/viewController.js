@@ -67,8 +67,9 @@ function playerSummaryInterface(){
                 $('.statusRaw').eq(this.player.arrayPos).html(this.player.agent.status);
                 //update timer bars
                 //how many seconds do we have
-                var grabGambitTimeOut = 5;
+                var grabGambitTimeOut = 10;
                 //if less than that has passed
+                console.log(this.player.statusTimer.tick);
                 if (this.player.statusTimer.tick<grabGambitTimeOut){
                     //display time left as a progress bar
                     var percent = (grabGambitTimeOut -  this.player.statusTimer.tick)/grabGambitTimeOut * 100;
@@ -102,7 +103,7 @@ var gambitInterfaceHtml ='\
         <div class="claimButton">P5: <h2>B</h2></div>\
         <div class="claimButton">P6: <h2>M</h2></div>\
     </div>\
-    <div class="timerBar"><div></div></div>\
+    <div class="timerBarGambit"><div></div></div>\
 </div>\
 ';
 
@@ -317,12 +318,12 @@ function gambitInterface(){
                     //update interface elements here
                     //update timer bars
                     //how many seconds do we have
-                    var constructedGambitTimeOut = 8;
+                    var constructedGambitTimeOut = 10;
                     //if less than that has passed
                     if (this.associatedGambit.gambitTimer.tick < constructedGambitTimeOut){
                         //display time left as a progress bar
                         var percent = (constructedGambitTimeOut -  this.associatedGambit.gambitTimer.tick)/constructedGambitTimeOut * 100;
-                        $(claimedGambitDOM).children('.timerBar').children('div').css('width',percent+"%");
+                        $(claimedGambitDOM).children('.timerBarGambit').children('div').css('width',percent+"%");
                     }
                     //if time is up
                     else if (this.associatedGambit.gambitTimer.tick == constructedGambitTimeOut){
@@ -402,7 +403,13 @@ var gameTimer = {
                        //stop the timer
                        mainGameTimer.stop();
                        $('.gameTimer').html("00:00");
-                       //trigger end game state
+                       
+                       //////////////////////////
+                       //trigger end game state//
+                       //////////////////////////
+                       clearInterval(mainLoop);
+                       
+                       
                     }
                     },
     destroy : function(){
