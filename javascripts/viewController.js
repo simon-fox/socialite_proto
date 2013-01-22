@@ -91,8 +91,8 @@ var gambitInterfaceHtml ='\
 <div class="gambit">\
     <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>\
     <div class="gambitEffects">\
-        <div class="gambitEffectsCol">You:<br/><br/><div class="modifiersCol"></div></div>\
-        <div class="gambitEffectsCol">Target:<br/><br/><div class="gambitsCol"></div></div>\
+        <div class="gambitEffectsCol">You:<br/><div class="modifiersCol"></div></div>\
+        <div class="gambitEffectsCol">Target:<br/><div class="gambitsCol"></div></div>\
     </div>\
     <div class="claimGambit">\
         TO CLAIM THIS GAMBIT:<br/>\
@@ -134,27 +134,27 @@ function gambitInterface(){
                     else {
                         //add to string
                         //console.log(this.associatedGambit.statusEffectM);
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.statusEffectM+" status</br><br/>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.statusEffectM+" status</br>";
                     }
                     if (this.associatedGambit.angerEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.angerEffectM+" anger</br><br/>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.angerEffectM+" anger</br>";
                     }
                     if (this.associatedGambit.confidenceEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.confidenceEffectM+" confidence</br><br/>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.confidenceEffectM+" confidence</br>";
                     }
                     if (this.associatedGambit.lustEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.lustEffectM+" lust</br><br/>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.lustEffectM+" lust</br>";
                     }
                     if (this.associatedGambit.prideEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.prideEffectM+" pride</br><br/>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.prideEffectM+" pride</br>";
                     }
                     if (this.associatedGambit.envyEffectM == 0){/*do nothing*/}
                     else {
@@ -168,27 +168,27 @@ function gambitInterface(){
                     if (this.associatedGambit.statusEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.statusEffectG+" status</br><br/>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.statusEffectG+" status</br>";
                     }
                     if (this.associatedGambit.angerEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.angerEffectG+" anger</br><br/>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.angerEffectG+" anger</br>";
                     }
                     if (this.associatedGambit.confidenceEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.confidenceEffectG+" confidence</br><br/>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.confidenceEffectG+" confidence</br>";
                     }
                     if (this.associatedGambit.lustEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.lustEffectG+" lust</br><br/>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.lustEffectG+" lust</br>";
                     }
                     if (this.associatedGambit.prideEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.prideEffectG+" pride</br><br/>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.prideEffectG+" pride</br>";
                     }
                     if (this.associatedGambit.envyEffectG == 0){/*do nothing*/}
                     else {

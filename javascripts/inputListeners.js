@@ -51,7 +51,7 @@ function playerCharacterSelectKeyBinds(){
                 //start the main timer
                 gameTimer.init();
                 //start the game loop
-                mainLoop = setInterval(alphaLoop,1000);
+                mainLoop = setInterval(alphaLoop,15);
         }
     });
 }

@@ -102,7 +102,7 @@ modifiers.push(new modifier(
     //content
     this.modifierText = "At the top of your voice",
     //status effect
-    this.modifierStatusEffect = -10,
+    this.modifierStatusEffect = -50,
     //drives
     this.modifierAngerEffect = 25,
     this.modifierConfidenceEffect = 25,
@@ -116,7 +116,7 @@ modifiers.push(new modifier(
     //content
     this.modifierText = "Sincerely",
     //status effect
-    this.modifierStatusEffect = 5,
+    this.modifierStatusEffect = 15,
     //drives
     this.modifierAngerEffect = 0,
     this.modifierConfidenceEffect = 15,
@@ -168,6 +168,48 @@ modifiers.push(new modifier(
     //most affected
     this.mostAffectedIndex = "Pride"
 ));
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Accidentally",
+    //status effect
+    this.modifierStatusEffect = 10,
+    //drives
+    this.modifierAngerEffect = 0,
+    this.modifierConfidenceEffect = 25,
+    this.modifierLustEffect = 0,
+    this.modifierPrideEffect = -15, 
+    this.modifierEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Confidence"
+));
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Fiercely",
+    //status effect
+    this.modifierStatusEffect = 30,
+    //drives
+    this.modifierAngerEffect = 40,
+    this.modifierConfidenceEffect = 0,
+    this.modifierLustEffect = 0,
+    this.modifierPrideEffect = 25, 
+    this.modifierEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Anger"
+));
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Carefully",
+    //status effect
+    this.modifierStatusEffect = 25,
+    //drives
+    this.modifierAngerEffect = 0,
+    this.modifierConfidenceEffect = 35,
+    this.modifierLustEffect = 0,
+    this.modifierPrideEffect = 5, 
+    this.modifierEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Confidence"
+));
 
 
 //gambits
@@ -189,7 +231,7 @@ gambits.push(new gambit(
     //content
     this.gambitText = "Compliment",
     //status effect
-    this.gambitStatusEffect = 15,
+    this.gambitStatusEffect = -5,
     //drives
     this.gambitAngerEffect = 0,
     this.gambitConfidenceEffect = 0,
@@ -203,7 +245,7 @@ gambits.push(new gambit(
     //content
     this.gambitText = "Observe",
     //status effect
-    this.gambitStatusEffect = 5,
+    this.gambitStatusEffect = -15,
     //drives
     this.gambitAngerEffect = 0,
     this.gambitConfidenceEffect = 10,
@@ -269,6 +311,48 @@ gambits.push(new gambit(
     //most affected
     this.mostAffectedIndex = "Confidence"
 ));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Concentrate on",
+    //status effect
+    this.gambitStatusEffect = -30,
+    //drives
+    this.gambitAngerEffect = 40,
+    this.gambitConfidenceEffect = -35,
+    this.gambitLustEffect = 0,
+    this.gambitPrideEffect = 0,
+    this.gambitEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Anger"
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Break",
+    //status effect
+    this.gambitStatusEffect = -30,
+    //drives
+    this.gambitAngerEffect = 65,
+    this.gambitConfidenceEffect = 0,
+    this.gambitLustEffect = 0,
+    this.gambitPrideEffect = -40,
+    this.gambitEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Anger"
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Caress",
+    //status effect
+    this.gambitStatusEffect = 0,
+    //drives
+    this.gambitAngerEffect = 35,
+    this.gambitConfidenceEffect = -35,
+    this.gambitLustEffect = 60,
+    this.gambitPrideEffect = 0,
+    this.gambitEnvyEffect = 0,
+    //most affected
+    this.mostAffectedIndex = "Lust"
+));
 
 //target objects
 targetObjects.push(new targetObject(
@@ -301,6 +385,26 @@ targetObjects.push(new targetObject(
 ));
 targetObjects.push(new targetObject(
     this.targetObjectText = "Parisian automota",
+    this.targetObjectImg = ""
+));
+targetObjects.push(new targetObject(
+    this.targetObjectText = "Ego",
+    this.targetObjectImg = ""
+));
+targetObjects.push(new targetObject(
+    this.targetObjectText = "Taste",
+    this.targetObjectImg = ""
+));
+targetObjects.push(new targetObject(
+    this.targetObjectText = "Philosophy",
+    this.targetObjectImg = ""
+));
+targetObjects.push(new targetObject(
+    this.targetObjectText = "Profession",
+    this.targetObjectImg = ""
+));
+targetObjects.push(new targetObject(
+    this.targetObjectText = "Fine Ceramics",
     this.targetObjectImg = ""
 ));
 
