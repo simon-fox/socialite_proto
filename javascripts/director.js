@@ -135,7 +135,7 @@ function director() {
     ////////////////////////////
     //check number of gambits on screen
     //if plenty
-    if(activeGambitInterfaces.length >= 3){
+    if(activeGambitInterfaces.length >= 2){
         //do nothing
     }
     else{

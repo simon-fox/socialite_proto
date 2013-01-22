@@ -67,7 +67,7 @@ function playerSummaryInterface(){
                 $('.statusRaw').eq(this.player.arrayPos).html(this.player.agent.status);
                 //update timer bars
                 //how many seconds do we have
-                var grabGambitTimeOut = 10;
+                var grabGambitTimeOut = 15;
                 //if less than that has passed
                 console.log(this.player.statusTimer.tick);
                 if (this.player.statusTimer.tick<grabGambitTimeOut){
@@ -258,7 +258,7 @@ function gambitInterface(){
                             tempThis.destroy();
                             //update scores?
                             updateScores(tempThis.associatedGambit);
-                        },5000);
+                        },3000);
                         
                         };
     //when switching to target mode                   
@@ -318,7 +318,7 @@ function gambitInterface(){
                     //update interface elements here
                     //update timer bars
                     //how many seconds do we have
-                    var constructedGambitTimeOut = 10;
+                    var constructedGambitTimeOut = 15;
                     //if less than that has passed
                     if (this.associatedGambit.gambitTimer.tick < constructedGambitTimeOut){
                         //display time left as a progress bar
