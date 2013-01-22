@@ -242,7 +242,7 @@ function gambitInterface(){
                         for (var i=0;i<$('.gambit').length;i++){
                             if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
                                 claimedGambitDOM = $('.gambit').eq(i);
-                                console.log(claimedGambitDOM);
+                                //console.log(claimedGambitDOM);
                             }
                         }
         
@@ -282,6 +282,13 @@ function gambitInterface(){
                         for (var i=0;i<activeGambitInterfaces.length;i++){
                             if (activeGambitInterfaces[i] == this){
                                 activeGambitInterfaces.splice(i,1);
+                            }
+                        }
+                        //clear from constructedGambits
+                        //clear from activeGambitInterfaces
+                        for (var i=0;i<constructedGambits.length;i++){
+                            if (constructedGambits[i] == this.associatedGambit){
+                                constructedGambits.splice(i,1);
                             }
                         }
                         

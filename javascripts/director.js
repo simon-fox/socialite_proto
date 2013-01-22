@@ -102,7 +102,7 @@ function director() {
     for (var c=0;c<sortedGlobalTemp.length;c++){
           if (sortedGlobalTemp[c].value == (Math.ceil(exitValue * total))){
             chosenDrive = sortedGlobalTemp[c].drive;
-            console.log(chosenDrive);
+            //console.log(chosenDrive);
           }
     }
     ////////////////////////////////////////////////
