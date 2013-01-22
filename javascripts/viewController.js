@@ -90,8 +90,8 @@ var gambitInterfaceHtml ='\
 <div class="gambit">\
     <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>\
     <div class="gambitEffects">\
-        <div class="gambitEffectsCol">You will receive:<br/><div class="modifiersCol"></div></div>\
-        <div class="gambitEffectsCol">Target will receive:<br/><div class="gambitsCol"></div></div>\
+        <div class="gambitEffectsCol">You:<br/><br/><div class="modifiersCol"></div></div>\
+        <div class="gambitEffectsCol">Target:<br/><br/><div class="gambitsCol"></div></div>\
     </div>\
     <div class="claimGambit">\
         TO CLAIM THIS GAMBIT:<br/>\
@@ -133,27 +133,27 @@ function gambitInterface(){
                     else {
                         //add to string
                         console.log(this.associatedGambit.statusEffectM);
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.statusEffectM+" status</br>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.statusEffectM+" status</br><br/>";
                     }
                     if (this.associatedGambit.angerEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.angerEffectM+" anger</br>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.angerEffectM+" anger</br><br/>";
                     }
                     if (this.associatedGambit.confidenceEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.confidenceEffectM+" confidence</br>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.confidenceEffectM+" confidence</br><br/>";
                     }
                     if (this.associatedGambit.lustEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.lustEffectM+" lust</br>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.lustEffectM+" lust</br><br/>";
                     }
                     if (this.associatedGambit.prideEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.prideEffectM+" pride</br>";
+                        modifierEffectsString = modifierEffectsString + this.associatedGambit.prideEffectM+" pride</br><br/>";
                     }
                     if (this.associatedGambit.envyEffectM == 0){/*do nothing*/}
                     else {
@@ -167,27 +167,27 @@ function gambitInterface(){
                     if (this.associatedGambit.statusEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.statusEffectG+" status</br>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.statusEffectG+" status</br><br/>";
                     }
                     if (this.associatedGambit.angerEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.angerEffectG+" anger</br>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.angerEffectG+" anger</br><br/>";
                     }
                     if (this.associatedGambit.confidenceEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.confidenceEffectG+" confidence</br>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.confidenceEffectG+" confidence</br><br/>";
                     }
                     if (this.associatedGambit.lustEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.lustEffectG+" lust</br>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.lustEffectG+" lust</br><br/>";
                     }
                     if (this.associatedGambit.prideEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.prideEffectG+" pride</br>";
+                        gambitEffectsString = gambitEffectsString + this.associatedGambit.prideEffectG+" pride</br><br/>";
                     }
                     if (this.associatedGambit.envyEffectM == 0){/*do nothing*/}
                     else {
@@ -199,14 +199,28 @@ function gambitInterface(){
                     this.associatedGambit.gambitTimer.start();
                     //print to screen
                     var constructedGambitInterfaceHtml = $('.gambit').eq($('.gambit').length-1);
+                    //add identifying class
+                    $(constructedGambitInterfaceHtml).data('associatedGambit',this.associatedGambit);
+                    //associate with array position in activeGambitInterfaces
+                    this.associatedGambit.arrayPos = $('.gambit').length-1;
+                    
                     $(constructedGambitInterfaceHtml).children('.gambitText').html(constructedGambitText);
                     $(constructedGambitInterfaceHtml).children('.gambitEffects').children('.gambitEffectsCol').children('.modifiersCol').html(modifierEffectsString);
                     $(constructedGambitInterfaceHtml).children('.gambitEffects').children('.gambitEffectsCol').children('.gambitsCol').html(gambitEffectsString);
-                    //build claim buttons
                     
                     //bind keys
+                    var passGambit = this.associatedGambit;
+                    bindGambitKeys(passGambit);
+                    
+                    //build claim buttons
+                    var claimKeysString = "TO CLAIM THIS GAMBIT:<br/>";
+                    for (var i=0;i<playersArray.length;i++){
+                        claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
+                    }
+                    $(constructedGambitInterfaceHtml).children('.claimGambit').html(claimKeysString);
+                    
                     //switch .onScreen to true
-                        
+                    this.onScreen = true;  
                     
 
                     //change claimButtons
@@ -214,7 +228,27 @@ function gambitInterface(){
                         //build a claimButton for each player
                         //associate and bind a key
                 };
-    //when switching to target mode
+    //when switching to claimed
+    this.claimed = function(){
+                        var claimedGambitDOM;
+                        for (var i=0;i<$('.gambit').length;i++){
+                            if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
+                                claimedGambitDOM = $('.gambit').eq(i);
+                                console.log(claimedGambitDOM);
+                            }
+                        }
+        
+                        //change color of div
+                        $(claimedGambitDOM).css('background-color','rgb(66, 31, 31)');
+                        //change .claimGambit.html('gambit claimed by'+claimingPlayer)
+                        $(claimedGambitDOM).children('.claimGambit').html("Claimed by: "+this.associatedGambit.claimedBy.playerCharacter.name );
+                        //stop timer and destroy interface after x seconds
+                        this.associatedGambit.gambitTimer.stop();
+                        var tempThis = this;
+                        setTimeout(function(){tempThis.destroy();},3000);
+                        //update scores?
+                        };
+    //when switching to target mode                   
     this.targetMode = function(){
                         //update text in claimGambit to 'WHO WILL YOU SAY THIS TO?'
                         //update claim buttons with target buttons
@@ -223,12 +257,53 @@ function gambitInterface(){
                             //associate and bind a key
                         //refresh timer in this.associatedGambit
                         };
+    //when claimed and scored                
+    this.destroy = function(){
+        console.log('hi timeout')
+                        var claimedGambitDOM;
+                        for (var i=0;i<$('.gambit').length;i++){
+                            if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
+                                claimedGambitDOM = $('.gambit').eq(i);
+                            }
+                        }
+                        //clear from activeGambitInterfaces
+                        for (var i=0;i<activeGambitInterfaces.length;i++){
+                            if (activeGambitInterfaces[i] == this){
+                                activeGambitInterfaces.splice(i,1);
+                            }
+                        }
+                        
+                        //clear from screen
+                        $(claimedGambitDOM).remove();
+                        //unbind keys
+                        //clear .bound on keys
+                        this.associatedGambit.boundKeys.bound = false;
+                        };
     //every tick
     this.update = function(){
+                    var claimedGambitDOM;
+                        for (var i=0;i<$('.gambit').length;i++){
+                            if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
+                                claimedGambitDOM = $('.gambit').eq(i);
+                            }
+                        }
                     //update interface elements here
-                    //update timer
-                    
-                    };
+                    //update timer bars
+                    //how many seconds do we have
+                    var constructedGambitTimeOut = 5;
+                    //if less than that has passed
+                    if (this.associatedGambit.gambitTimer.tick < constructedGambitTimeOut){
+                        //display time left as a progress bar
+                        var percent = (constructedGambitTimeOut -  this.associatedGambit.gambitTimer.tick)/constructedGambitTimeOut * 100;
+                        $(claimedGambitDOM).children('.timerBar').children('div').css('width',percent+"%");
+                    }
+                    //if time is up
+                    else if (this.associatedGambit.gambitTimer.tick == constructedGambitTimeOut){
+                       //destroy the gambit
+                       this.destroy();
+                    }
+                        
+                        };
 }
 
 

@@ -135,7 +135,7 @@ function director() {
     ////////////////////////////
     //check number of gambits on screen
     //if plenty
-    if(constructedGambits.length >= 3){
+    if(activeGambitInterfaces.length >= 3){
         //do nothing
     }
     else{
@@ -184,17 +184,19 @@ function director() {
     ////////////////////////////
     
     //cycle through constructed gambit interfaces array
-    for (var i = 0; i<constructedGambits.length ; i++){
+    for (var i = 0; i<activeGambitInterfaces.length ; i++){
         //if gambit has not been initialised yet
-        if (constructedGambits[i].onScreen == false){
+        if (activeGambitInterfaces[i].onScreen == false){
             //initialise
-            //make onScreen true
-            
+            activeGambitInterfaces[i].init();
         }
+        else {
+            //it is on screen
+            //call .update on every gambitInterface
+            activeGambitInterfaces[i].update();
+        }
+        
     }
-    //.init the ones which need to be built
-    //call .update on every gambitInterface
-        //will update every front end from the data
         
 }
 

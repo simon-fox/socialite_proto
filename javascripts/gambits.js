@@ -105,8 +105,8 @@ modifiers.push(new modifier(
     this.modifierStatusEffect = -10,
     //drives
     this.modifierAngerEffect = 25,
-    this.modifierConfidenceEffect =105,
-    this.modifierLustEffect = -5,
+    this.modifierConfidenceEffect = 25,
+    this.modifierLustEffect = 0,
     this.modifierPrideEffect = 0, 
     this.modifierEnvyEffect = 0,
     //most affected
@@ -118,7 +118,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 5,
     //drives
-    this.modifierAngerEffect = -10,
+    this.modifierAngerEffect = 0,
     this.modifierConfidenceEffect = 15,
     this.modifierLustEffect = 0,
     this.modifierPrideEffect = 0, 
@@ -134,7 +134,7 @@ modifiers.push(new modifier(
     //drives
     this.modifierAngerEffect = 15,
     this.modifierConfidenceEffect = 10,
-    this.modifierLustEffect = -5,
+    this.modifierLustEffect = 0,
     this.modifierPrideEffect = 0, 
     this.modifierEnvyEffect = 0,
     //most affected
@@ -180,7 +180,7 @@ gambits.push(new gambit(
     this.gambitAngerEffect = 15,
     this.gambitConfidenceEffect = 0,
     this.gambitLustEffect = 0,
-    this.gambitPrideEffect = -15,
+    this.gambitPrideEffect = 0,
     this.gambitEnvyEffect = 0,
     //most affected
     this.mostAffectedIndex = "Anger"
@@ -248,7 +248,7 @@ gambits.push(new gambit(
     this.gambitStatusEffect = -15,
     //drives
     this.gambitAngerEffect = 20,
-    this.gambitConfidenceEffect = -15,
+    this.gambitConfidenceEffect = 0,
     this.gambitLustEffect = 0,
     this.gambitPrideEffect = 0,
     this.gambitEnvyEffect = 25,

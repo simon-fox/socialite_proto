@@ -4,13 +4,13 @@
 
 function agentObject(){
     //status
-    this.status = 0;
+    this.status = 5;
     //drives
-    this.anger = 10;
-    this.confidence = 25;
-    this.lust = 15;
-    this.pride = 75;
-    this.envy = 42;
+    this.anger = 50;
+    this.confidence = 50;
+    this.lust = 50;
+    this.pride = 50;
+    this.envy = 50;
     //timer
     this.statusTimer = new Timer();
     //current gambit

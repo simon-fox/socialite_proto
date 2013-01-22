@@ -61,3 +61,50 @@ function mainGameKeyBinds(){
     
 }
 
+//binding keys to gambit claiming/targeting
+function bindGambitKeys(passGambit){
+    //pick four keys
+    //check if they have been bound already
+    for (var i=0;i<keySets.length;i++){
+        if(keySets[i].bound == false){
+            //go through all four keys
+            //bind to function
+            //add player who pressed key to passGambit.claimedBy
+            //switch gambit to .claimed
+            $(document).keyup(function(e){
+                if(e.which == eval(keySets[i].keyCodes[0])){
+                   passGambit.claimedBy = playersArray[0];
+                   activeGambitInterfaces[passGambit.arrayPos].claimed();
+                   console.log('keypress');
+                }
+                else if(e.which == eval(keySets[i].keyCodes[1])){
+                    passGambit.claimedBy = playersArray[1];
+                    activeGambitInterfaces[passGambit.arrayPos].claimed();
+                    console.log('keypress');
+                }
+                else if(e.which == eval(keySets[i].keyCodes[2])){
+                    passGambit.claimedBy = playersArray[2];
+                    activeGambitInterfaces[passGambit.arrayPos].claimed();
+                    console.log('keypress');
+                }
+                else if(e.which == eval(keySets[i].keyCodes[3])){
+                    passGambit.claimedBy = playersArray[3];
+                    activeGambitInterfaces[passGambit.arrayPos].claimed();
+                    console.log('keypress');
+                }
+            });
+               
+            //change bound to true
+            keySets[i].bound = true;
+            //change passGambit.boundKeys
+            passGambit.boundKeys = keySets[i];
+            
+            
+            //only do this once
+            break;
+            
+            
+        }
+    }
+}
+

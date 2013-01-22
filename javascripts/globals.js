@@ -16,6 +16,23 @@ var activePlayerSummaryInterfaces = [];
 var activeGambitInterfaces = [];
 //player character global array
 var playerCharacters = [];
+//keysets for binding
+var setOne = {
+    keys:["w","t","u","p"],
+    keyCodes:[87,84,85,80],
+    bound: false
+}
+var setTwo = {
+    keys:["s","g","j","l"],
+    keyCodes:[83,71,74,76],
+    bound: false
+}
+var setThree = {
+    keys:["z","c","b","m"],
+    keyCodes:[90,67,66,77],
+    bound: false
+}
+var keySets = [setOne,setTwo,setThree];
 //gambit pieces
 var modifiers = [];
 var gambits = [];
