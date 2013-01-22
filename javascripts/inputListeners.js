@@ -34,24 +34,30 @@ function playerCharacterSelectKeyBinds(){
         if(e.which == 32){
                 //destroy pcselect interface
                 playerCharacterSelectInterface.destroy();
-                //show main game interface
-                $('.mainGameContainer').show();
-                //bind mainGameKeyBinds
-                mainGameKeyBinds();
-                //loop through playersArray
-                for (var i=0;i<playersArray.length;i++){
-                    //create a new playerSummaryInterface for each player
-                    //attach the playerObject
-                    playerObject = playersArray[i];
-                    //push into playerObject 
-                    playersArray[i].interface =  new playerSummaryInterface();
-                    //run playerSummaryInterface.init();
-                    playersArray[i].interface.init();
-                }  
-                //start the main timer
-                gameTimer.init();
-                //start the game loop
-                mainLoop = setInterval(alphaLoop,15);
+                
+                //show intro text for 10 seconds
+                $('.introText').show();
+                setTimeout(function(){
+                     $('.introText').hide();
+                    //show main game interface
+                    $('.mainGameContainer').show();
+                    //bind mainGameKeyBinds
+                    mainGameKeyBinds();
+                    //loop through playersArray
+                    for (var i=0;i<playersArray.length;i++){
+                        //create a new playerSummaryInterface for each player
+                        //attach the playerObject
+                        playerObject = playersArray[i];
+                        //push into playerObject 
+                        playersArray[i].interface =  new playerSummaryInterface();
+                        //run playerSummaryInterface.init();
+                        playersArray[i].interface.init();
+                    }  
+                    //start the main timer
+                    gameTimer.init();
+                    //start the game loop
+                    mainLoop = setInterval(alphaLoop,15);
+                },10000);     
         }
     });
 }
@@ -62,6 +68,7 @@ function mainGameKeyBinds(){
     $(document).keyup(function(e){
         //check for space key
         if(e.which == 32){
+            //do nothin
         }
     });
 }
