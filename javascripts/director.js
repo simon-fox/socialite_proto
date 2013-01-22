@@ -141,6 +141,7 @@ function director() {
     else{
         //pick a random modifier from chosenDrive array
         chosenModifier = eval(chosenDrive+"Modifiers")[Math.floor(Math.random() * eval(chosenDrive+"Modifiers").length)];
+        //console.log(chosenModifier);
         //pick a random gambit from chosenDrive array
         chosenGambit = eval(chosenDrive+"Gambits")[Math.floor(Math.random() * eval(chosenDrive+"Gambits").length)];
         //pick a random targetObject

@@ -69,7 +69,7 @@ function playerSummaryInterface(){
                 //how many seconds do we have
                 var grabGambitTimeOut = 15;
                 //if less than that has passed
-                console.log(this.player.statusTimer.tick);
+                //console.log(this.player.statusTimer.tick);
                 if (this.player.statusTimer.tick<grabGambitTimeOut){
                     //display time left as a progress bar
                     var percent = (grabGambitTimeOut -  this.player.statusTimer.tick)/grabGambitTimeOut * 100;
@@ -122,7 +122,7 @@ function gambitInterface(){
                     $('.gambitContainer').append(this.html);
                     //append correct elements to the display
                     //concat actual text of assembledGambit: modifier, gambits, targetCharacter, targetObject
-                    var constructedGambitText = this.associatedGambit.modifier.text + " " + this.associatedGambit.gambit.text + " " + this.associatedGambit.targetCharacter.playerCharacter.name + "'s " + this.associatedGambit.targetObject.text;
+                    var constructedGambitText = this.associatedGambit.modifier.text + " " + this.associatedGambit.gambit.text + " to " + this.associatedGambit.targetCharacter.playerCharacter.name;// + "'s " + this.associatedGambit.targetObject.text;
                     //////////////////////////////////
                     //concat modifier effects string//
                     //////////////////////////////////
@@ -258,7 +258,7 @@ function gambitInterface(){
                             tempThis.destroy();
                             //update scores?
                             updateScores(tempThis.associatedGambit);
-                        },3000);
+                        },8000);
                         
                         };
     //when switching to target mode                   

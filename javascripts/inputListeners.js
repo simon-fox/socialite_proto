@@ -57,7 +57,7 @@ function playerCharacterSelectKeyBinds(){
                     gameTimer.init();
                     //start the game loop
                     mainLoop = setInterval(alphaLoop,15);
-                },10000);     
+                },3000);     
         }
     });
 }
