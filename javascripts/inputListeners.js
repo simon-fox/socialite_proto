@@ -89,36 +89,27 @@ function bindGambitKeys(passGambit,passGambitInterface){
               
                 if(e.which == eval(keySets[i].keyCodes[0])){
                    passGambit.claimedBy = playersArray[0];
-                   //bug: it's not running the right .claimed() method
-                   // so it must be finding the wrong thing in the array
-                   //so we have to look through activeGambitInterfaces to find the right one
                    passGambitInterface.claimed();
-                   //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[1])){
                     passGambit.claimedBy = playersArray[1];
                     passGambitInterface.claimed();
-                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[2])){
                     passGambit.claimedBy = playersArray[2];
                     passGambitInterface.claimed();
-                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[3])){
                     passGambit.claimedBy = playersArray[3];
                     passGambitInterface.claimed();
-                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[4])){
                     passGambit.claimedBy = playersArray[3];
                     passGambitInterface.claimed();
-                    //console.log('keypress');
                 }
                 else if(e.which == eval(keySets[i].keyCodes[5])){
                     passGambit.claimedBy = playersArray[3];
                     passGambitInterface.claimed();
-                    //console.log('keypress');
                 }
             });
                
@@ -126,11 +117,9 @@ function bindGambitKeys(passGambit,passGambitInterface){
             keySets[i].bound = true;
             //change passGambit.boundKeys
             passGambit.boundKeys = keySets[i];
-            
-            
+
             //only do this once
             break;
-            
             
         }
     }

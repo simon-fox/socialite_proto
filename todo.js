@@ -440,8 +440,8 @@ function gambit(){
 //setting up the game logic
 //main game
 //- build timer prototype
-- build the input listener prototype
-- build the director
+//- build the input listener prototype
+//- build the director
     //- build game timer
     //- build leaderboard
     //- update all player interfaces
@@ -457,12 +457,13 @@ function gambit(){
     - build gambit delivery
     - build gambit releasing //maybe ignore this for proto
     - build gambit listener
-        - claiming
+        //- claiming
         - target choice
         - completion
-    - build score updater
-        - augmentors for each persona type
-
+    //- build score updater
+        //- augmentors for each persona type
+    //- build responses
+        - fix responses bugs
 
 //building game assets
     - bunch of gambits
@@ -493,12 +494,12 @@ function gambit(){
     //- run .init in that playerSummaryInterface
     //- from then on, call .update on it every tick
     //this should keep everything updated on the display
-- when director creates a gambit
-    - .init a new gambitInterface
-    - init all the listeners
-    - when claimed run .targetMode
-    - update listeners
-    - destroy interface 2-3 seconds after claiming
+//- when director creates a gambit
+    //- .init a new gambitInterface
+    //- init all the listeners
+    //- when claimed run .targetMode
+    //- update listeners
+    //- destroy interface 2-3 seconds after claiming
     
     
     
@@ -515,7 +516,7 @@ function gambit(){
 
     - build gambit, throw into array
     
-- less simple method
+//- less simple method
     //- index gambits & modifiers
     //- index by drive most affected
     //- add a key value for this
@@ -524,8 +525,37 @@ function gambit(){
     //- pick from appropriate index
     
     //- build gambit
-    - sort constructed gambits by greatest value (status affect?)
-    - use sorting to decide release schedule 
+    //- sort constructed gambits by greatest value (status affect?)
+    //- use sorting to decide release schedule
+    
+    
+////////////////////////
+//// todo for v 3.0  ///
+////////////////////////
+
+//- remove all drives from obejcts
+//- replace with conversational heat measure
+//- make object to store conversational variables
+    - probably scope everything to this rather than globally
+//- re-write the prototypes so they have parameters
+//- remove weighted random gambit creation from director
+//- fix up the .init and .update methods on gambitInterface so they work
+  //with the new gambits.
+//- fix up playerSummaryInterface init and update 
+//- fix up scoring so that it reflects new variables involved
+- design new gambit creation method
+    - something around keeping a track of response chains
+    - this is lower priority than getting responses/targeting working
+- re-make the html interface as per new design
+- re-write key-binding to reflect only two keys per player
+//- simplify data structures
+    //- only one pointer connecting gambitInterface with constructedGambit.
+    //- every constructedGambit should have a unique id
+    //- every .gambit div should have a reference to it as .data()
+- design new emotional gambits/modifiers 
+
+//- fix responses
+- add targeting 
     
 
     

@@ -21,10 +21,7 @@ function alphaLoop() {
 $(document).ready(function(){
     //load in the char select screen
     playerCharacterSelectInterface.init();
-    //index gambits & modifiers
-    indexGambits();
-    indexModifiers();
-    
+  
     //sets enter key to pause the main loop for bugtesting
     $(document).keyup(function(e){
             if(e.which == 13){

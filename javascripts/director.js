@@ -5,21 +5,19 @@
 //This function to be run every cycle
 function director() {
 //We'll use this to:
-    //check the global timer and update it
+    ////////////////////////////////////////
+    //check the global timer and update it//
+    ////////////////////////////////////////
     gameTimer.update();
     
-    //clear leaderboard
+    /////////////////////
+    //clear leaderboard//
+    /////////////////////
     statusLeaderboard = [];
     
-    //clear global temperatures
-    var sortedGlobalTemp = [];
-    globalAnger = {drive:"anger",value:0};
-    globalConfidence = {drive:"confidence",value:0};
-    globalLust = {drive:"lust",value:0};
-    globalPride = {drive:"pride",value:0};
-    globalEnvy = {drive:"envy",value:0};
-    
-    //loop through all players
+    ////////////////////////////
+    //loop through all players//
+    ////////////////////////////
     for (var i=0;i<playersArray.length;i++){
         //call .update on every activePlayer
         playersArray[i].update();
@@ -32,88 +30,18 @@ function director() {
         }
         statusLeaderboard.push(statusLeaderboardItem);
         
-        //take the temperature of the convo
-        //anger
-        globalAnger = {
-            drive : "anger",
-            value: globalAnger.value + playersArray[i].agent.anger
-        }
-        //confidence
-        globalConfidence = {
-            drive : "confidence",
-            value: globalConfidence.value + playersArray[i].agent.confidence
-        }
-        //lust
-        globalLust = {
-            drive : "lust",
-            value: globalLust.value + playersArray[i].agent.lust 
-        }
-        //pride
-        globalPride = {
-            drive : "pride",
-            value : globalPride.value + playersArray[i].agent.pride
-        }
-        //envy
-        globalEnvy = {
-            drive : "envy",
-            value : globalEnvy.value + playersArray[i].agent.envy
-        }
     }
     
-    //order values
-    sortedGlobalTemp = [globalAnger,globalConfidence,globalLust,globalPride,globalEnvy];
-    //create temp. list of global drive values lowest->highest
-    sortedGlobalTemp = sortedGlobalTemp.sort(function(a,b){return a.value-b.value});
-    //console.log(sortedGlobalTemp);
-    
-    ////////////////////////////////////////////////
-    //      Make weighted random drive choice     //
-    ////////////////////////////////////////////////
-    //variable to hold the chosen drive
-    var chosenDrive;
-    //create an array to hold the probabilities
-    var driveProbabilities = [];
-    //roll a random number
-    var randNum = Math.random();
-    //create a total for probabilities
-    var total = globalAnger.value + globalConfidence.value + globalLust.value + globalPride.value + globalEnvy.value;
-    //console.log(total);
-    //build an array of probabilities
-    for (var c=0;c<sortedGlobalTemp.length;c++){
-            driveProbabilities.push(sortedGlobalTemp[c].value/total);
-    }
-    //sort the probabilities by numerical ascendancy
-    driveProbabilities.sort(function(a,b){return a-b});
-    //console.log(driveProbabilities);
-    //create a runnning sum and compare the randNum, then exit when randNum<sum
-    var runningSum = 0;
-    var exitValue;
-    for(var c=0;c<driveProbabilities.length;c++){
-            runningSum = runningSum + driveProbabilities[c];
-            if (randNum<runningSum){
-                    exitValue = driveProbabilities[c];
-                    break;
-            }
-    }
-    //find which drive the exitValue corresponds to
-    //console.log(exitValue);
-    //console.log(exitValue * total);
-    //console.log(Math.ceil(exitValue * total));
-    for (var c=0;c<sortedGlobalTemp.length;c++){
-          if (sortedGlobalTemp[c].value == (Math.ceil(exitValue * total))){
-            chosenDrive = sortedGlobalTemp[c].drive;
-            //console.log(chosenDrive);
-          }
-    }
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    
-    //sort the board
+    //////////////////
+    //sort the board//
+    //////////////////
     statusLeaderboard = statusLeaderboard.sort(function(a, b) {
         return a.value - b.value;
     });
     
-    //loop through leaderboard and send data to playerObject
+    //////////////////////////////////////////////////////////
+    //loop through leaderboard and send data to playerObject//
+    //////////////////////////////////////////////////////////
     for (var i=0;i<statusLeaderboard.length;i++){
         var rawPosition = statusLeaderboard.length - i;
         if(rawPosition == 1){
@@ -133,73 +61,72 @@ function director() {
     ////////////////////////////
     //run the gambit assembler//
     ////////////////////////////
+    //declare variables for building the gambit
+    var chosenModifier;
+    var chosenGambit;
+    var chosenTargetObject;
+    var chosenTargetCharacter; //fill this up with empty string once we do targeting
+    var modifierStatusEffect;
+    var gambitStatusEffect;
+    var heatEffectSum;
+    var claimer;
+    var response;
+    var responseName;
+    var constructedGambitObject
     //check number of gambits on screen
     //if plenty
     if(activeGambitInterfaces.length >= 2){
         //do nothing
     }
     else{
-        /////////////////////////
-        // lets build a gambit //
-        /////////////////////////
+    /////////////////////////
+    // lets build a gambit //
+    /////////////////////////
         //Lets check if it's a response
-        responseName ="";
-        response = "";
-        console.log('claimants length: '+claimants.length);
+        //console.log('claimants length: '+claimants.length);
         if (claimants.length){
             //we have something to respond to
-            responseName = claimants[0].name;
+            responseName = claimants[0].playerCharacter.name;
             response = true;
-            console.log('response in director: '+response)
-            //autoTargeting - pick a random target character
-            
+            //console.log('response in director: '+response)
+            //autoTargeting - responses effectively target the previous claimant
             chosenTargetCharacter = claimants[0];
-            
-            
+            //lazy hack to clear out claimants so only one response at a time :(
+            claimants = [];
         }
-        else if (!claimants.length){
+        else if (claimants.length == 0){
+            //nothing to respond to, not response specific stuff here
             response = false;
             responseName = "";
-            console.log('response in director: '+response)
+            //console.log('response in director: '+response)
             //autoTargeting - pick a random target character
             chosenTargetCharacter = playersArray[Math.floor(Math.random() * playersArray.length)];
             
         }
-        //lazy hack
-        claimants = [];
-        console.log("chosen target is: "+chosenTargetCharacter.name);
-            //build a normal gambit 
-            //pick a random modifier from chosenDrive array
-            chosenModifier = eval(chosenDrive+"Modifiers")[Math.floor(Math.random() * eval(chosenDrive+"Modifiers").length)];
-            //console.log(chosenModifier);
-            //pick a random gambit from chosenDrive array
-            chosenGambit = eval(chosenDrive+"Gambits")[Math.floor(Math.random() * eval(chosenDrive+"Gambits").length)];
-            //pick a random targetObject
-            chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
-            //modifier status & drive effects
-            modifierStatusEffect = chosenModifier.statusEffect;
-            modifierAngerEffect = chosenModifier.angerEffect;
-            modifierConfidenceEffect = chosenModifier.confidenceEffect;
-            modifierLustEffect = chosenModifier.lustEffect;
-            modifierPrideEffect = chosenModifier.prideEffect;
-            modifierEnvyEffect = chosenModifier.envyEffect;
-            //gambit status & drive effects
-            gambitStatusEffect = chosenGambit.statusEffect;
-            gambitAngerEffect = chosenGambit.angerEffect;
-            gambitConfidenceEffect = chosenGambit.confidenceEffect;
-            gambitLustEffect = chosenGambit.lustEffect;
-            gambitPrideEffect = chosenGambit.prideEffect;
-            gambitEnvyEffect = chosenGambit.envyEffect;
-            //no claimant yet
-            claimer = "";
-            //create constructedGambit
-            //append to constructedGambits array
-            constructedGambits.push(new constructedGambit());
-            //console.log(constructedGambits);
-            //initialise a new interface with this gambit
-            console.log(constructedGambits.length-1);
-            constructedGambitObject = constructedGambits[constructedGambits.length-1];
-            activeGambitInterfaces.push(new gambitInterface());
+        //build a normal gambit 
+        //pick a random modifier from chosenDrive array
+        chosenModifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+        //pick a random gambit from chosenDrive array
+        chosenGambit = gambits[Math.floor(Math.random() * gambits.length)];
+        //pick a random targetObject
+        chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
+        //modifier status effects
+        modifierStatusEffect = chosenModifier.statusEffect;
+        //gambit status effects
+        gambitStatusEffect = chosenGambit.statusEffect;
+        //conversational heat effect
+        heatEffectSum = chosenModifier.heatEffect + chosenGambit.heatEffect;
+        //no claimant yet
+        claimer = "";
+        
+        //create constructedGambit
+        constructedGambitObject = new constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosenTargetCharacter,modifierStatusEffect,gambitStatusEffect,heatEffectSum,claimer,response,responseName);
+        //append to constructedGambits array
+        constructedGambits.push(constructedGambitObject);
+        //console.log(constructedGambits);
+        //initialise a new interface with this gambit
+        //console.log(constructedGambits.length-1);
+        activeGambitInterfaces.push(new gambitInterface(constructedGambitObject));
         
     }
             
@@ -221,13 +148,6 @@ function director() {
         }
         
     }
-                //make a decision about delivery
-                    //check individuals drives
-                    //create a prob. weighting for for distribution
-                    //create a list, append to gambit.deliverySchedule
-                    //append gambit to constructedGambits array
-                    
-    
         
 }
 

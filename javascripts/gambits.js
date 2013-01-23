@@ -31,7 +31,7 @@ function targetObject() {
 }
 
 //constructed gambit prototype
-function constructedGambit(){
+function constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosenTargetCharacter,modifierStatusEffect,gambitStatusEffect,heatEffectSum,claimer,response,responseName){
     //the gambit message
     this.modifier = chosenModifier;
     this.gambit = chosenGambit;
@@ -45,11 +45,15 @@ function constructedGambit(){
     //affects target 
     this.statusEffectG = gambitStatusEffect;
     //heat effect
-    this.heatEffect = gambitHeatEffect + modifierHeatEffect;
+    this.heatEffect = heatEffectSum;
     
     //gambit claimant and keybindings
     this.claimedBy = claimer;
     this.boundKeys = [];
+    
+    //response?
+    this.responseBoolean = response;
+    this.responseBy = responseName;
     
     //build switch
     this.onScreen = false;
@@ -57,9 +61,8 @@ function constructedGambit(){
     //timer
     this.gambitTimer = new Timer();
     
-    //response?
-    this.responseBoolean = response;
-    this.responseBy = responseName;
+    //unique id
+    this.constructedGambitID = Math.random()*1000000000000000000;
 }
 
 /////////////////////
@@ -73,7 +76,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 30,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.modifierHeatEffect = 0
 ));
 modifiers.push(new modifier(
     //content
@@ -81,7 +84,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 25,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.modifierHeatEffect = 0
 ));
 modifiers.push(new modifier(
     //content
@@ -89,7 +92,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 5,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.modifierHeatEffect = 0
 ));
 modifiers.push(new modifier(
     //content
@@ -97,7 +100,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 15,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.modifierHeatEffect = 0
 ));
 modifiers.push(new modifier(
     //content
@@ -105,7 +108,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 35,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.modifierHeatEffect = 0
 ));
 
 
@@ -116,7 +119,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 gambits.push(new gambit(
     //content
@@ -124,7 +127,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -15,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 gambits.push(new gambit(
     //content
@@ -132,7 +135,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -35,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 gambits.push(new gambit(
     //content
@@ -140,7 +143,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 gambits.push(new gambit(
     //content
@@ -148,7 +151,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 gambits.push(new gambit(
     //content
@@ -156,7 +159,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 gambits.push(new gambit(
     //content
@@ -164,7 +167,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 gambits.push(new gambit(
     //content
@@ -172,7 +175,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.modifierHeatEffect = 0,
+    this.gambitHeatEffect = 0
 ));
 
 
