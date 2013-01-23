@@ -556,8 +556,15 @@ function gambit(){
 
 //- fix responses
 - add targeting
+- add heat game over condition 
 - add intro screen showing YOU ARE: X
 - add outro screen showing winners
+- find some sort of meaning for personality points!
+
+
+- about 36 gambits per game (10s per gambit, 2 gambits on screen)
+- if average gambit heat is 10, that's 360 heat per game average
+- so maybe 500 heat is a good cap point?
     
 
     

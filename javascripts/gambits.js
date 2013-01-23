@@ -76,7 +76,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 30,
     //Heat effect
-    this.modifierHeatEffect = 0
+    this.modifierHeatEffect = 10
 ));
 modifiers.push(new modifier(
     //content
@@ -84,7 +84,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 25,
     //Heat effect
-    this.modifierHeatEffect = 0
+    this.modifierHeatEffect = 30
 ));
 modifiers.push(new modifier(
     //content
@@ -92,7 +92,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 5,
     //Heat effect
-    this.modifierHeatEffect = 0
+    this.modifierHeatEffect = 10
 ));
 modifiers.push(new modifier(
     //content
@@ -100,7 +100,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 15,
     //Heat effect
-    this.modifierHeatEffect = 0
+    this.modifierHeatEffect = 5
 ));
 modifiers.push(new modifier(
     //content
@@ -108,7 +108,7 @@ modifiers.push(new modifier(
     //status effect
     this.modifierStatusEffect = 35,
     //Heat effect
-    this.modifierHeatEffect = 0
+    this.modifierHeatEffect = 10
 ));
 
 
@@ -119,7 +119,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = 30
 ));
 gambits.push(new gambit(
     //content
@@ -127,7 +127,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -15,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = -30
 ));
 gambits.push(new gambit(
     //content
@@ -135,7 +135,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -35,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = 50
 ));
 gambits.push(new gambit(
     //content
@@ -143,7 +143,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = 20
 ));
 gambits.push(new gambit(
     //content
@@ -151,7 +151,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = 20
 ));
 gambits.push(new gambit(
     //content
@@ -159,7 +159,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = 30
 ));
 gambits.push(new gambit(
     //content
@@ -167,7 +167,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = -20
 ));
 gambits.push(new gambit(
     //content
@@ -175,7 +175,7 @@ gambits.push(new gambit(
     //status effect
     this.gambitStatusEffect = -45,
     //Heat effect
-    this.gambitHeatEffect = 0
+    this.gambitHeatEffect = -10
 ));
 
 

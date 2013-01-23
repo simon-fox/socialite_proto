@@ -387,7 +387,7 @@ var gameTimer = {
                        //////////////////////////
                        //trigger end game state//
                        //////////////////////////
-                       clearInterval(mainLoop);
+                       endGame();
                        
                        
                     }

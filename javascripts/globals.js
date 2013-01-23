@@ -58,6 +58,13 @@ function updateScores(passedConstructedGambit){
     conversation.heat = conversation.heat + passedConstructedGambit.heatEffect; 
 }
 
+//////////////////
+// End the game //
+//////////////////
+function endGame(){
+    clearInterval(mainLoop);
+}
+
 ///////////////////
 //timer prototype//
 ///////////////////
