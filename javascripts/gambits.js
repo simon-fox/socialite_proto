@@ -8,13 +8,8 @@ function modifier() {
     this.text = modifierText;
     //status & drive effects
     this.statusEffect = modifierStatusEffect;
-    this.angerEffect = modifierAngerEffect;
-    this.confidenceEffect = modifierConfidenceEffect;
-    this.lustEffect = modifierLustEffect;
-    this.prideEffect = modifierPrideEffect;
-    this.envyEffect = modifierEnvyEffect;
-    //most affected
-    this.mostAffected = mostAffectedIndex;
+    //heat effect
+    this.heatEffect = modifierHeatEffect;
 }
 
 //gambit prototype
@@ -23,13 +18,8 @@ function gambit() {
     this.text = gambitText;
     //status & drive effects
     this.statusEffect = gambitStatusEffect;
-    this.angerEffect = gambitAngerEffect;
-    this.confidenceEffect = gambitConfidenceEffect;
-    this.lustEffect = gambitLustEffect;
-    this.prideEffect = gambitPrideEffect;
-    this.envyEffect = gambitEnvyEffect;
-    //most affected
-    this.mostAffected = mostAffectedIndex;
+    //heat effect
+    this.heatEffect = gambitHeatEffect;
 }
 
 //target object prototype
@@ -48,29 +38,18 @@ function constructedGambit(){
     this.targetObject = chosenTargetObject;
     this.targetCharacter = chosenTargetCharacter;
     
-    //modifier status & drive effects
+    //modifier status effect
     //affects claimant
     this.statusEffectM = modifierStatusEffect;
-    this.angerEffectM = modifierAngerEffect;
-    this.confidenceEffectM = modifierConfidenceEffect;
-    this.lustEffectM = modifierLustEffect;
-    this.prideEffectM = modifierPrideEffect;
-    this.envyEffectM = modifierEnvyEffect;
-    //gambit status & drive effects
+    //gambit status effect
     //affects target 
     this.statusEffectG = gambitStatusEffect;
-    this.angerEffectG = gambitAngerEffect;
-    this.confidenceEffectG = gambitConfidenceEffect;
-    this.lustEffectG = gambitLustEffect;
-    this.prideEffectG = gambitPrideEffect;
-    this.envyEffectG = gambitEnvyEffect;
+    //heat effect
+    this.heatEffect = gambitHeatEffect + modifierHeatEffect;
     
     //gambit claimant and keybindings
     this.claimedBy = claimer;
     this.boundKeys = [];
-    
-    //gambit delivery schedule
-    this.deliverySchedule = [];
     
     //build switch
     this.onScreen = false;
@@ -93,70 +72,40 @@ modifiers.push(new modifier(
     this.modifierText = "Say something",
     //status effect
     this.modifierStatusEffect = 30,
-    //drives
-    this.modifierAngerEffect = 0,
-    this.modifierConfidenceEffect = 15,
-    this.modifierLustEffect = 0,
-    this.modifierPrideEffect = 0, 
-    this.modifierEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Confidence"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 modifiers.push(new modifier(
     //content
     this.modifierText = "Shout something",
     //status effect
     this.modifierStatusEffect = 25,
-    //drives
-    this.modifierAngerEffect = 40,
-    this.modifierConfidenceEffect = 0,
-    this.modifierLustEffect = 0,
-    this.modifierPrideEffect = 0, 
-    this.modifierEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Anger"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 modifiers.push(new modifier(
     //content
     this.modifierText = "Mutter",
     //status effect
     this.modifierStatusEffect = 5,
-    //drives
-    this.modifierAngerEffect = 0,
-    this.modifierConfidenceEffect = 0,
-    this.modifierLustEffect = 0,
-    this.modifierPrideEffect = -10, 
-    this.modifierEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Pride"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 modifiers.push(new modifier(
     //content
     this.modifierText = "Whisper",
     //status effect
     this.modifierStatusEffect = 15,
-    //drives
-    this.modifierAngerEffect = 0,
-    this.modifierConfidenceEffect = 0,
-    this.modifierLustEffect = 30,
-    this.modifierPrideEffect = 0, 
-    this.modifierEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Lust"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 modifiers.push(new modifier(
     //content
     this.modifierText = "Mention something",
     //status effect
     this.modifierStatusEffect = 35,
-    //drives
-    this.modifierAngerEffect = 0,
-    this.modifierConfidenceEffect = 0,
-    this.modifierLustEffect = 0,
-    this.modifierPrideEffect = 0, 
-    this.modifierEnvyEffect = 30,
-    //most affected
-    this.mostAffectedIndex = "Envy"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 
 
@@ -166,112 +115,64 @@ gambits.push(new gambit(
     this.gambitText = "Angrily",
     //status effect
     this.gambitStatusEffect = -45,
-    //drives
-    this.gambitAngerEffect = 15,
-    this.gambitConfidenceEffect = 0,
-    this.gambitLustEffect = 0,
-    this.gambitPrideEffect = 0,
-    this.gambitEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Anger"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 gambits.push(new gambit(
     //content
     this.gambitText = "Lovingly",
     //status effect
     this.gambitStatusEffect = -15,
-    //drives
-    this.gambitAngerEffect = 0,
-    this.gambitConfidenceEffect = 0,
-    this.gambitLustEffect = 40,
-    this.gambitPrideEffect = 0,
-    this.gambitEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Lust"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 gambits.push(new gambit(
     //content
     this.gambitText = "Furiously",
     //status effect
     this.gambitStatusEffect = -35,
-    //drives
-    this.gambitAngerEffect = 25,
-    this.gambitConfidenceEffect = 0,
-    this.gambitLustEffect = 0,
-    this.gambitPrideEffect = 0,
-    this.gambitEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Anger"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 gambits.push(new gambit(
     //content
     this.gambitText = "Mockingly",
     //status effect
     this.gambitStatusEffect = -45,
-    //drives
-    this.gambitAngerEffect = 0,
-    this.gambitConfidenceEffect = 30,
-    this.gambitLustEffect = 0,
-    this.gambitPrideEffect = 0,
-    this.gambitEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Confidence"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 gambits.push(new gambit(
     //content
     this.gambitText = "Archly",
     //status effect
     this.gambitStatusEffect = -45,
-    //drives
-    this.gambitAngerEffect = 0,
-    this.gambitConfidenceEffect = 0,
-    this.gambitLustEffect = 0,
-    this.gambitPrideEffect = 30,
-    this.gambitEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Pride"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 gambits.push(new gambit(
     //content
     this.gambitText = "Sarcastically",
     //status effect
     this.gambitStatusEffect = -45,
-    //drives
-    this.gambitAngerEffect = 0,
-    this.gambitConfidenceEffect = 0,
-    this.gambitLustEffect = 0,
-    this.gambitPrideEffect = 0,
-    this.gambitEnvyEffect = 30,
-    //most affected
-    this.mostAffectedIndex = "Envy"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 gambits.push(new gambit(
     //content
     this.gambitText = "Graciously",
     //status effect
     this.gambitStatusEffect = -45,
-    //drives
-    this.gambitAngerEffect = 15,
-    this.gambitConfidenceEffect = 0,
-    this.gambitLustEffect = 0,
-    this.gambitPrideEffect = 0,
-    this.gambitEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Anger"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 gambits.push(new gambit(
     //content
     this.gambitText = "Wittily",
     //status effect
     this.gambitStatusEffect = -45,
-    //drives
-    this.gambitAngerEffect = 0,
-    this.gambitConfidenceEffect = 0,
-    this.gambitLustEffect = 0,
-    this.gambitPrideEffect = 40,
-    this.gambitEnvyEffect = 0,
-    //most affected
-    this.mostAffectedIndex = "Pride"
+    //Heat effect
+    this.modifierHeatEffect = 0,
 ));
 
 
@@ -328,50 +229,4 @@ targetObjects.push(new targetObject(
     this.targetObjectText = "Fine Ceramics",
     this.targetObjectImg = ""
 ));
-
-
-//function to index gambits by drive most affected
-function indexGambits(){
-    for (var i=0;i<gambits.length;i++){
-        if(gambits[i].mostAffected == "Anger"){
-            angerGambits.push(gambits[i]);
-        }
-        else if(gambits[i].mostAffected == "Confidence"){
-            confidenceGambits.push(gambits[i]);
-        }
-        else if(gambits[i].mostAffected == "Lust"){
-            lustGambits.push(gambits[i]);
-        }
-        else if(gambits[i].mostAffected == "Pride"){
-            prideGambits.push(gambits[i]);
-        }
-        else if(gambits[i].mostAffected == "Envy"){
-            envyGambits.push(gambits[i]);
-        }
-    }
-}
-
-//function to index modifiers by drive most affected 
-function indexModifiers(){
-    for (var i=0;i<modifiers.length;i++){
-        if(modifiers[i].mostAffected == "Anger"){
-            angerModifiers.push(modifiers[i]);
-        }
-        else if(modifiers[i].mostAffected == "Confidence"){
-            confidenceModifiers.push(modifiers[i]);
-        }
-        else if(modifiers[i].mostAffected == "Lust"){
-            lustModifiers.push(modifiers[i]);
-        }
-        else if(modifiers[i].mostAffected == "Pride"){
-            prideModifiers.push(modifiers[i]);
-        }
-        else if(modifiers[i].mostAffected == "Envy"){
-            envyModifiers.push(modifiers[i]);
-        }
-    }
-}
-
-
-
 
