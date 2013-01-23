@@ -12,5 +12,8 @@ conversation = {
             //end the game
             endGame();
         }
+        else if(this.heat > 300){
+            $('.heatBar div').css('background-color','#ff0000')
+        }
     }
-}
+} 
