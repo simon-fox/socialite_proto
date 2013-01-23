@@ -229,7 +229,7 @@ function gambitInterface(constructedGambitObject){
                         tempThis.destroy();
                         //update scores?
                         updateScores(tempThis.associatedGambit);
-                    },8000);
+                    },6000);
                         
                 };
     //when switching to target mode                   
