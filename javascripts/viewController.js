@@ -60,7 +60,7 @@ function playerSummaryInterface(){
                 //update status position
                 $('.statusPosition').eq(this.player.arrayPos).html(this.player.statusPosition);
                 //update drive bars
-                $('.heatBar div').eq(this.player.arrayPos).css('width',conversation.heat+"%");
+                $('.heatBar div').eq(this.player.arrayPos).css('width',(conversation.heat/500*100)+"%");
                 //update status
                 $('.statusPosition').eq(this.player.arrayPos).html(this.player.statusPosition);
                 $('.statusRaw').eq(this.player.arrayPos).html(this.player.agent.status);

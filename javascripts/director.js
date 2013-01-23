@@ -15,6 +15,11 @@ function director() {
     /////////////////////
     statusLeaderboard = [];
     
+    ///////////////////////
+    //update conversation//
+    ///////////////////////
+    conversation.update();
+    
     ////////////////////////////
     //loop through all players//
     ////////////////////////////
