@@ -555,7 +555,9 @@ function gambit(){
 - design new emotional gambits/modifiers 
 
 //- fix responses
-- add targeting 
+- add targeting
+- add intro screen showing YOU ARE: X
+- add outro screen showing winners
     
 
     

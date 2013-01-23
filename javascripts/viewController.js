@@ -158,7 +158,7 @@ function gambitInterface(constructedGambitObject){
                     }
                     
                     //get heatEffect
-                    var modifierEffectsString = "<br/>"+this.associatedGambit.heatEffect+" heat";
+                    var modifierEffectsString = modifierEffectsString+"<br/> Everyone Gets:<br/>"+this.associatedGambit.heatEffect+" heat";
                 
                     ////////////////////
                     //initialise timer//
