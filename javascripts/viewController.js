@@ -19,7 +19,6 @@ var playerSummaryInterfaceHtml ='\
             <div class="driveBar heatBar"><div>HEAT</div></div>\
         </div>\
     </div>\
-    <div class="messageStripe">YOU WILL LOSE STATUS IN:</div>\
     <div class="timerBar"><div>STATUS: <span class="statusRaw">23</span></div></div>\
 </div>\
 ';
@@ -97,7 +96,7 @@ var gambitInterfaceHtml ='\
         <div class="gambitEffectsCol">They get:<br/><div class="gambitsCol"></div></div>\
     </div>\
     <div class="claimGambit">\
-        TO CLAIM THIS GAMBIT:<br/>\
+        GRAB IT:<br/>\
         <div class="claimButton">P1: <h2>E</h2></div>\
         <div class="claimButton">P2: <h2>T</h2></div>\
         <div class="claimButton">P3: <h2>U</h2></div>\
@@ -163,7 +162,7 @@ function gambitInterface(constructedGambitObject){
                         ///////////////////////
                         //build claim buttons//
                         ///////////////////////
-                        var claimKeysString = "TO CLAIM THIS GAMBIT:<br/>";
+                        var claimKeysString = "      SAY THIS:<br/>";
                         for (var i=0;i<playersArray.length;i++){
                             claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
                         }
