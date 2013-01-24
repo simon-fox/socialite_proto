@@ -105,7 +105,7 @@ function director() {
             responseName = "";
             //console.log('response in director: '+response)
             //autoTargeting - pick a random target character
-            chosenTargetCharacter = playersArray[Math.floor(Math.random() * playersArray.length)];
+            chosenTargetCharacter = "";
             
         }
         //build a normal gambit 
