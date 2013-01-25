@@ -16,10 +16,10 @@ var playerSummaryInterfaceHtml ='\
             <div class="statusPosition">1st</div>\
         </div>\
         <div class="driveBarsContainer">\
-            <div class="driveBar heatBar"><div>HEAT</div></div>\
+            <div class="driveBar heatBar"><div>OUTRAGE</div></div>\
+            <div class="driveBar statusBar"><div>STATUS</div></div>\
         </div>\
     </div>\
-    <div class="timerBar"><div>STATUS: <span class="statusRaw">23</span></div></div>\
 </div>\
 ';
 
@@ -57,21 +57,20 @@ function playerSummaryInterface(playerObject){
                 $('.statusPosition').eq(this.player.arrayPos).html(this.player.statusPosition);
                 //update drive bars
                 $('.heatBar div').eq(this.player.arrayPos).css('width',(conversation.heat/500*100)+"%");
+                 $('.statusBar div').eq(this.player.arrayPos).css('width',(this.player.agent.status)+"%");
                 //update status
                 $('.statusPosition').eq(this.player.arrayPos).html(this.player.statusPosition);
-                $('.statusRaw').eq(this.player.arrayPos).html(this.player.agent.status);
+                //$('.statusRaw').eq(this.player.arrayPos).html(this.player.agent.status);
                 
                 /////////////////////
                 //update timer bars//
                 /////////////////////
                 //how many seconds do we have
-                var grabGambitTimeOut = 15;
+                var grabGambitTimeOut = 2;
                 //if less than that has passed
                 //console.log(this.player.statusTimer.tick);
                 if (this.player.statusTimer.tick<grabGambitTimeOut){
-                    //display time left as a progress bar
-                    var percent = (grabGambitTimeOut -  this.player.statusTimer.tick)/grabGambitTimeOut * 100;
-                    $('.timerBar div').eq(this.player.arrayPos).css('width',percent+"%");
+                   //do nothing to no-one
                 }
                 //if time is up
                 else if (this.player.statusTimer.tick == grabGambitTimeOut){
@@ -79,7 +78,7 @@ function playerSummaryInterface(playerObject){
                     this.player.statusTimer.stop();
                     this.player.statusTimer.start();
                     //reduce status by 5
-                    this.player.agent.status  = this.player.agent.status -5;
+                    this.player.agent.status  = this.player.agent.status -1;
                 }
             };
 }
@@ -93,13 +92,6 @@ var gambitInterfaceHtml ='\
         <div class="gambitEffectsCol">They get:<br/><div class="gambitsCol"></div></div>\
     </div>\
     <div class="claimGambit">\
-        GRAB IT:<br/>\
-        <div class="claimButton">P1: <h2>E</h2></div>\
-        <div class="claimButton">P2: <h2>T</h2></div>\
-        <div class="claimButton">P3: <h2>U</h2></div>\
-        <div class="claimButton">P4: <h2>C</h2></div>\
-        <div class="claimButton">P5: <h2>B</h2></div>\
-        <div class="claimButton">P6: <h2>M</h2></div>\
     </div>\
     <div class="timerBarGambit"><div></div></div>\
 </div>\

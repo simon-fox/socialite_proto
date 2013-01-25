@@ -555,16 +555,21 @@ function gambit(){
 - design new emotional gambits/modifiers 
 
 //- fix responses
-- add targeting
-- add heat game over condition 
+//- add targeting
+//- add heat game over condition 
 - add intro screen showing YOU ARE: X
 - add outro screen showing winners
 - find some sort of meaning for personality points!
 
 
-- about 36 gambits per game (10s per gambit, 2 gambits on screen)
-- if average gambit heat is 10, that's 360 heat per game average
-- so maybe 500 heat is a good cap point?
+//- about 36 gambits per game (10s per gambit, 2 gambits on screen)
+//- if average gambit heat is 10, that's 360 heat per game average
+//- so maybe 500 heat is a good cap point?
     
-
+- VERTICAL INTERFACE
+    - gambit distribution - speak any time framework
+        - build gambit
+            - choose modifier
+            - engage init
+            - init asks 'how'+modifier+'do you want to be?'
     

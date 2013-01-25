@@ -182,7 +182,7 @@ h2{
 
 .playerSummary{
     width: 325px;
-    height: 220px;
+    height: 170px;
     background-color: #ccc;
     position: relative;
     
@@ -238,16 +238,17 @@ h2{
 
 .driveBar{
     width: 160px;
-    height: 20px;
+    height: 45px;
     
     margin-top: 5px;
+    margin-bottom: 29px;
     
     background-color: #444;
 }
 
 .driveBar div{
     background-color: #cc9999;
-    height: 20px;
+    height: 45px;
     width: 40%;
 }
 
