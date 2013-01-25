@@ -24,7 +24,7 @@ var playerSummaryInterfaceHtml ='\
 ';
 
 //player summary prototype
-function playerSummaryInterface(){
+function playerSummaryInterface(playerObject){
     //load in the html
     this.html = playerSummaryInterfaceHtml;
     //which player
@@ -34,12 +34,9 @@ function playerSummaryInterface(){
                 ///////////////////////////////////////////
                 //append this.html to the correct display//
                 ///////////////////////////////////////////
-                if ($('.playerSummary').length < 3){
-                    $('.playerSummaryContainer').eq(0).append(this.html);
-                }
-                else{
-                    $('.playerSummaryContainer').eq(1).append(this.html);
-                }
+                //init a variable so that the .eq is the number in the players array -1
+                $('.playerSummaryContainer').eq(this.player.arrayPos).append(this.html);
+                
                 /////////////////
                 //load portrait//
                 /////////////////

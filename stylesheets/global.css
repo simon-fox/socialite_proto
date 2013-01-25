@@ -141,36 +141,47 @@ h2{
 /*************************/
 
 .mainGameContainer{
-    width: 1024px;
+    width: 100%;
     height: 600px;
     position: absolute;
-    left: 50%;
-    margin-left: -512px;
+    left:0px;
     
     background-color: #000;
     
     /*hide until needed*/
     display:none;
+    
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+
 }
 
 .playerSummaryContainer{
-    width: 320px;
+    width: 325px;
     height: 600px;
     background-color: #000;
     
-    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1
 }
 
-.gambitContainer{
-    width:384px;
-    height: 600px;
-    float: left;
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
 }
 
 /* player Summary */
 
 .playerSummary{
-    width: 320px;
+    width: 325px;
     height: 220px;
     background-color: #ccc;
     position: relative;
@@ -180,7 +191,7 @@ h2{
 }
 
 .topLabel{
-    width: 310px;
+    width: auto;
     height: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -284,7 +295,7 @@ h2{
 }
 
 .gambit{
-    width: 364px;
+    width: 325px;
     height: 245px;
     margin-left: 10px;
     margin-top: 10px;
@@ -293,7 +304,7 @@ h2{
 }
 
 .gambitText{
-    width: 354px;
+    width: auto;
     height: auto;
     
     padding-left: 10px;

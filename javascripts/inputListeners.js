@@ -49,7 +49,7 @@ function playerCharacterSelectKeyBinds(){
                         //attach the playerObject
                         playerObject = playersArray[i];
                         //push into playerObject 
-                        playersArray[i].interface =  new playerSummaryInterface();
+                        playersArray[i].interface =  new playerSummaryInterface(playerObject);
                         //run playerSummaryInterface.init();
                         playersArray[i].interface.init();
                     }  
