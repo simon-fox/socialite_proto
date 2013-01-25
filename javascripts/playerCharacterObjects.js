@@ -16,7 +16,7 @@ playerCharacters.push(new playerCharacter(
     this.pcImg = "fullPortrait9.png",
     this.pcPortrait = "portrait9.png",
     this.pcTraitsArray = ["bitter", "determined", "boastful", "jealous"],
-    this.pcBio = "Mr Garrick, playwrite, thespian, gourmande. Garrick never spends a moment alone if he can help it, for introspection looms behind him like a spectre."
+    this.pcBio = "Mr Garrick"
 ));
 
 playerCharacters.push(new playerCharacter(

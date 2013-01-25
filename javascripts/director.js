@@ -66,16 +66,13 @@ function director() {
             playersArray[statusLeaderboard[i].player.arrayPos].statusPosition = rawPosition+"th";
         }
     }
-    
-    //gambit assembler was here
             
     ////////////////////////////          
-    //build and update gambits//
+    //update gambit interfaces//
     ////////////////////////////
     
     //cycle through constructed gambit interfaces array
     for (var i = 0; i<activeGambitInterfaces.length ; i++){
-        //if gambit has not been initialised yet
         if (activeGambitInterfaces[i].onScreen == false){
         }
         else {

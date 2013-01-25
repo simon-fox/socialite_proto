@@ -88,8 +88,6 @@ var gambitInterfaceHtml ='\
 <div class="gambit">\
     <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>\
     <div class="gambitEffects">\
-        <div class="gambitEffectsCol">You get:<br/><div class="modifiersCol"></div></div>\
-        <div class="gambitEffectsCol">They get:<br/><div class="gambitsCol"></div></div>\
     </div>\
     <div class="claimGambit">\
     </div>\
@@ -151,7 +149,7 @@ function gambitInterface(constructedGambitObject){
                     if (this.associatedGambit.statusEffectM == 0){/*do nothing*/}
                     else {
                         //add to string
-                        modifierEffectsString = modifierEffectsString + this.associatedGambit.statusEffectM+" status</br>";
+                        modifierEffectsString = "<br/>"+this.associatedGambit.statusEffectM+" status</br>";
                     }
                     
                     //concat gambit effects string//
@@ -159,11 +157,11 @@ function gambitInterface(constructedGambitObject){
                     if (this.associatedGambit.statusEffectG == 0){/*do nothing*/}
                     else {
                         //add to string
-                        gambitEffectsString = gambitEffectsString + this.associatedGambit.statusEffectG+" status</br>";
+                        gambitEffectsString = "<br/>"+this.associatedGambit.statusEffectG+" status</br>";
                     }
                     
                     //get heatEffect
-                    var modifierEffectsString = modifierEffectsString+"<br/> Everyone Gets:<br/>"+this.associatedGambit.heatEffect+" heat";
+                    var heatEffectsString = "<br/>"+this.associatedGambit.heatEffect+" Outrage";
                 
                     ////////////////////
                     //initialise timer//
@@ -174,8 +172,9 @@ function gambitInterface(constructedGambitObject){
                     //print to screen//
                     ///////////////////
                     $(constructedGambitInterfaceHtml).children('.gambitText').html(constructedGambitText);
-                    $(constructedGambitInterfaceHtml).children('.gambitEffects').children('.gambitEffectsCol').children('.modifiersCol').html(modifierEffectsString);
-                    $(constructedGambitInterfaceHtml).children('.gambitEffects').children('.gambitEffectsCol').children('.gambitsCol').html(gambitEffectsString);
+                    $(constructedGambitInterfaceHtml).children('.gambitEffects').append(modifierEffectsString);
+                    $(constructedGambitInterfaceHtml).children('.gambitEffects').append(gambitEffectsString);
+                    $(constructedGambitInterfaceHtml).children('.gambitEffects').append(heatEffectsString);
                     $(constructedGambitInterfaceHtml).children('.claimGambit').html(claimKeysString);
                     
                     //switch .onScreen to true
@@ -255,13 +254,13 @@ function gambitInterface(constructedGambitObject){
                     ////////////////////////
                     //build target buttons//
                     ////////////////////////
-                    var claimKeysString = "WHO WILL YOU SAY THIS TO?<br/>";
+                    var claimKeysString = "TO WHO?<br/>";
                     for (var i=0;i<playersArray.length;i++){
                         if(playersArray[i] == this.associatedGambit.claimedBy ){
-                            claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2> _ </h2></div>';
+                            //dont print anything
                         }
                         else{
-                            claimKeysString = claimKeysString + '<div class="claimButton">P'+(i+1)+': <h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
+                            claimKeysString = claimKeysString + '<div class="targetButton" style= "background-image:url(images/'+playerCharacters[i].portrait+');"><h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
                         }
                     }
                     //print to screen

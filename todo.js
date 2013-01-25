@@ -568,6 +568,20 @@ function gambit(){
 
 //below code for grabbing specific dom element
 //stored for later - no need for it right now..
+
+- new gambit distribution for vertical interface
+    - stu style synchronised distribution
+    - any time distribution
+- make gambit effects prettier/ more readable
+- show targets in context of position on leaderboard
+
+
+
+
+
+
+
+
 //////////////////////////////
 // get the right dom element//
 //////////////////////////////
