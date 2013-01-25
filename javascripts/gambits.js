@@ -68,7 +68,7 @@ function constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosen
 //////////////////////
 // gambit assembler //
 //////////////////////
-function makeGambit(passedPlayer){
+function makeGambit(tempNoGambitArray){
     //declare variables for building the gambit
     var chosenModifier;
     var chosenGambit;

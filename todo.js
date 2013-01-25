@@ -574,7 +574,10 @@ function gambit(){
     - any time distribution
 - make gambit effects prettier/ more readable
 - show targets in context of position on leaderboard
-
+- cooldowns on passing on a gambit 
+- When targeted new gambit layout
+    - MODIFIER SOMETHING GAMBIT TO TARGET NOW
+    - to make it an explicit command
 
 
 
@@ -595,22 +598,21 @@ for (var i=0;i<$('.gambit').length;i++){
 
 
 - VERTICAL INTERFACE
+    // asynch distro
+    - in director
+       // - while looping through players
+           // - if player has no gambit, store player in a temp array
+           // - keep going until you have looped through all players
+            //- give array to makeGambit
+            DO THIS ONE NOW
+            - in makeGambit, make and deliver this gambit to all players in array
+            GONNA NEED A BIG REWRITE OF MAKEGAMBIT I THINK
     
-    - gambit distribution - speak any time framework
-        - build gambit
-        - decide who it gets distributed to
-        - build in correct players column using playersArray loop - arrayPos = column eq
-        - make sure key binds have 4 keys per player now 
+
         
         
         
-        
-        
-        
-        
-        
-        
-        
+        //synch distro
         - build gambit
             - choose modifier
             - engage init
