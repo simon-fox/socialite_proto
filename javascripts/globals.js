@@ -20,21 +20,26 @@ var playerCharacters = [];
 var claimants = [];
 //keysets for binding
 var setOne = {
-    keys:["w","r","t","u","i","p"],
-    keyCodes:[87,82,84,85,73,80],
+    keys:["q","w","e","r"],
+    keyCodes:[81,87,69,82],
     bound: false
 }
 var setTwo = {
-    keys:["s","f","g","j","k","l"],
-    keyCodes:[83,70,71,74,75,76],
+    keys:["u","i","o","p"],
+    keyCodes:[85,73,79,80],
     bound: false
 }
 var setThree = {
-    keys:["z","x","c","b","n","m"],
-    keyCodes:[90,88,67,66,78,77],
+    keys:["z","x","c","v"],
+    keyCodes:[90,88,67,86],
     bound: false
 }
-var keySets = [setOne,setTwo,setThree];
+var setFour = {
+    keys:["h","j","k","l"],
+    keyCodes:[72,74,75,76],
+    bound: false
+}
+var keySets = [setOne,setTwo,setThree,setFour];
 //gambit pieces
 var modifiers = [];
 var gambits = [];

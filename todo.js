@@ -565,11 +565,57 @@ function gambit(){
 //- about 36 gambits per game (10s per gambit, 2 gambits on screen)
 //- if average gambit heat is 10, that's 360 heat per game average
 //- so maybe 500 heat is a good cap point?
-    
+
+//below code for grabbing specific dom element
+//stored for later - no need for it right now..
+//////////////////////////////
+// get the right dom element//
+//////////////////////////////
+var claimedGambitDOM;
+for (var i=0;i<$('.gambit').length;i++){
+    if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
+        claimedGambitDOM = $('.gambit').eq(i);
+    }
+}  
+
+
+
 - VERTICAL INTERFACE
+    
     - gambit distribution - speak any time framework
+        - build gambit
+        - decide who it gets distributed to
+        - build in correct players column using playersArray loop - arrayPos = column eq
+        - make sure key binds have 4 keys per player now 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         - build gambit
             - choose modifier
             - engage init
             - init asks 'how'+modifier+'do you want to be?'
+                - bind keys
+                - player chooses from 4 levels
+                - minimum heat to maximum heat
+                - minimum status to maximum status 
+                - run targetMode
+            - targetMode asks 'be '+modifier+'to who?'
+                - bind keys
+                - player chooses from three other dudes
+                - unless response special case
+                - run destroy
+            - destroy updates scores & destroys
+            
+            
+        
+            
+            
+            
     
