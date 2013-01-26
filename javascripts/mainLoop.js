@@ -8,7 +8,7 @@ function alphaLoop() {
 	//get the timestamp
 	var now = Date.now();
 	//get the delta between updates - how much time has actually passed between loop iterations
-	var delta = now - then;
+	delta = now - then;
         
 	//call the director
 	director();

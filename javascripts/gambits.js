@@ -69,75 +69,79 @@ function constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosen
 // gambit assembler //
 //////////////////////
 function makeGambit(tempNoGambitArray){
-    //declare variables for building the gambit
-    var chosenModifier;
-    var chosenGambit;
-    var chosenTargetObject;
-    var chosenTargetCharacter; //fill this up with empty string once we do targeting
-    var modifierStatusEffect;
-    var gambitStatusEffect;
-    var heatEffectSum;
-    var claimer;
-    var response;
-    var responseName;
-    var constructedGambitObject
-   
-    /////////////////////////
-    // lets build a gambit //
-    /////////////////////////
-        //Lets check if it's a response
-        //console.log('claimants length: '+claimants.length);
-        if (claimants.length){
-            //we have something to respond to
-            responseName = claimants[0].playerCharacter.name;
-            response = true;
-            //console.log('response in director: '+response)
-            //autoTargeting - responses effectively target the previous claimant
-            chosenTargetCharacter = claimants[0];
-            //lazy hack to clear out claimants so only one response at a time :(
-            claimants = [];
+    if(tempNoGambitArray.length){
+        console.log('making gambit');
+        console.log(tempNoGambitArray);
+         //declare variables for building the gambit
+         var chosenModifier;
+         var chosenGambit;
+         var chosenTargetObject;
+         var chosenTargetCharacter; //fill this up with empty string once we do targeting
+         var modifierStatusEffect;
+         var gambitStatusEffect;
+         var heatEffectSum;
+         var claimer;
+         var response;
+         var responseName;
+         var constructedGambitObject
+         
+         /////////////////////////
+         // lets build a gambit //
+         /////////////////////////
+         //Lets check if it's a response
+         //console.log('claimants length: '+claimants.length);
+         if (claimants.length){
+             //we have something to respond to
+             responseName = claimants[0].playerCharacter.name;
+             response = true;
+             //console.log('response in director: '+response)
+             //autoTargeting - responses effectively target the previous claimant
+             chosenTargetCharacter = claimants[0];
+             //lazy hack to clear out claimants so only one response at a time :(
+             claimants = [];
+         }
+         else if (claimants.length == 0){
+             //nothing to respond to, not response specific stuff here
+             response = false;
+             responseName = "";
+             //console.log('response in director: '+response)
+             //autoTargeting - pick a random target character
+             chosenTargetCharacter = "";
+             
+         }
+         //build a normal gambit 
+         //pick a random modifier from chosenDrive array
+         chosenModifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+         //pick a random gambit from chosenDrive array
+         chosenGambit = gambits[Math.floor(Math.random() * gambits.length)];
+         //pick a random targetObject
+         chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
+         //modifier status effects
+         modifierStatusEffect = chosenModifier.statusEffect;
+         //gambit status effects
+         gambitStatusEffect = chosenGambit.statusEffect;
+         //conversational heat effect
+         heatEffectSum = chosenModifier.heatEffect + chosenGambit.heatEffect;
+         
+         //loop through tempNoGambitArray
+         for (var i=0;i<tempNoGambitArray.length;i++){
+             //decide who it gets distributed to 
+             claimer = tempNoGambitArray[i];
+             //create constructedGambit
+             constructedGambitObject = new constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosenTargetCharacter,modifierStatusEffect,gambitStatusEffect,heatEffectSum,claimer,response,responseName);
+             //append to constructedGambits array
+             constructedGambits.push(constructedGambitObject);
+             //append to player
+             tempNoGambitArray[i].agent.currentGambit = constructedGambitObject;
+         
+             //new activeGambitInterface
+             var tempActiveGambitInterface = new gambitInterface(constructedGambitObject);
+             //initialise a new interface with this gambit
+             activeGambitInterfaces.push(tempActiveGambitInterface);
+             //initialise
+            tempActiveGambitInterface.init();
         }
-        else if (claimants.length == 0){
-            //nothing to respond to, not response specific stuff here
-            response = false;
-            responseName = "";
-            //console.log('response in director: '+response)
-            //autoTargeting - pick a random target character
-            chosenTargetCharacter = "";
-            
-        }
-        //build a normal gambit 
-        //pick a random modifier from chosenDrive array
-        chosenModifier = modifiers[Math.floor(Math.random() * modifiers.length)];
-        //pick a random gambit from chosenDrive array
-        chosenGambit = gambits[Math.floor(Math.random() * gambits.length)];
-        //pick a random targetObject
-        chosenTargetObject = targetObjects[Math.floor(Math.random() * targetObjects.length)];
-        //modifier status effects
-        modifierStatusEffect = chosenModifier.statusEffect;
-        //gambit status effects
-        gambitStatusEffect = chosenGambit.statusEffect;
-        //conversational heat effect
-        heatEffectSum = chosenModifier.heatEffect + chosenGambit.heatEffect;
-        
-        //decide who it gets distributed to 
-        claimer = passedPlayer;
-        
-        //create constructedGambit
-        constructedGambitObject = new constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosenTargetCharacter,modifierStatusEffect,gambitStatusEffect,heatEffectSum,claimer,response,responseName);
-        //append to constructedGambits array
-        constructedGambits.push(constructedGambitObject);
-        //append to player
-        passedPlayer.agent.currentGambit = constructedGambitObject;
-
-        //initialise a new interface with this gambit
-        //console.log(constructedGambits.length-1);
-        activeGambitInterfaces.push(new gambitInterface(constructedGambitObject));
-        //initialise
-        activeGambitInterfaces[activeGambitInterfaces.length-1].init();
-        
-    
-    
+    }
 }
 
 /////////////////////

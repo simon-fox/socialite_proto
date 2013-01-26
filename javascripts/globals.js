@@ -57,7 +57,7 @@ var mainGameTimer;
 function updateScores(passedConstructedGambit){
     console.log('scores updating');
     //send modifier effect to claimant
-    console.log("claimed by: "+passedConstructedGambit.claimedBy.playerCharacter.name+' Target: '+passedConstructedGambit.targetCharacter.playerCharacter.playerCharacter)
+    console.log("claimed by: "+passedConstructedGambit.claimedBy.playerCharacter.name+' Target: '+passedConstructedGambit.targetCharacter.playerCharacter.name)
     passedConstructedGambit.claimedBy.agent.status =  passedConstructedGambit.claimedBy.agent.status + passedConstructedGambit.statusEffectM;
     //send gambit effects to target
     passedConstructedGambit.targetCharacter.agent.status =  passedConstructedGambit.targetCharacter.agent.status + passedConstructedGambit.statusEffectG;

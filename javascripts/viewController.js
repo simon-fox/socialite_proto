@@ -66,7 +66,7 @@ function playerSummaryInterface(playerObject){
                 //update timer bars//
                 /////////////////////
                 //how many seconds do we have
-                var grabGambitTimeOut = 2;
+                var grabGambitTimeOut = 1;
                 //if less than that has passed
                 //console.log(this.player.statusTimer.tick);
                 if (this.player.statusTimer.tick<grabGambitTimeOut){
@@ -77,7 +77,7 @@ function playerSummaryInterface(playerObject){
                     //restart timer
                     this.player.statusTimer.stop();
                     this.player.statusTimer.start();
-                    //reduce status by 5
+                    //reduce status by 1
                     this.player.agent.status  = this.player.agent.status -1;
                 }
             };
@@ -268,6 +268,7 @@ function gambitInterface(constructedGambitObject){
                 };
     //when claimed and scored                
     this.destroy = function(){
+                    console.log('gambitInterface.destroy being called');
                     //////////////////////////////
                     // get the right dom element//
                     //////////////////////////////
