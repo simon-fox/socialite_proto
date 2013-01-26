@@ -86,14 +86,16 @@ function bindClaimKeys(passGambit,passGambitInterface){
             //bind to function
             //add player who pressed key to passGambit.targetCharacter
             //switch gambit to .claimed
-            $(document).bind('keyup.targetKeyup',function(e){
+            $(document).on('keyup.gambits'+keysToBind,function(e){
                 //claim
                 if(e.which == eval(keySets[keysToBind].keyCodes[0])){
                    passGambitInterface.claimed();
+                   $(document).off('keyup.gambits'+keysToBind);
                 }
                 //pass
                 else if(e.which == eval(keySets[keysToBind].keyCodes[2])){
                     passGambitInterface.destroyTimeOut();
+                    $(document).off('keyup.gambits'+keysToBind);
                 }
 
             });
@@ -101,6 +103,7 @@ function bindClaimKeys(passGambit,passGambitInterface){
             keySets[keysToBind].bound = true;
             //change passGambit.boundKeys
             passGambit.boundKeys = keySets[keysToBind];
+            
 
 }
 
@@ -111,29 +114,31 @@ function bindTargetKeys(passGambit,passGambitInterface){
     //console.log(passGambitInterface);
     //pick four keys
     //check if they have been bound already
-    
     var keysToBind = passGambit.claimedBy.arrayPos;        
             //go through all keys
             //bind to function
             //add player who pressed key to passGambit.targetCharacter
             //switch gambit to .claimed
-            $(document).bind('keyup.targetKeyup',function(e){
+            $(document).on('keyup.targets'+keysToBind,function(e){
                 if(e.which == eval(keySets[keysToBind].keyCodes[0])){
                    passGambit.targetCharacter = playersArray[0];
                    passGambitInterface.destroy();
+                   $(document).off('keyup.targets'+keysToBind);
                 }
                 else if(e.which == eval(keySets[keysToBind].keyCodes[1])){
                     passGambit.targetCharacter = playersArray[1];
                     passGambitInterface.destroy();
-                    
+                    $(document).off('keyup.targets'+keysToBind);
                 }
                 else if(e.which == eval(keySets[keysToBind].keyCodes[2])){
                     passGambit.targetCharacter = playersArray[2];
                     passGambitInterface.destroy();
+                    $(document).off('keyup.targets'+keysToBind);
                 }
                 else if(e.which == eval(keySets[keysToBind].keyCodes[3])){
                     passGambit.targetCharacter = playersArray[3];
                     passGambitInterface.destroy();
+                    $(document).off('keyup.targets'+keysToBind);
                 }
             });
             //change bound to true

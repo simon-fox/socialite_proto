@@ -42,8 +42,11 @@ function director() {
             tempNoGambitArray.push(playersArray[i]);
         }
     }
-    //make a gambit!!!
-    makeGambit(tempNoGambitArray);
+    if(tempNoGambitArray.length){
+        //make a gambit!!!
+        makeGambit(tempNoGambitArray);
+        tempNoGambitArray = [];
+    }
     //////////////////
     //sort the board//
     //////////////////

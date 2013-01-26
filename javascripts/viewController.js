@@ -246,7 +246,7 @@ function gambitInterface(constructedGambitObject){
                     /////////////
                     //bind keys//
                     /////////////
-                    $(document).unbind('keyup.gambitsKeyup');
+                   
                     var passGambitInterface = this;
                     var passGambit = this.associatedGambit;
                     bindTargetKeys(passGambit,passGambitInterface);
