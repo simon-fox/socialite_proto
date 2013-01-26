@@ -607,6 +607,11 @@ for (var i=0;i<$('.gambit').length;i++){
             DO THIS ONE NOW
             - in makeGambit, make and deliver this gambit to all players in array
             GONNA NEED A BIG REWRITE OF MAKEGAMBIT I THINK
+            - here's the approach
+            - makeGambit in gambits.js 109
+            - from there to the end - execute for every player in tempNoGambitArray
+            - so run all that code in a for loop
+            - how will we do destruction of grabbed twin gambits?
     
 
         
