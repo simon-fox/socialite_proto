@@ -604,24 +604,23 @@ for (var i=0;i<$('.gambit').length;i++){
            // - if player has no gambit, store player in a temp array
            // - keep going until you have looped through all players
             //- give array to makeGambit
-            DO THIS ONE NOW
-            - in makeGambit, make and deliver this gambit to all players in array
-            GONNA NEED A BIG REWRITE OF MAKEGAMBIT I THINK
+            //- in makeGambit, make and deliver this gambit to all players in array
+            //GONNA NEED A BIG REWRITE OF MAKEGAMBIT I THINK
             //- here's the approach
             //- makeGambit in gambits.js 109
             //- from there to the end - execute for every player in tempNoGambitArray
             //- so run all that code in a for loop
-            - bug where same gambit gets delivered to player multiple times
-                - this is our old friend document.keyup queueing input binds
-                - now switched to .one but still getting problems
-                - document has a key bound
-                - then another etc etc
-                - with .one, every keypress, all document level keypresses get unbound
-                
-                
-                
+            //SQUASHED- bug where same gambit gets delivered to player multiple times
+                //- this is our old friend document.keyup queueing input binds
+                //- now switched to .one but still getting problems
+                //- document has a key bound
+                //- then another etc etc
+                //- with .one, every keypress, all document level keypresses get unbound  
             - how will we do destruction of grabbed twin gambits?
-                - currently
+                - currently we build separate gambits with the same data
+                - so they are techincally two different gambits...
+                - so we can't use their id's to destroy them both on destroy
+                - but we could search for their .gambitText contents...
             
     
 

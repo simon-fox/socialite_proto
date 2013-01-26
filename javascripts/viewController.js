@@ -193,6 +193,18 @@ function gambitInterface(constructedGambitObject){
                         }
                     }
                     
+                    ////////////////////////////////////
+                    //search for duplicates to destroy//
+                    ////////////////////////////////////
+                    var tempText = $(claimedGambitDOM).children('.gambitText').text();
+                    for (var i=0;i<$('.gambit').length;i++){
+                        if ($('.gambit').eq(i).children('.gambitText').text() == tempText){
+                            $('.gambit').eq(i).children('.gambitText').text('TAKEN');
+                             $('.gambit').eq(i).children('.claimGambit').children('.claimButton').text('NO');
+                            $('.gambit').eq(i).data().associatedGambit.gambitTimer.tick = 12;
+                        }
+                    }
+                    
                     //////////////////////////////
                     // update the html and timer//
                     //////////////////////////////
@@ -297,7 +309,7 @@ function gambitInterface(constructedGambitObject){
                                 claimedGambitDOM = $('.gambit').eq(i);
                             }
                         }
-        
+
                         ///////////////
                         //unbind keys//
                         ///////////////
