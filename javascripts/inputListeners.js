@@ -51,12 +51,7 @@ function playerCharacterSelectKeyBinds(){
                     playersArray[i].interface.init();
                 }
                     
-                    //show main game interface
-                    //$('.mainGameContainer').show();
-                    //start the main timer
-                    //gameTimer.init();
-                    //start the game loop
-                    //mainLoop = setInterval(alphaLoop,15);
+                    
   
         }
     });
