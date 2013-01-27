@@ -199,7 +199,7 @@ function gambitInterface(constructedGambitObject){
                     ////////////////////////////////////
                     var tempText = $(claimedGambitDOM).children('.gambitText').text();
                     for (var i=0;i<$('.gambit').length;i++){
-                        if ($('.gambit').eq(i).children('.gambitText').text() == tempText){
+                        if ($('.gambit').eq(i).children('.gambitText').text() == tempText && $('.gambit').eq(i).data().associatedGambit != $(claimedGambitDOM).data().associatedGambit){
                             $('.gambit').eq(i).children('.gambitText').text('TAKEN');
                              $('.gambit').eq(i).children('.claimGambit').children('.claimButton').text('NO');
                             $('.gambit').eq(i).data().associatedGambit.gambitTimer.tick = 12;
