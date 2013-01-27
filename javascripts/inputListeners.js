@@ -81,21 +81,22 @@ function bindClaimKeys(passGambit,passGambitInterface){
     //pick four keys
     //check if they have been bound already
     
-    var keysToBind = passGambit.claimedBy.arrayPos;        
+    var keysToBind = passGambit.claimedBy.arrayPos;
+    var randomID = Math.random()*1000000000000000000 + "_" + Math.random()*1000000000000000000;
             //go through all keys
             //bind to function
             //add player who pressed key to passGambit.targetCharacter
             //switch gambit to .claimed
-            $(document).on('keyup.gambits'+keysToBind,function(e){
+            $(document).on('keyup.gambits'+randomID,function(e){
                 //claim
                 if(e.which == eval(keySets[keysToBind].keyCodes[0])){
                    passGambitInterface.claimed();
-                   $(document).off('keyup.gambits'+keysToBind);
+                   $(document).off('keyup.gambits'+randomID);
                 }
                 //pass
                 else if(e.which == eval(keySets[keysToBind].keyCodes[2])){
                     passGambitInterface.destroyTimeOut();
-                    $(document).off('keyup.gambits'+keysToBind);
+                    $(document).off('keyup.gambits'+randomID);
                 }
 
             });
@@ -111,34 +112,40 @@ function bindClaimKeys(passGambit,passGambitInterface){
 //binding keys to gambit targeting//
 ////////////////////////////////////
 function bindTargetKeys(passGambit,passGambitInterface){
-    //console.log(passGambitInterface);
+    console.log('bindTargetKeys is being called by '+passGambit.claimedBy.playerCharacter.name);
     //pick four keys
     //check if they have been bound already
-    var keysToBind = passGambit.claimedBy.arrayPos;        
+    var keysToBind = passGambit.claimedBy.arrayPos;
+    var randomID = Math.random()*1000000000000000000 + "_" + Math.random()*1000000000000000000;
+
             //go through all keys
             //bind to function
             //add player who pressed key to passGambit.targetCharacter
             //switch gambit to .claimed
-            $(document).on('keyup.targets'+keysToBind,function(e){
+            $(document).on('keyup.targets'+randomID,function(e){
                 if(e.which == eval(keySets[keysToBind].keyCodes[0])){
                    passGambit.targetCharacter = playersArray[0];
                    passGambitInterface.destroy();
-                   $(document).off('keyup.targets'+keysToBind);
+                   console.log('gambitInterface.destroy being called from bindTargetKeys');
+                   $(document).off('keyup.targets'+randomID);
                 }
                 else if(e.which == eval(keySets[keysToBind].keyCodes[1])){
                     passGambit.targetCharacter = playersArray[1];
                     passGambitInterface.destroy();
-                    $(document).off('keyup.targets'+keysToBind);
+                    console.log('gambitInterface.destroy being called from bindTargetKeys');
+                    $(document).off('keyup.targets'+randomID);
                 }
                 else if(e.which == eval(keySets[keysToBind].keyCodes[2])){
                     passGambit.targetCharacter = playersArray[2];
                     passGambitInterface.destroy();
-                    $(document).off('keyup.targets'+keysToBind);
+                    console.log('gambitInterface.destroy being called from bindTargetKeys');
+                    $(document).off('keyup.targets'+randomID);
                 }
                 else if(e.which == eval(keySets[keysToBind].keyCodes[3])){
                     passGambit.targetCharacter = playersArray[3];
                     passGambitInterface.destroy();
-                    $(document).off('keyup.targets'+keysToBind);
+                    console.log('gambitInterface.destroy being called from bindTargetKeys');
+                    $(document).off('keyup.targets'+randomID);
                 }
             });
             //change bound to true

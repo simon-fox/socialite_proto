@@ -616,11 +616,22 @@ for (var i=0;i<$('.gambit').length;i++){
                 //- document has a key bound
                 //- then another etc etc
                 //- with .one, every keypress, all document level keypresses get unbound  
-            - how will we do destruction of grabbed twin gambits?
-                - currently we build separate gambits with the same data
-                - so they are techincally two different gambits...
-                - so we can't use their id's to destroy them both on destroy
-                - but we could search for their .gambitText contents...
+            //- how will we do destruction of grabbed twin gambits?
+                //- currently we build separate gambits with the same data
+                //- so they are techincally two different gambits...
+                //- so we can't use their id's to destroy them both on destroy
+                //- but we could search for their .gambitText contents...
+                
+            - bug with responding to own gambits
+            //- still getting multiplying gambits
+                //- connected to... score updater getting called multiple times
+                //- the issue is:
+                    //- $(document).on gets called more than once
+                    //- ie by two separate claims
+                    //- and that is happening before the key is pressed
+                    //- so we get two calls to .destroy per press
+                    //- and therefore two score updates
+                    //- fixed a bit hackily in gambitInterface.init with an if
             
     
 

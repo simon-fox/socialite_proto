@@ -106,80 +106,81 @@ function gambitInterface(constructedGambitObject){
     this.onScreen = false;
     //on initialisation
     this.init = function(){
-                    ///////////////////////////////////
-                    //append this.html to the display//
-                    ///////////////////////////////////
-                    $('.playerSummaryContainer').eq(this.associatedGambit.claimedBy.arrayPos).append(this.html);
-                    var constructedGambitInterfaceHtml = $('.playerSummaryContainer').eq(this.associatedGambit.claimedBy.arrayPos).children('.gambit');
-                    //add identifying class to .data
-                    $(constructedGambitInterfaceHtml).data('associatedGambit',this.associatedGambit);
+                    if(  !$('.playerSummaryContainer').eq(this.associatedGambit.claimedBy.arrayPos).children('.gambit').length ){
+                        ///////////////////////////////////
+                        //append this.html to the display//
+                        ///////////////////////////////////
+                        $('.playerSummaryContainer').eq(this.associatedGambit.claimedBy.arrayPos).append(this.html);
+                        var constructedGambitInterfaceHtml = $('.playerSummaryContainer').eq(this.associatedGambit.claimedBy.arrayPos).children('.gambit');
+                        //add identifying class to .data
+                        $(constructedGambitInterfaceHtml).data('associatedGambit',this.associatedGambit);
+                        
+                        /////////////
+                        //bind keys//
+                        /////////////
+                        var passGambitInterface = this;
+                        var passGambit = this.associatedGambit;
+                        bindClaimKeys(passGambit,passGambitInterface);
+                        
+                        //////////////////////////////////////////
+                        //append correct elements to the display//
+                        //////////////////////////////////////////
+                        //concat actual text of assembledGambit: modifier, gambits, targetCharacter, targetObject
+                        //console.log('response in viewController:'+this.associatedGambit.responseBoolean);
+                        if (this.associatedGambit.responseBoolean == true){
+                            console.log('response!');
+                            var constructedGambitText = "Respond "+this.associatedGambit.gambit.text+" to "+this.associatedGambit.responseBy+"'s comment"; 
+                        }
+                        else{
+                            var constructedGambitText = this.associatedGambit.modifier.text + " " + this.associatedGambit.gambit.text;
+                        }
+                        
+                        
+                        ////////////////////////
+                        //build claim buttons //
+                        ////////////////////////
+                        var claimKeysString = "";
+                        //Claim
+                        claimKeysString = claimKeysString + '<div class="claimButton">OK!<h2>'+this.associatedGambit.boundKeys.keys[0]+'</h2></div>';
+                        //Pass
+                        claimKeysString = claimKeysString + '<div class="claimButton">PASS<h2>'+this.associatedGambit.boundKeys.keys[2]+'</h2></div>';
                     
-                    /////////////
-                    //bind keys//
-                    /////////////
-                    var passGambitInterface = this;
-                    var passGambit = this.associatedGambit;
-                    bindClaimKeys(passGambit,passGambitInterface);
+                        //concat modifier effects string//
+                        var modifierEffectsString ="";
+                        if (this.associatedGambit.statusEffectM == 0){/*do nothing*/}
+                        else {
+                            //add to string
+                            modifierEffectsString = "<br/>"+this.associatedGambit.statusEffectM+" status</br>";
+                        }
+                        
+                        //concat gambit effects string//
+                        var gambitEffectsString = "";
+                        if (this.associatedGambit.statusEffectG == 0){/*do nothing*/}
+                        else {
+                            //add to string
+                            gambitEffectsString = "<br/>"+this.associatedGambit.statusEffectG+" status</br>";
+                        }
+                        
+                        //get heatEffect
+                        var heatEffectsString = "<br/>"+this.associatedGambit.heatEffect+" Outrage";
                     
-                    //////////////////////////////////////////
-                    //append correct elements to the display//
-                    //////////////////////////////////////////
-                    //concat actual text of assembledGambit: modifier, gambits, targetCharacter, targetObject
-                    //console.log('response in viewController:'+this.associatedGambit.responseBoolean);
-                    if (this.associatedGambit.responseBoolean == true){
-                        console.log('response!');
-                        var constructedGambitText = "Respond "+this.associatedGambit.gambit.text+" to "+this.associatedGambit.responseBy+"'s comment"; 
+                        ////////////////////
+                        //initialise timer//
+                        ////////////////////
+                        this.associatedGambit.gambitTimer.start();
+                        
+                        ///////////////////
+                        //print to screen//
+                        ///////////////////
+                        $(constructedGambitInterfaceHtml).children('.gambitText').html(constructedGambitText);
+                        $(constructedGambitInterfaceHtml).children('.gambitEffects').append(modifierEffectsString);
+                        $(constructedGambitInterfaceHtml).children('.gambitEffects').append(gambitEffectsString);
+                        $(constructedGambitInterfaceHtml).children('.gambitEffects').append(heatEffectsString);
+                        $(constructedGambitInterfaceHtml).children('.claimGambit').html(claimKeysString);
+                        
+                        //switch .onScreen to true
+                        this.onScreen = true;  
                     }
-                    else{
-                        var constructedGambitText = this.associatedGambit.modifier.text + " " + this.associatedGambit.gambit.text;
-                    }
-                    
-                    
-                    ////////////////////////
-                    //build claim buttons //
-                    ////////////////////////
-                    var claimKeysString = "";
-                    //Claim
-                    claimKeysString = claimKeysString + '<div class="claimButton">OK!<h2>'+this.associatedGambit.boundKeys.keys[0]+'</h2></div>';
-                    //Pass
-                    claimKeysString = claimKeysString + '<div class="claimButton">PASS<h2>'+this.associatedGambit.boundKeys.keys[2]+'</h2></div>';
-                
-                    //concat modifier effects string//
-                    var modifierEffectsString ="";
-                    if (this.associatedGambit.statusEffectM == 0){/*do nothing*/}
-                    else {
-                        //add to string
-                        modifierEffectsString = "<br/>"+this.associatedGambit.statusEffectM+" status</br>";
-                    }
-                    
-                    //concat gambit effects string//
-                    var gambitEffectsString = "";
-                    if (this.associatedGambit.statusEffectG == 0){/*do nothing*/}
-                    else {
-                        //add to string
-                        gambitEffectsString = "<br/>"+this.associatedGambit.statusEffectG+" status</br>";
-                    }
-                    
-                    //get heatEffect
-                    var heatEffectsString = "<br/>"+this.associatedGambit.heatEffect+" Outrage";
-                
-                    ////////////////////
-                    //initialise timer//
-                    ////////////////////
-                    this.associatedGambit.gambitTimer.start();
-                    
-                    ///////////////////
-                    //print to screen//
-                    ///////////////////
-                    $(constructedGambitInterfaceHtml).children('.gambitText').html(constructedGambitText);
-                    $(constructedGambitInterfaceHtml).children('.gambitEffects').append(modifierEffectsString);
-                    $(constructedGambitInterfaceHtml).children('.gambitEffects').append(gambitEffectsString);
-                    $(constructedGambitInterfaceHtml).children('.gambitEffects').append(heatEffectsString);
-                    $(constructedGambitInterfaceHtml).children('.claimGambit').html(claimKeysString);
-                    
-                    //switch .onScreen to true
-                    this.onScreen = true;  
-                    
                 };
     //when switching to claimed
     this.claimed = function(){
@@ -231,6 +232,7 @@ function gambitInterface(constructedGambitObject){
                         this.targetMode();
                     }
                     else{
+                        console.log('gambitInterface.destroy is being called from .claimed')
                         //go to destroy
                         this.destroy();
                     }
@@ -280,7 +282,7 @@ function gambitInterface(constructedGambitObject){
                 };
     //when claimed and scored                
     this.destroy = function(){
-                    console.log('gambitInterface.destroy being called');
+                    
                     //////////////////////////////
                     // get the right dom element//
                     //////////////////////////////
