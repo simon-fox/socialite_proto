@@ -656,7 +656,48 @@ for (var i=0;i<$('.gambit').length;i++){
             - destroy updates scores & destroys
             
             
-        
+//How should a convo topic look?
+- intro text should be something like:
+    - You are attending a [social event] hosted by [name]
+    - in honor of [occasion].
+    
+    - EVERYONE IS TALKING ABOUT: (3 windows)
+    - [name]'s new [fashion item]
+    - The shocking behaviour of [name]'s [family member]
+    - The glorious performance at [name]'s event
+    - The possible romance between [name] and [name]'s daughter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             
             

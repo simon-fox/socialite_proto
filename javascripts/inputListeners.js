@@ -29,48 +29,43 @@ function playerCharacterSelectKeyBinds(){
         }
     });
     //starting the game
-    $(document).keyup(function(e){
+    $(document).on('keyup.spaceToClearSelect',function(e){
         //check for space key
         if(e.which == 32){
                 //destroy pcselect interface
                 playerCharacterSelectInterface.destroy();
                 
                 //show intro text for 10 seconds
-                $('.introText').show();
-                setTimeout(function(){
-                     $('.introText').hide();
+                gossipPage.init();
+                    
+                //clear the keybind
+                $(document).off('keyup.spaceToClearSelect');
+                //loop through playersArray
+                for (var i=0;i<playersArray.length;i++){
+                    //create a new playerSummaryInterface for each player
+                    //attach the playerObject
+                    playerObject = playersArray[i];
+                    //push into playerObject 
+                    playersArray[i].interface =  new playerSummaryInterface(playerObject);
+                    //run playerSummaryInterface.init();
+                    playersArray[i].interface.init();
+                }
+                    
                     //show main game interface
-                    $('.mainGameContainer').show();
-                    //bind mainGameKeyBinds
-                    mainGameKeyBinds();
-                    //loop through playersArray
-                    for (var i=0;i<playersArray.length;i++){
-                        //create a new playerSummaryInterface for each player
-                        //attach the playerObject
-                        playerObject = playersArray[i];
-                        //push into playerObject 
-                        playersArray[i].interface =  new playerSummaryInterface(playerObject);
-                        //run playerSummaryInterface.init();
-                        playersArray[i].interface.init();
-                    }  
+                    //$('.mainGameContainer').show();
                     //start the main timer
-                    gameTimer.init();
+                    //gameTimer.init();
                     //start the game loop
-                    mainLoop = setInterval(alphaLoop,15);
-                },3000);     
+                    //mainLoop = setInterval(alphaLoop,15);
+  
         }
     });
 }
 
 //keybinds for the main game screen
 function mainGameKeyBinds(){
-    //unbinding the space key
-    $(document).keyup(function(e){
-        //check for space key
-        if(e.which == 32){
-            //do nothin
-        }
-    });
+
+    
 }
 
 ////////////////////////////////////
