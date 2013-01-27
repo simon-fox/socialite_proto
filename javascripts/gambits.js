@@ -184,11 +184,42 @@ modifiers.push(new modifier(
     //content
     this.modifierText = "Mention something",
     //status effect
-    this.modifierStatusEffect = 35,
+    this.modifierStatusEffect = 15,
     //Heat effect
     this.modifierHeatEffect = 10
 ));
-
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Sing something",
+    //status effect
+    this.modifierStatusEffect = 20,
+    //Heat effect
+    this.modifierHeatEffect = -15
+));
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Bellow",
+    //status effect
+    this.modifierStatusEffect = 25,
+    //Heat effect
+    this.modifierHeatEffect = 55
+));
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Purr something",
+    //status effect
+    this.modifierStatusEffect = 25,
+    //Heat effect
+    this.modifierHeatEffect = -25
+));
+modifiers.push(new modifier(
+    //content
+    this.modifierText = "Coo something",
+    //status effect
+    this.modifierStatusEffect = 15,
+    //Heat effect
+    this.modifierHeatEffect = -25
+));
 
 //gambits
 gambits.push(new gambit(
@@ -254,6 +285,54 @@ gambits.push(new gambit(
     this.gambitStatusEffect = -45,
     //Heat effect
     this.gambitHeatEffect = -10
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Bawdily",
+    //status effect
+    this.gambitStatusEffect = 5,
+    //Heat effect
+    this.gambitHeatEffect = -10
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Nakedly",
+    //status effect
+    this.gambitStatusEffect = 5,
+    //Heat effect
+    this.gambitHeatEffect = 10
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Stupidly",
+    //status effect
+    this.gambitStatusEffect = 5,
+    //Heat effect
+    this.gambitHeatEffect = -50
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Nobly",
+    //status effect
+    this.gambitStatusEffect = -15,
+    //Heat effect
+    this.gambitHeatEffect = 10
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Nakedly",
+    //status effect
+    this.gambitStatusEffect = 5,
+    //Heat effect
+    this.gambitHeatEffect = 10
+));
+gambits.push(new gambit(
+    //content
+    this.gambitText = "Pompously",
+    //status effect
+    this.gambitStatusEffect = -25,
+    //Heat effect
+    this.gambitHeatEffect = 20
 ));
 
 
