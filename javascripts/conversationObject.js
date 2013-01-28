@@ -6,6 +6,7 @@
 
 conversation = {
     heat : 0,
+    turn : 0,
     update: function(){
         //check heat against cap
         if (this.heat > 500){

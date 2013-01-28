@@ -7,7 +7,9 @@
 
 //store interface elements
 
-//player summary html
+///////////////////////
+//player summary html//
+///////////////////////
 var playerSummaryInterfaceHtml ='\
 <div class="playerSummary">\
     <div class="topLabel">PLAYER ONE</div>\
@@ -83,7 +85,9 @@ function playerSummaryInterface(playerObject){
             };
 }
 
-//gambit interface html
+/////////////////////////
+//gambit interface html//
+/////////////////////////
 var gambitInterfaceHtml ='\
 <div class="gambit">\
     <div class="gambitText">Calmly insult Mrs Garricks Serving Dish</div>\
@@ -182,7 +186,6 @@ function gambitInterface(constructedGambitObject){
                         this.onScreen = true;  
                     }
                 };
-    //when switching to claimed
     this.claimed = function(){
                     //////////////////////////////
                     // get the right dom element//
@@ -431,9 +434,9 @@ function gambitInterface(constructedGambitObject){
                 };
 }
 
-
-//choosePC interface initialisation
-
+/////////////////////////////////////
+//choosePC interface initialisation//
+/////////////////////////////////////
 var playerCharacterSelectInterface = {
     init : function(){
                     //show display
@@ -472,8 +475,9 @@ var playerCharacterSelectInterface = {
                     }
 }
 
-
-//gossip & intro page
+///////////////
+//gossip page//
+///////////////
 var gossipPageHTML = '\
 <div class="gossipContainer">\
     <div class="partyDescripton"><h1>YOU ARE ATTENDING A GALA <br/>HOSTED BY LORD SUCH<br/> IN HONOR OF THE GRADUATION OF HIS SWANS <br/>FROM FINISHING SCHOOL<br/><br/>EVERYONE IS TALKING ABOUT:</h1></div>\
@@ -517,8 +521,31 @@ var gossipPage ={
     }
 }
 
-//main game timer
 
+/////////////////////////////
+//introduce yourselves page//
+/////////////////////////////
+var introduceYourselfHTML = "";
+
+var introduceYourselfPage = {
+    html : introduceYourselfHTML,
+    init : function(){
+        
+    },
+    update : function(){
+        
+    },
+    destroy : function(){
+        
+    }
+    
+}
+
+
+
+///////////////////
+//main game timer//
+///////////////////
 var gameTimer = {
     html : '<div class="gameTimer">02:59</div>',
     init : function(){
