@@ -277,7 +277,7 @@ function gambitInterface(constructedGambitObject){
                             //dont print anything
                         }
                         else{
-                            claimKeysString = claimKeysString + '<div class="targetButton" style= "background-image:url(images/'+playerCharacters[i].portrait+');"><h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
+                            claimKeysString = claimKeysString + '<div class="targetButton" style= "background-image:url(images/'+playersArray[i].playerCharacter.portrait+');"><h2>'+this.associatedGambit.boundKeys.keys[i]+'</h2></div>';
                         }
                     }
                     //print to screen
