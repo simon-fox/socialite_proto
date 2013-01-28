@@ -667,13 +667,15 @@ for (var i=0;i<$('.gambit').length;i++){
 - Need to keep track of:
     - who's turn it is
         //- conversation.turn holds an integer referencing index in playersArray
-        - update this every turn
-            - maybe put code in conversation.update to keep track?
+        //- update this every turn
+            //- maybe put code in conversation.update to keep track?
+        - how many turns have taken place this round?
     - The topic
         - do we?
         - if so, put it in the conversation object
     - gambits target so we know who's turn it is next
         //- already in constructedGambit.targetCharacter
+        - need to make the target have the next turn!
     - Timers?
         - timer for round
         - timer for each turn
@@ -692,8 +694,9 @@ for (var i=0;i<$('.gambit').length;i++){
         //- set up function in gambitInterface
         - displays after targetting
         - on a timer?
-    
-        
+    - 'not your turn' screen for player when it isn't
+        - not your turn appended to player column when it isnt
+        - also change colors of interfaces 
     
 
 

@@ -383,6 +383,9 @@ function gambitInterface(constructedGambitObject){
                         
                         //clear from player
                         tempThis.associatedGambit.claimedBy.agent.currentGambit = "";
+                        
+                        //move turn forward
+                        conversation.moveTurnForward();
                     
                     },6000);
 
