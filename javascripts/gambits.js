@@ -68,9 +68,8 @@ function constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosen
 //////////////////////
 // gambit assembler //
 //////////////////////
-function makeGambit(tempNoGambitArray){
-    console.log('making gambit');
-    console.log(tempNoGambitArray);
+function makeGambit(passedPlayer){
+    console.log('making gambit for: '+passedPlayer);
      //declare variables for building the gambit
      var chosenModifier;
      var chosenGambit;
@@ -122,24 +121,22 @@ function makeGambit(tempNoGambitArray){
      //conversational heat effect
      heatEffectSum = chosenModifier.heatEffect + chosenGambit.heatEffect;
      
-     //loop through tempNoGambitArray
-     for (var i=0;i<tempNoGambitArray.length;i++){
-        //decide who it gets distributed to 
-        claimer = tempNoGambitArray[i];
-        //create constructedGambit
-        constructedGambitObject = new constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosenTargetCharacter,modifierStatusEffect,gambitStatusEffect,heatEffectSum,claimer,response,responseName);
-        //append to constructedGambits array
-        constructedGambits.push(constructedGambitObject);
-        //append to player
-        tempNoGambitArray[i].agent.currentGambit = constructedGambitObject;
-     
-        //new activeGambitInterface
-        var tempActiveGambitInterface = new gambitInterface(constructedGambitObject);
-        //initialise a new interface with this gambit
-        activeGambitInterfaces.push(tempActiveGambitInterface);
-        //initialise
-        tempActiveGambitInterface.init();
-    }
+    //decide who it gets distributed to 
+    claimer = passedPlayer;
+    //create constructedGambit
+    constructedGambitObject = new constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosenTargetCharacter,modifierStatusEffect,gambitStatusEffect,heatEffectSum,claimer,response,responseName);
+    //append to constructedGambits array
+    constructedGambits.push(constructedGambitObject);
+    //append to player
+    passedPlayer.agent.currentGambit = constructedGambitObject;
+ 
+    //new activeGambitInterface
+    var tempActiveGambitInterface = new gambitInterface(constructedGambitObject);
+    //initialise a new interface with this gambit
+    activeGambitInterfaces.push(tempActiveGambitInterface);
+    //initialise
+    tempActiveGambitInterface.init();
+    
     
 }
 

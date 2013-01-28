@@ -23,8 +23,6 @@ function director() {
     ////////////////////////////
     //loop through all players//
     ////////////////////////////
-    //init temp array to store the gambit-less
-    var tempNoGambitArray = [];
     for (var i=0;i<playersArray.length;i++){
         //call .update on every activePlayer
         playersArray[i].update();
@@ -36,16 +34,11 @@ function director() {
             player: playersArray[i]
         }
         statusLeaderboard.push(statusLeaderboardItem);
-        //check if they have a gambit 
-        if (playersArray[i].agent.currentGambit == ""){
-            //no gambit, lets remember you!
-            tempNoGambitArray.push(playersArray[i]);
+        //check if it is their turn
+        if (i == conversation.turn){
+            //if so, make a gambit
+            makeGambit(playersArray[i]);
         }
-    }
-    if(tempNoGambitArray.length){
-        //make a gambit!!!
-        makeGambit(tempNoGambitArray);
-        tempNoGambitArray = [];
     }
     //////////////////
     //sort the board//
