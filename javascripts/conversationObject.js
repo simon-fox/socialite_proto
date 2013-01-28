@@ -8,14 +8,10 @@ conversation = {
     heat : 0,
     turn : 0,
     turnsTakenThisRound : 0,
-    moveTurnForward: function(){
+    moveTurnForward: function(associatedGambit){
         //move turn index forward
-        if (conversation.turn < playersArray.length){
-            conversation.turn = conversation.turn + 1;
-        }
-        else if (conversation.turn == playersArray.length){
-            conversation.turn = 0;
-        }
+        conversation.turn = associatedGambit.targetCharacter.arrayPos;
+        console.log('changed turn index to :'+conversation.turn);
         //keep track of turns taken this round
         if (conversation.turnsTakenThisRound < playersArray.length){
             conversation.turnsTakenThisRound = conversation.turnsTakenThisRound + 1;

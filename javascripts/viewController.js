@@ -385,7 +385,7 @@ function gambitInterface(constructedGambitObject){
                         tempThis.associatedGambit.claimedBy.agent.currentGambit = "";
                         
                         //move turn forward
-                        conversation.moveTurnForward();
+                        conversation.moveTurnForward(tempThis.associatedGambit);
                     
                     },6000);
 

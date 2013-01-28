@@ -69,7 +69,7 @@ function constructedGambit(chosenModifier,chosenGambit,chosenTargetObject,chosen
 // gambit assembler //
 //////////////////////
 function makeGambit(passedPlayer){
-    console.log('making gambit for: '+passedPlayer);
+    //console.log('making gambit for: '+passedPlayer.playerCharacter.name);
      //declare variables for building the gambit
      var chosenModifier;
      var chosenGambit;
