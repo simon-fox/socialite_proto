@@ -669,13 +669,18 @@ for (var i=0;i<$('.gambit').length;i++){
         //- conversation.turn holds an integer referencing index in playersArray
         //- update this every turn
             //- maybe put code in conversation.update to keep track?
-        - how many turns have taken place this round?
+        //- how many turns have taken place this round?
     - The topic
         - do we?
         - if so, put it in the conversation object
+        - We do at least need to display it on screen
     - gambits target so we know who's turn it is next
         //- already in constructedGambit.targetCharacter
-        - need to make the target have the next turn!
+        //- need to make the target have the next turn!
+        - new - can target 'the room'
+            - if so then .targetCharacter is an object
+            - with an arrayPos set to a random number
+            - between 0 and playersArray.length
     - Timers?
         - timer for round
         - timer for each turn
@@ -696,7 +701,32 @@ for (var i=0;i<$('.gambit').length;i++){
         - on a timer?
     - 'not your turn' screen for player when it isn't
         - not your turn appended to player column when it isnt
-        - also change colors of interfaces 
+        - also change colors of interfaces
+- new secret objectives
+    - each player has a secret objective required to win the round
+    - displayed as message just below playerSummaryInterface
+    - it's either an amount of outrage or status
+    - or an amount of status to lower others by
+    - 'lower 25 more status!'
+    - 'raise the outrage!' etc
+    - where to store?
+    - how to track?
+
+//not certain on this yet
+- new two way gambits
+    - player chooses from:
+        - 'try to raise status'
+        - 'try to lower status'
+        - 'try to raise outrage'
+        - 'try to lower outrage'
+    - then receives a gambit
+    - then chooses a target
+    - then commanded to speak
+    - then target chooses from the four options
+    - responds to person who targeted them
+    - if chosen gambits line up then both get desired effect
+        - ie if one says raise, other says lower then all good
+    - if chosen gambits conflict then run a randNum to decide
     
 
 
