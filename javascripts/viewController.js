@@ -185,7 +185,7 @@ function gambitInterface(constructedGambitObject){
                         //switch .onScreen to true
                         this.onScreen = true;  
                     }
-                };
+    };
     this.claimed = function(){
                     //////////////////////////////
                     // get the right dom element//
@@ -241,7 +241,7 @@ function gambitInterface(constructedGambitObject){
                     }
                     
                     
-                };
+    };
     //when switching to target mode                   
     this.targetMode = function(){
                     //////////////////////////////
@@ -282,8 +282,41 @@ function gambitInterface(constructedGambitObject){
                     }
                     //print to screen
                     $(claimedGambitDOM).children('.claimGambit').html(claimKeysString);
-                };
-    //when claimed and scored                
+    };
+    this.speakNow = function(){
+        //in here everything relating to
+        //displaying chosen gambit & target and
+        //commanding player to SPEAK
+    };
+    this.update = function(){
+                    //////////////////////////////
+                    // get the right dom element//
+                    //////////////////////////////
+                    var claimedGambitDOM;
+                    for (var i=0;i<$('.gambit').length;i++){
+                        if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
+                            claimedGambitDOM = $('.gambit').eq(i);
+                        }
+                    }
+                    
+                    /////////////////////
+                    //update timer bars//
+                    /////////////////////
+                    //how many seconds do we have
+                    var constructedGambitTimeOut = 15;
+                    //if less than that has passed
+                    if (this.associatedGambit.gambitTimer.tick < constructedGambitTimeOut){
+                        //display time left as a progress bar
+                        var percent = (constructedGambitTimeOut -  this.associatedGambit.gambitTimer.tick)/constructedGambitTimeOut * 100;
+                        $(claimedGambitDOM).children('.timerBarGambit').children('div').css('width',percent+"%");
+                    }
+                    //if time is up
+                    else if (this.associatedGambit.gambitTimer.tick == constructedGambitTimeOut){
+                       //destroy the gambit
+                       this.destroyTimeOut();
+                    }
+                        
+    };                
     this.destroy = function(){
                     
                     //////////////////////////////
@@ -353,7 +386,7 @@ function gambitInterface(constructedGambitObject){
                     
                     },6000);
 
-                };
+    };
     this.destroyTimeOut = function(){
                     //////////////////////////////
                     // get the right dom element//
@@ -402,36 +435,7 @@ function gambitInterface(constructedGambitObject){
                     $(claimedGambitDOM).remove(); 
     
 
-                };
-    this.update = function(){
-                    //////////////////////////////
-                    // get the right dom element//
-                    //////////////////////////////
-                    var claimedGambitDOM;
-                    for (var i=0;i<$('.gambit').length;i++){
-                        if ($('.gambit').eq(i).data().associatedGambit == this.associatedGambit){
-                            claimedGambitDOM = $('.gambit').eq(i);
-                        }
-                    }
-                    
-                    /////////////////////
-                    //update timer bars//
-                    /////////////////////
-                    //how many seconds do we have
-                    var constructedGambitTimeOut = 15;
-                    //if less than that has passed
-                    if (this.associatedGambit.gambitTimer.tick < constructedGambitTimeOut){
-                        //display time left as a progress bar
-                        var percent = (constructedGambitTimeOut -  this.associatedGambit.gambitTimer.tick)/constructedGambitTimeOut * 100;
-                        $(claimedGambitDOM).children('.timerBarGambit').children('div').css('width',percent+"%");
-                    }
-                    //if time is up
-                    else if (this.associatedGambit.gambitTimer.tick == constructedGambitTimeOut){
-                       //destroy the gambit
-                       this.destroyTimeOut();
-                    }
-                        
-                };
+    };
 }
 
 /////////////////////////////////////

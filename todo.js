@@ -666,27 +666,33 @@ for (var i=0;i<$('.gambit').length;i++){
 //Sequenced Rounds & topics
 - Need to keep track of:
     - who's turn it is
-        - conversation.turn holds an integer referencing index in playersArray
+        //- conversation.turn holds an integer referencing index in playersArray
+        - update this every turn
+            - maybe put code in conversation.update to keep track?
     - The topic
         - do we?
         - if so, put it in the conversation object
     - gambits target so we know who's turn it is next
-        - already in constructedGambit.targetCharacter
+        //- already in constructedGambit.targetCharacter
     - Timers?
         - timer for round
         - timer for each turn
 - new interfaces/screens required
     - introduce yourselves screen
+        //- set up object in viewController
         - display 4 players
         - display their names and portraits
         - command them to introduce themselves to each other
     - pick topic screen
+        //- use gossipPage object
         - show three topics
         - click to select
         - global screen or specific to each player column?
     - 'say this now' command screen new mode for gambitInterface
+        //- set up function in gambitInterface
         - displays after targetting
         - on a timer?
+    
         
     
 
