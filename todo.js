@@ -721,10 +721,10 @@ for (var i=0;i<$('.gambit').length;i++){
         - pass the previous claimant & gambit effects to it
         - use that data to ask and make scores accordingly 
     - only reward points if answer agrees with proposed effect
-- new Make outrage individual
-    - outrage drops over time like status
-    - too much outrage and you are out of the conversation
-    - until your outrage has dropped? 
+//- new Make outrage individual
+    //- outrage drops over time like status
+    //- too much outrage and you are out of the conversation
+    //- until your outrage has dropped? 
 
 //not certain on this yet
 - new two way gambits
