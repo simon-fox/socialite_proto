@@ -26,19 +26,13 @@ function director() {
     for (var i=0;i<playersArray.length;i++){
         //call .update on every activePlayer
         playersArray[i].update();
-        //call .update on every playerSummaryInterface
-        playersArray[i].interface.update();
+        
         //take status and push it into array for leaderboard
         var statusLeaderboardItem = {
             value: playersArray[i].agent.status,
             player: playersArray[i]
         }
         statusLeaderboard.push(statusLeaderboardItem);
-        //check if it is their turn
-        if (i == conversation.turn){
-            //if so, make a gambit
-            makeGambit(playersArray[i]);
-        }
     }
     //////////////////
     //sort the board//

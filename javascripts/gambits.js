@@ -134,6 +134,7 @@ function makeGambit(passedPlayer){
     var tempActiveGambitInterface = new gambitInterface(constructedGambitObject);
     //initialise a new interface with this gambit
     activeGambitInterfaces.push(tempActiveGambitInterface);
+    
     //initialise
     tempActiveGambitInterface.init();
     

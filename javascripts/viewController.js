@@ -79,7 +79,7 @@ function playerSummaryInterface(playerObject){
             this.player.agent.status  = this.player.agent.status -1;
         }
     };
-    this.destroy = function() {
+    this.outraged = function() {
         /////////////////////
         // update the html //
         /////////////////////
@@ -89,19 +89,9 @@ function playerSummaryInterface(playerObject){
         //update status position
         $('.statusPosition').eq(this.player.arrayPos).html("XX");
         //update drive bars
-        $('.heatBar div').eq(this.player.arrayPos).css('width',(this.player.agent.outrage)+"%");
+        $('.heatBar div').eq(this.player.arrayPos).css('width',"100%");
         $('.statusBar div').eq(this.player.arrayPos).css('width',0+"%");
-        
-        /////////////////////
-        // kill the timers //
-        /////////////////////
-        this.player.statusTimer.stop();
-        
-        ////////////////////////////////////
-        // excise player from playersArray//
-        ////////////////////////////////////
-        //playersArray.splice(this.player.arrayPos,1);
-    }
+    };
 }
 
 /////////////////////////
@@ -404,7 +394,7 @@ function gambitInterface(constructedGambitObject){
                         tempThis.associatedGambit.claimedBy.agent.currentGambit = "";
                         
                         //move turn forward
-                        conversation.moveTurnForward(tempThis.associatedGambit);
+                        conversation.moveTurnForward(tempThis.associatedGambit.targetCharacter);
                     
                     },6000);
 

@@ -4,7 +4,7 @@
 
 //game loop, iterates every x
 function alphaLoop() {
-	console.log('loop');
+	//console.log('loop');
 	//get the timestamp
 	var now = Date.now();
 	//get the delta between updates - how much time has actually passed between loop iterations
