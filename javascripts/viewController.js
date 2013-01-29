@@ -77,6 +77,7 @@ function playerSummaryInterface(playerObject){
             this.player.statusTimer.start();
             //reduce status by 1
             this.player.agent.status  = this.player.agent.status -1;
+            this.player.agent.outrage = this.player.agent.outrage -1;
         }
     };
     this.outraged = function() {
@@ -91,6 +92,26 @@ function playerSummaryInterface(playerObject){
         //update drive bars
         $('.heatBar div').eq(this.player.arrayPos).css('width',"100%");
         $('.statusBar div').eq(this.player.arrayPos).css('width',0+"%");
+        
+        /////////////////////
+        //update timer bars//
+        /////////////////////
+        //how many seconds do we have
+        var grabGambitTimeOut = 1;
+        //if less than that has passed
+        //console.log(this.player.statusTimer.tick);
+        if (this.player.statusTimer.tick<grabGambitTimeOut){
+           //do nothing to no-one
+        }
+        //if time is up
+        else if (this.player.statusTimer.tick == grabGambitTimeOut){
+            //restart timer
+            this.player.statusTimer.stop();
+            this.player.statusTimer.start();
+            //reduce status by 1
+            this.player.agent.status  = this.player.agent.status -1;
+            this.player.agent.outrage = this.player.agent.outrage -1;
+        }
     };
 }
 

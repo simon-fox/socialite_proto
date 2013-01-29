@@ -8,6 +8,7 @@ function activePlayer(){
     this.interface = "";
     this.arrayPos = arrayPosition;
     this.statusPosition = "2nd";
+    this.outrageTimer = new Timer();
     this.update = function(){
         //decide whether to generate a gambit or not
         //decide whether agent is in outrage or not
@@ -36,6 +37,8 @@ function activePlayer(){
                 conversation.moveTurnForward(playersArray[nextPlayer]);
             }
         }
+        
+        
 
         //make sure scores don't dip below zero or above 100
         //status
@@ -48,6 +51,9 @@ function activePlayer(){
         //change outrage bar color if necessary
         if(this.agent.outrage > 80){
             $('.heatBar div').eq(this.arrayPos).css('background-color','#ff0000')
+        }
+        if(this.agent.outrage < 0){
+            this.agent.outrage = 0;
         }
         
         
