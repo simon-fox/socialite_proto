@@ -63,6 +63,50 @@ function mainGameKeyBinds(){
     
 }
 
+
+////////////////////////////////////
+// binding keys to social scoring //
+////////////////////////////////////
+function bindScoringKeys(passGambit,passScoringInterface){
+    //console.log(passGambitInterface);
+    //pick four keys
+    //check if they have been bound already
+    
+    var keysToBind = conversation.turn;
+    var randomID = Math.random()*1000000000000000000 + "_" + Math.random()*1000000000000000000;
+            //go through all keys
+            //bind to function
+            //add player who pressed key to passGambit.targetCharacter
+            //switch gambit to .claimed
+            $(document).on('keyup.bindScoring'+randomID,function(e){
+                //Yes
+                if(e.which == eval(keySets[keysToBind].keyCodes[0])){
+                    //update scores
+                    updateScores(passGambit);
+                    //destroy interface
+                    passScoringInterface.destroy();
+                    //unbind keys
+                    $(document).off('keyup.bindScoring'+randomID);
+                }
+                //No
+                else if(e.which == eval(keySets[keysToBind].keyCodes[2])){
+                    //update scores
+                    //updateScores(tempThis.associatedGambit);
+                    //destroy interface
+                    passScoringInterface.destroy();
+                    //unbind keys
+                    $(document).off('keyup.bindScoring'+randomID);
+                }
+
+            });
+            //change bound to true
+            keySets[keysToBind].bound = true;
+            //change passGambit.boundKeys
+            passScoringInterface.boundKeys = keySets[keysToBind];
+            
+
+}
+
 ////////////////////////////////////
 //binding keys to gambit claiming //
 ////////////////////////////////////

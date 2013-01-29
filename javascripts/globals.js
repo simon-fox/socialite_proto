@@ -18,6 +18,10 @@ var activeGambitInterfaces = [];
 var playerCharacters = [];
 //claimants array
 var claimants = [];
+//what was the previous turn
+var previousTurn;
+//what was the previous gambit
+var previousGambit;
 //keysets for binding
 var setOne = {
     keys:["q","w","e","r"],
@@ -48,6 +52,8 @@ var targetObjects = [];
 var constructedGambits = [];
 //status leaderboard
 var statusLeaderboard = [];
+//social scoring interfaces
+var socialScoringInterfaces = [];
 //main game timer
 var mainGameTimer;
 
