@@ -61,8 +61,8 @@ function updateScores(passedConstructedGambit){
     passedConstructedGambit.claimedBy.agent.status =  passedConstructedGambit.claimedBy.agent.status + passedConstructedGambit.statusEffectM;
     //send gambit effects to target
     passedConstructedGambit.targetCharacter.agent.status =  passedConstructedGambit.targetCharacter.agent.status + passedConstructedGambit.statusEffectG;
-    //send heat effect to conversation
-    conversation.heat = conversation.heat + passedConstructedGambit.heatEffect; 
+    //send outrage effect to target
+    passedConstructedGambit.targetCharacter.agent.outrage = passedConstructedGambit.targetCharacter.agent.outrage + passedConstructedGambit.heatEffect; 
 }
 
 //////////////////

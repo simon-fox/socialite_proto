@@ -695,6 +695,7 @@ for (var i=0;i<$('.gambit').length;i++){
         - show three topics
         - click to select
         - global screen or specific to each player column?
+            - display topic at top of page under timer 
     - 'say this now' command screen new mode for gambitInterface
         //- set up function in gambitInterface
         - displays after targetting
@@ -710,7 +711,20 @@ for (var i=0;i<$('.gambit').length;i++){
     - 'lower 25 more status!'
     - 'raise the outrage!' etc
     - where to store?
+        - store in the playerObject 
     - how to track?
+- new social proof evaluations
+    - choose gambit
+    - only notes on gambit are: +status, +outrage (or - or whatever)
+    - after performing gambit, ask target 'did player x lower their status?'
+        - need a new interface, or new method on gambitInterface
+        - pass the previous claimant & gambit effects to it
+        - use that data to ask and make scores accordingly 
+    - only reward points if answer agrees with proposed effect
+- new Make outrage individual
+    - outrage drops over time like status
+    - too much outrage and you are out of the conversation
+    - until your outrage has dropped? 
 
 //not certain on this yet
 - new two way gambits
