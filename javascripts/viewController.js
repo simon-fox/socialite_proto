@@ -464,6 +464,82 @@ function gambitInterface(constructedGambitObject){
     };
 }
 
+////////////////////////////
+// secretMissionInterface //
+////////////////////////////
+var secretMissionHTML = '\
+<div class="secretMission">\
+    <div class="secretMissionText"></div>\
+    <div class="secretMissionProgressBar"><div></div></div>\
+</div>\
+';
+
+function secretMissionInterface(constructedMission) {
+    this.html = secretMissionHTML;
+    this.associatedMission = constructedMission;
+    this.init = function(){
+        ///////////////////////////////////
+        //append this.html to the display//
+        ///////////////////////////////////
+        $('.playerSummaryContainer').eq(this.associatedMission.claimant.arrayPos).append(this.html);
+        var constructedSecretMissionInterfaceHtml = $('.playerSummaryContainer').eq(this.associatedMission.claimant.arrayPos).children('.secretMission');
+        //add identifying class to .data
+        $(constructedSecretMissionInterfaceHtml).data('associatedMission',this.associatedMission); 
+        //print correct data
+        $(constructedSecretMissionInterfaceHtml).children('.secretMissionText').html(this.associatedMission.text);
+    };
+    this.update = function(){
+        //////////////////////////////
+        // get the right dom element//
+        //////////////////////////////
+        var missionDOM;
+        for (var i=0;i<$('.secretMission').length;i++){
+            if ($('.secretMission').eq(i).data().associatedMission == this.associatedMission){
+                missionDOM = $('.secretMission').eq(i);
+            }
+        }
+        //store how close we are as a variable to affect the bar
+        var howCloseAreWe;
+        //check how close we are to fulfilling mission
+        if (this.associatedMission.type == "ascend"){
+            //is this.associatedMission.checkAgainst above amountToMatch?
+            if(this.associatedMission.checkAgainst>this.associatedMission.amountToMatch){
+               //mission is complete
+            }
+            else{
+                howCloseAreWe = (this.associatedMission.checkAgainst / this.associatedMission.amountToMatch) *100;
+            }
+        }
+        else if(this.associatedMission.type == "descend"){
+            //is this.associatedMission.checkAgainst below amountToMatch?
+            if(this.associatedMission.checkAgainst<this.associatedMission.amountToMatch){
+                //mission is complete
+            }
+            else{
+                howCloseAreWe = (this.associatedMission.checkAgainst / this.associatedMission.amountToMatch) *100;
+            }
+        }
+        //update visual elements
+        $(missionDOM).children('.secretMissionProgressBar').children('div').css('width',howCloseAreWe+"%");
+    };
+    this.destroy = function(){
+        //////////////////////////////
+        // get the right dom element//
+        //////////////////////////////
+        var missionDOM;
+        for (var i=0;i<$('.secretMission').length;i++){
+            if ($('.secretMission').eq(i).data().associatedMission == this.associatedMission){
+                missionDOM = $('.secretMission').eq(i);
+            }
+        }
+        //excise from DOM
+        $(missionDOM).remove();
+        //award any points?
+        //get new mission for this player
+    };
+    
+}
+
 /////////////////////////////////////
 //choosePC interface initialisation//
 /////////////////////////////////////
@@ -542,15 +618,9 @@ var gossipPage ={
     destroy: function(){
         //hide this
         $('.gossipContainer').hide();
-        //show main game interface
-        $('.mainGameContainer').show();
-        //start the main timer
-        gameTimer.init();
-        //start the game loop
-        mainLoop = setInterval(alphaLoop,15);
+        startGame();
     }
 }
-
 
 /////////////////////////////
 //introduce yourselves page//

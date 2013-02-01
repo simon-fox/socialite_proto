@@ -746,7 +746,40 @@ for (var i=0;i<$('.gambit').length;i++){
 - Have your status be between x and y
 - Have the highest status
 - have the lowest status 
+//what would they look like in data?
+//- in the library
+    //- push them into secretMissions array
+- at start of game
+    - pick random secretMission for each player
+    - init an interface and print on screen
+    - push interface into secretMissionInterfaces array
+    - update those arrays in director 
 
+//secretMission
+- text of objective
+- target
+- claimant
+- integer to check - ie 'outrage', 'status'
+- integer amount to match 
+    
+    
+//secretMission interface
+- html
+- init
+    - print interface on screen
+    - attach .data() 
+- update
+    - check integer
+    - check against target integer
+    
+    - update interface visual elements
+        - how close are we to completing mission
+- destroy
+    - excise from dom
+    - award points (?)
+    - get new mission for that player
+    - instantiate story event?
+    
 
 
 

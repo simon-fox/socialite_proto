@@ -18,6 +18,10 @@ var activeGambitInterfaces = [];
 var playerCharacters = [];
 //claimants array
 var claimants = [];
+//secret missions
+var secretMissions = [];
+//secret mission interfaces
+var secretMissionInterfaces = [];
 //keysets for binding
 var setOne = {
     keys:["q","w","e","r"],
@@ -66,6 +70,23 @@ function updateScores(passedConstructedGambit){
     //send outrage effect to target
     passedConstructedGambit.targetCharacter.agent.outrage = passedConstructedGambit.targetCharacter.agent.outrage + passedConstructedGambit.heatEffect; 
 }
+
+////////////////////
+// start the game //
+////////////////////
+function startGame(){
+    //show main game interface
+    $('.mainGameContainer').show();
+    //pick secretMissions
+    for (var i = 0;i<playersArray.length;i++){
+        pickSecretMission(playersArray[i]);
+    }
+    //start the main timer
+    gameTimer.init();
+    //start the game loop
+    mainLoop = setInterval(alphaLoop,15);
+}
+
 
 //////////////////
 // End the game //

@@ -370,6 +370,51 @@ h2{
     
 }
 
+/* end gambits */
+
+/* secret Missions */
+
+.secretMissionProgressBar{
+    width: 100%;
+    height: 24px;   
+    background-color: #444;
+    
+    position: absolute;
+    bottom: -24px;
+    z-index: 0;
+}
+
+.secretMissionProgressBar div{
+    background-color: #cc9999;
+    height: 24px;
+    width: 100%;
+}
+
+.secretMission{
+    width: 325px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 32px;
+    background-color: #999;
+    position: relative;
+}
+
+.secretMissionText{
+    width: auto;
+    height: auto;
+    
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    background-color: #444;
+    
+    font-size: 16px;
+    text-align: left;
+}
+
+/* end secret missions */
+
 
 
 /* game timer */
