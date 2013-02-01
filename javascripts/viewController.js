@@ -313,11 +313,6 @@ function gambitInterface(constructedGambitObject){
                     //print to screen
                     $(claimedGambitDOM).children('.claimGambit').html(claimKeysString);
     };
-    this.speakNow = function(){
-        //in here everything relating to
-        //displaying chosen gambit & target and
-        //commanding player to SPEAK
-    };
     this.update = function(){
                     //////////////////////////////
                     // get the right dom element//

@@ -15,12 +15,6 @@ function activePlayer(){
         if(this.agent.outrage < 100){
             //agent not outraged
             this.interface.update();
-            //check if they have a gambit
-            if (!$('.playerSummaryContainer').eq(this.arrayPos).children('.gambit').length){
-                console.log(this.playerCharacter.name+' has no gambit, making gambit');
-                //if not, make a gambit
-                makeGambit(this);
-            }
         }
         else if(this.agent.outrage >= 100){
             //agent is outraged

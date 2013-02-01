@@ -50,6 +50,8 @@ var constructedGambits = [];
 var statusLeaderboard = [];
 //main game timer
 var mainGameTimer;
+//how many gambits can we have at once?
+var numberOfGambitsOnStage = 2;
 
 /////////////////////////////
 //function to update scores//
