@@ -531,10 +531,11 @@ function secretMissionInterface(constructedMission) {
                 this.destroy();
             }
             else{
-                howCloseAreWe = 100 - ((this.associatedMission.checkAgainst / this.associatedMission.amountToMatch) *100);
+                howCloseAreWe = ((this.associatedMission.checkAgainst - this.associatedMission.amountToMatch) / this.associatedMission.checkAgainst) *100;
+                //console.log('howCloseAreWe in secretMissionInterface.update for descender: '+howCloseAreWe);
             }
         }
-        //console.log('howCloseAreWe in secretMissionInterface.update: '+howCloseAreWe);
+        
         //update visual elements
         $(missionDOM).children('.secretMissionProgressBar').children('div').css('width',howCloseAreWe+"%");
     };
