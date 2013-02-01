@@ -59,7 +59,7 @@ function playerSummaryInterface(playerObject){
         $('.statusPosition').eq(this.player.arrayPos).html(this.player.statusPosition);
         //update drive bars
         $('.heatBar div').eq(this.player.arrayPos).css('width',(this.player.agent.outrage)+"%");
-        $('.statusBar div').eq(this.player.arrayPos).css('width',0+"%");
+        $('.statusBar div').eq(this.player.arrayPos).css('width',(this.player.agent.status)+"%");
         /////////////////////
         //update timer bars//
         /////////////////////
@@ -414,8 +414,6 @@ function gambitInterface(constructedGambitObject){
                         //clear from player
                         tempThis.associatedGambit.claimedBy.agent.currentGambit = "";
                         
-                        //move turn forward
-                        conversation.moveTurnForward(tempThis.associatedGambit.targetCharacter);
                     
                     },6000);
 

@@ -15,27 +15,18 @@ function activePlayer(){
         if(this.agent.outrage < 100){
             //agent not outraged
             this.interface.update();
-            //check if it is their turn 
-            if (this.arrayPos == conversation.turn){
-                //if so, make a gambit
+            //check if they have a gambit
+            if (!$('.playerSummaryContainer').eq(this.arrayPos).children('.gambit').length){
+                console.log(this.playerCharacter.name+' has no gambit, making gambit');
+                //if not, make a gambit
                 makeGambit(this);
             }
         }
         else if(this.agent.outrage >= 100){
             //agent is outraged
             this.interface.outraged();
-            //check if it is their turn 
-            if (this.arrayPos == conversation.turn){
-                //get the next player
-                var nextPlayer;
-                if(this.arrayPos == playersArray.length -1){
-                    nextPlayer = 0;
-                }
-                else{
-                    nextPlayer = this.arrayPos +1;
-                }
-                conversation.moveTurnForward(playersArray[nextPlayer]);
-            }
+            //don't make a gambit
+            //ok
         }
         
         
