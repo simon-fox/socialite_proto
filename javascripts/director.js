@@ -20,6 +20,12 @@ function director() {
     ///////////////////////
     conversation.update();
     
+    ///////////////////////////////////////////////
+    //loop through all secret missions interfaces//
+    ///////////////////////////////////////////////
+    for (var i = 0;i<secretMissionInterfaces.length;i++){
+        secretMissionInterfaces[i].update();    
+    }
     ////////////////////////////
     //loop through all players//
     ////////////////////////////
@@ -29,7 +35,7 @@ function director() {
         
         //take status and push it into array for leaderboard
         var statusLeaderboardItem = {
-            value: playersArray[i].agent.status,
+            value: playersArray[i].agent.score,
             player: playersArray[i]
         }
         statusLeaderboard.push(statusLeaderboardItem);
