@@ -35,8 +35,8 @@ function playerCharacterSelectKeyBinds(){
                 //destroy pcselect interface
                 playerCharacterSelectInterface.destroy();
                 
-                //show intro text for 10 seconds
-                gossipPage.init();
+                //show intro text 
+                introduceYourselfPage.init();
                     
                 //clear the keybind
                 $(document).off('keyup.spaceToClearSelect');
