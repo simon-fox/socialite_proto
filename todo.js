@@ -665,7 +665,7 @@ for (var i=0;i<$('.gambit').length;i++){
     
 //Sequenced Rounds & topics
 - Need to keep track of:
-    - who's turn it is
+    //- who's turn it is CANCELLED
         //- conversation.turn holds an integer referencing index in playersArray
         //- update this every turn
             //- maybe put code in conversation.update to keep track?
@@ -697,45 +697,38 @@ for (var i=0;i<$('.gambit').length;i++){
         - click to select
         - global screen or specific to each player column?
             - display topic at top of page under timer 
-    - 'say this now' command screen new mode for gambitInterface
+    - 'say this now' command screen new mode for gambitInterface //kind of done something
         //- set up function in gambitInterface
-        - displays after targetting
+        - displays after targeting
         - on a timer?
     - 'not your turn' screen for player when it isn't
         - not your turn appended to player column when it isnt
         - also change colors of interfaces
 ////////////////////////////////        
-- new secret objectives
-    - each player has a secret objective required to win the round
-    - displayed as message just below playerSummaryInterface
-    - it's either an amount of outrage or status
-    - or an amount of status to lower others by
-    - 'lower 25 more status!'
-    - 'raise the outrage!' etc
-    - where to store?
-        - store in the playerObject 
-    - how to track?
+//- new secret objectives
+    //- each player has a secret objective required to win the round
+    //- displayed as message just below playerSummaryInterface
+    //- it's either an amount of outrage or status
+    //- or an amount of status to lower others by
+    //- 'lower 25 more status!'
+    //- 'raise the outrage!' etc
+    //- where to store?
+        //- store in the playerObject 
+    //- how to track?
  ////////////////////////////////   
 - new social proof evaluations
-    //- choose gambit
+    - choose gambit
     - only notes on gambit are: +status, +outrage (or - or whatever)
-    //- after performing gambit, ask target 'did player x lower their status?'
-        //- need a new interface, or new method on gambitInterface
-        //- in playerObject.js where we control making of Gambits
-        //- put an IF in place
-            //- if it's players turn && it's not the first turn
-                //- initialise socialScoringInteface
-                //- then makeGambit when that interface is destroyed
-            //- else
-                //- makeGambit
-        //- pass the previous claimant & gambit effects to it
-        //- use that data to ask and make scores accordingly 
+    - after performing gambit, ask target 'did player x lower their status?'
+        - need a new interface, or new method on gambitInterface
     - only reward points if answer agrees with proposed effect
  ////////////////////////////////  
 //- new Make outrage individual
     //- outrage drops over time like status
     //- too much outrage and you are out of the conversation
-    //- until your outrage has dropped? 
+    //- until your outrage has dropped?
+////////////////////////////////
+
 
 
 //What would secret objectives be?
@@ -776,11 +769,11 @@ for (var i=0;i<$('.gambit').length;i++){
         //- how close are we to completing mission
 //- destroy
     //- excise from dom
-    - award points (?)
-        - rewrite scoring
-        - in playerObject have integer for number of missions complete
-        - scoring is player who has completed most missions
-    - get new mission for that player
+    //- award points (?)
+        //- rewrite scoring
+        //- in playerObject have integer for number of missions complete
+        //- scoring is player who has completed most missions
+    //- get new mission for that player
     - instantiate story event?
     
 

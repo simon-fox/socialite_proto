@@ -358,7 +358,7 @@ function gambitInterface(constructedGambitObject){
                     this.associatedGambit.gambitTimer.stop();
                     
                     //show who has been targeted
-                    $(claimedGambitDOM).children('.claimGambit').html('You will say this to '+this.associatedGambit.targetCharacter.playerCharacter.name);
+                    $(claimedGambitDOM).children('.claimGambit').html('SAY THIS TO '+this.associatedGambit.targetCharacter.playerCharacter.name + 'NOW!');
                     
                     //wait to destroy
                     var tempThis = this;

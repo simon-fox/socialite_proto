@@ -156,6 +156,14 @@ modifiers.push(new modifier(
 ));
 modifiers.push(new modifier(
     //content
+    this.modifierText = "Ask something",
+    //status effect
+    this.modifierStatusEffect = 20,
+    //Heat effect
+    this.modifierHeatEffect = 10
+));
+modifiers.push(new modifier(
+    //content
     this.modifierText = "Shout something",
     //status effect
     this.modifierStatusEffect = 25,
@@ -166,7 +174,7 @@ modifiers.push(new modifier(
     //content
     this.modifierText = "Mutter",
     //status effect
-    this.modifierStatusEffect = 5,
+    this.modifierStatusEffect = -5,
     //Heat effect
     this.modifierHeatEffect = 10
 ));
@@ -174,7 +182,7 @@ modifiers.push(new modifier(
     //content
     this.modifierText = "Whisper",
     //status effect
-    this.modifierStatusEffect = 15,
+    this.modifierStatusEffect = -15,
     //Heat effect
     this.modifierHeatEffect = 5
 ));
@@ -190,7 +198,7 @@ modifiers.push(new modifier(
     //content
     this.modifierText = "Sing something",
     //status effect
-    this.modifierStatusEffect = 20,
+    this.modifierStatusEffect = -20,
     //Heat effect
     this.modifierHeatEffect = -15
 ));
@@ -198,7 +206,7 @@ modifiers.push(new modifier(
     //content
     this.modifierText = "Bellow",
     //status effect
-    this.modifierStatusEffect = 25,
+    this.modifierStatusEffect = -25,
     //Heat effect
     this.modifierHeatEffect = 55
 ));
