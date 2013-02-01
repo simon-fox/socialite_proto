@@ -684,7 +684,6 @@ for (var i=0;i<$('.gambit').length;i++){
     - Timers?
         - timer for round
         - timer for each turn
- ////////////////////////////////  
 - new interfaces/screens required
     - introduce yourselves screen
         //- set up object in viewController
@@ -704,7 +703,6 @@ for (var i=0;i<$('.gambit').length;i++){
     - 'not your turn' screen for player when it isn't
         - not your turn appended to player column when it isnt
         - also change colors of interfaces
-////////////////////////////////        
 - new secret objectives
     - each player has a secret objective required to win the round
     - displayed as message just below playerSummaryInterface
@@ -715,37 +713,38 @@ for (var i=0;i<$('.gambit').length;i++){
     - where to store?
         - store in the playerObject 
     - how to track?
- ////////////////////////////////   
 - new social proof evaluations
-    //- choose gambit
+    - choose gambit
     - only notes on gambit are: +status, +outrage (or - or whatever)
-    //- after performing gambit, ask target 'did player x lower their status?'
-        //- need a new interface, or new method on gambitInterface
-        //- in playerObject.js where we control making of Gambits
-        //- put an IF in place
-            //- if it's players turn && it's not the first turn
-                //- initialise socialScoringInteface
-                //- then makeGambit when that interface is destroyed
-            //- else
-                //- makeGambit
-        //- pass the previous claimant & gambit effects to it
-        //- use that data to ask and make scores accordingly 
+    - after performing gambit, ask target 'did player x lower their status?'
+        - need a new interface, or new method on gambitInterface
+        - pass the previous claimant & gambit effects to it
+        - use that data to ask and make scores accordingly 
     - only reward points if answer agrees with proposed effect
- ////////////////////////////////  
 //- new Make outrage individual
     //- outrage drops over time like status
     //- too much outrage and you are out of the conversation
     //- until your outrage has dropped? 
 
+//not certain on this yet
+- new two way gambits
+    - player chooses from:
+        - 'try to raise status'
+        - 'try to lower status'
+        - 'try to raise outrage'
+        - 'try to lower outrage'
+    - then receives a gambit
+    - then chooses a target
+    - then commanded to speak
+    - then target chooses from the four options
+    - responds to person who targeted them
+    - if chosen gambits line up then both get desired effect
+        - ie if one says raise, other says lower then all good
+    - if chosen gambits conflict then run a randNum to decide
+    
 
-//What would secret objectives be?
-- Make your status lower than player x
-- Make your status higher than player x
-- Outrage player X
-- Prevent player x from being outraged
-- Have your status be between x and y
-- Have the highest status
-- have the lowest status 
+
+
 
 
 
