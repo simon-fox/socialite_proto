@@ -16,10 +16,6 @@ function activePlayer(){
             //agent not outraged
             this.interface.update();
             //check if it is their turn 
-            if (this.arrayPos == conversation.turn){
-                //if so, make a gambit
-                makeGambit(this);
-            }
         }
         else if(this.agent.outrage >= 100){
             //agent is outraged
