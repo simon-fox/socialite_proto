@@ -40,7 +40,9 @@ function activePlayer(){
         if(this.agent.outrage < 0){
             this.agent.outrage = 0;
         }
-        
+        else if(this.agent.outrage > 110){
+            this.agent.outrage = 110;
+        }
         
     };
 }
