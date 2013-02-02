@@ -48,6 +48,7 @@ function playerSummaryInterface(playerObject){
         ///////////////////
         this.player.statusTimer = new Timer();
         this.player.statusTimer.start();
+        console.log('timer started');
     };
     this.update = function(){
         /////////////////////

@@ -77,8 +77,11 @@ function updateScores(passedConstructedGambit){
 function startGame(){
     //show main game interface
     $('.mainGameContainer').show();
-    //pick secretMissions
+    //loop though playersArray
     for (var i = 0;i<playersArray.length;i++){
+        //run playerSummaryInterface.init();
+        playersArray[i].interface.init();
+        //pick secret missions
         pickSecretMission(playersArray[i]);
     }
     //start the main timer

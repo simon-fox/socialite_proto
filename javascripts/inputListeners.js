@@ -47,8 +47,6 @@ function playerCharacterSelectKeyBinds(){
                     playerObject = playersArray[i];
                     //push into playerObject 
                     playersArray[i].interface =  new playerSummaryInterface(playerObject);
-                    //run playerSummaryInterface.init();
-                    playersArray[i].interface.init();
                 }
                     
                     
