@@ -371,6 +371,13 @@ h2{
     
 }
 
+.sayCommand{
+    position: absolute;
+    bottom: 9px;
+    font-size: 20px;
+    line-height: 29px;
+    padding: 10px;
+}
 /* end gambits */
 
 /* secret Missions */
