@@ -781,8 +781,60 @@ for (var i=0;i<$('.gambit').length;i++){
 ////////////////////////////////
 **         STORY MODE         **
 ////////////////////////////////
+- each time you play you play a 'story'
+- A story consists of a number of rounds - 'acts'
+- Stories should be 100% modular
+    - story contains it's own
+    - title
+    - type
+    - cast -->array -->data
+    - acts -->data
+        - title
+        - inScene -->data
+        - outScene -->data
+        - gambits -->array -->data
+        - missions -->array -->data
+    - art
+- Story object should contain data for game instance
 
-
+//////////////////////
+// screens required //
+//////////////////////
+- Title screen
+    - display title screen html
+    - bind key to launch story choice 
+////////////////////////////////
+- Story choice screen
+    - show list of available story objects
+    - let user choose story object
+    - take chosen object and attach to game object
+////////////////////////////////
+- Character/role choice screen
+    - each story contains cast
+    - feed these cast into new charSelect screen
+    - each player chooses a role
+    - all roles in story must be filled to start game
+    - attach playerCharacter data to playerObject's in the normal way.
+    - start game function will need altering
+    - game must know what story it is using
+////////////////////////////////
+- inScene cutscene
+    - uses story data to display short scene
+    - animated, timed
+    - currently static - narrative remains the same no matter what happens 
+////////////////////////////////
+- GAME SCREEN ROUND
+- story being played will dictate:
+        - Which modifers & gambits are used
+            - in some cases, WHEN those gambits are used
+        - Which playerCharacter's are available
+        - What secretMissions are used
+            - in some cases, WHEN those missions are used
+////////////////////////////////
+- results screen\ closing credits
+////////////////////////////////
+- display winner & runners up
+- spaceTeam style pointless awards 
 
 
 
