@@ -49,7 +49,7 @@ secretMissions.push(function secretMissionLowerStatus(targetVar, claimantVar){
     this.score = 1;
 });
 
-//distirbute missions
+//distribute missions
 function pickSecretMission(claimant){
     //only if appropriate
     if(secretMissionInterfaces.length < 4){

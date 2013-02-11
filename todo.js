@@ -837,8 +837,16 @@ for (var i=0;i<$('.gambit').length;i++){
 ////////////////////////////////
 
 
-
-
+//story mode todo's
+- remember to check that the pickSecretMission data is coming from & going to the right places
+    - secretMissions.js line 53 //the actual function pickSecretMission
+    - globals.js line 85
+    - secretMissionInterface.js 100
+- take all the previous gambits, modifiers and other game data
+    - separate gambit/modifer/mission/playerCharacter prototypes from libs
+        - make sure prototype is declared before story objects are declared
+    - separate various picking/distributing functions from libs
+        - make sure they are declared early enough to be used on story objects 
 
 
 
