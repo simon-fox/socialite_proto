@@ -800,16 +800,16 @@ for (var i=0;i<$('.gambit').length;i++){
 //////////////////////
 // screens required //
 //////////////////////
-- Title screen
+- Title screen //new screen required
     - display title screen html
     - bind key to launch story choice 
 ////////////////////////////////
-- Story choice screen
+- Story choice screen //new screen required
     - show list of available story objects
     - let user choose story object
     - take chosen object and attach to game object
 ////////////////////////////////
-- Character/role choice screen
+- Character/role choice screen //current screen needs augmenting
     - each story contains cast
     - feed these cast into new charSelect screen
     - each player chooses a role
@@ -818,12 +818,12 @@ for (var i=0;i<$('.gambit').length;i++){
     - start game function will need altering
     - game must know what story it is using
 ////////////////////////////////
-- inScene cutscene
+- inScene cutscene //new screen required
     - uses story data to display short scene
     - animated, timed
     - currently static - narrative remains the same no matter what happens 
 ////////////////////////////////
-- GAME SCREEN ROUND
+- GAME SCREEN ROUND //current screen needs augmenting, no new interfaces req'd
 - story being played will dictate:
         - Which modifers & gambits are used
             - in some cases, WHEN those gambits are used
@@ -831,10 +831,11 @@ for (var i=0;i<$('.gambit').length;i++){
         - What secretMissions are used
             - in some cases, WHEN those missions are used
 ////////////////////////////////
-- results screen\ closing credits
+- results screen\ closing credits // new screen required
+    - display winner & runners up
+    - spaceTeam style pointless awards 
 ////////////////////////////////
-- display winner & runners up
-- spaceTeam style pointless awards 
+
 
 
 

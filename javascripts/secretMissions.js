@@ -37,7 +37,7 @@ secretMissions.push(function secretMissionHigherStatus(targetVar, claimantVar){
     this.category = "highStatus";
     this.score = 1;
 });
-//Be lower statys than player x!
+//Be lower status than player x!
 secretMissions.push(function secretMissionLowerStatus(targetVar, claimantVar){
     this.target = targetVar;
     this.claimant = claimantVar;
