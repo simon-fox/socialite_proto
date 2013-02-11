@@ -652,15 +652,15 @@ for (var i=0;i<$('.gambit').length;i++){
             
             
 //How should a convo topic look?
-- intro text should be something like:
-    - You are attending a [social event] hosted by [name]
-    - in honor of [occasion].
+//- intro text should be something like:
+    //- You are attending a [social event] hosted by [name]
+    //- in honor of [occasion].
     
-    - EVERYONE IS TALKING ABOUT: (3 windows)
-    - [name]'s new [fashion item]
-    - The shocking behaviour of [name]'s [family member]
-    - The glorious performance at [name]'s event
-    - The possible romance between [name] and [name]'s daughter
+    //- EVERYONE IS TALKING ABOUT: (3 windows)
+    //- [name]'s new [fashion item]
+    //- The shocking behaviour of [name]'s [family member]
+    //- The glorious performance at [name]'s event
+    //- The possible romance between [name] and [name]'s daughter
     
     
 //Sequenced Rounds & topics
@@ -686,21 +686,21 @@ for (var i=0;i<$('.gambit').length;i++){
         - timer for each turn
  ////////////////////////////////  
 - new interfaces/screens required
-    - introduce yourselves screen
+    //- introduce yourselves screen
         //- set up object in viewController
-        - display 4 players
-        - display their names and portraits
-        - command them to introduce themselves to each other
-    - pick topic screen
+        //- display 4 players
+        //- display their names and portraits
+        //- command them to introduce themselves to each other
+    //- pick topic screen
         //- use gossipPage object
-        - show three topics
-        - click to select
-        - global screen or specific to each player column?
-            - display topic at top of page under timer 
-    - 'say this now' command screen new mode for gambitInterface //kind of done something
+        //- show three topics
+        //- click to select
+        //- global screen or specific to each player column?
+            //- display topic at top of page under timer 
+    //- 'say this now' command screen new mode for gambitInterface //kind of done something
         //- set up function in gambitInterface
-        - displays after targeting
-        - on a timer?
+        //- displays after targeting
+        //- on a timer?
     - 'not your turn' screen for player when it isn't
         - not your turn appended to player column when it isnt
         - also change colors of interfaces
@@ -776,7 +776,11 @@ for (var i=0;i<$('.gambit').length;i++){
     //- get new mission for that player
     - instantiate story event?
     
+    
 
+////////////////////////////////
+**         STORY MODE         **
+////////////////////////////////
 
 
 
